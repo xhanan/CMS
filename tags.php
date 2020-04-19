@@ -1,5 +1,4 @@
 <?php
-                        include "dbConnection.php";
                         $category = "SELECT * FROM category";
                         $select_all_category_qyert = mysqli_query($connection,$category);
 

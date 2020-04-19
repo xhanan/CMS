@@ -316,6 +316,7 @@
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                 </div>
+               
                 <div class="row pb-4">
                     <div class="col-md-5">
                         <div class="fh5co_hover_news_img">

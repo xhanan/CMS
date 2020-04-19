@@ -31,7 +31,7 @@
                 <div class="fh5co_suceefh5co_height_position_absolute_font">
                     <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Dec 31,2017
                     </a></div>
-                    <div class=""><a href="single.html" class="fh5co_good_font"> After all is said and done, more is said than done </a></div>
+                    <div class=""><a href="single.php" class="fh5co_good_font"> After all is said and done, more is said than done </a></div>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
-                            <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is said and done, <br>more is said than done </a></div>
+                            <div class=""><a href="single.php" class="fh5co_good_font_2"> After all is said and done, <br>more is said than done </a></div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct 28,2017 </a></div>
-                            <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is said and done... </a></div>
+                            <div class=""><a href="single.php" class="fh5co_good_font_2"> After all is said and done... </a></div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
-                            <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is said and done, more is said than done </a></div>
+                            <div class=""><a href="single.php" class="fh5co_good_font_2"> After all is said and done, more is said than done </a></div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
-                            <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is said and done, more is said... </a></div>
+                            <div class=""><a href="single.php" class="fh5co_good_font_2"> After all is said and done, more is said... </a></div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                                                            class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/R7.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/1.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/2.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                     <div class="fh5co_latest_trading_img"><img src="images/3.jpg" alt="" class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
+                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
                         <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/4.jpg" alt=""/></div>
                     <div>
-                        <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/5.jpg" alt=""/></div>
                     <div>
-                        <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/6.jpg" alt=""/></div>
                     <div>
-                        <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                 <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="images/7.jpg" alt=""/></div>
                     <div>
-                        <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
                         <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                     </div>
                 </div>
@@ -324,8 +324,8 @@
                         </div>
                     </div>
                     <div class="col-md-7 animate-box">
-                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
-                        nostrud quis xercitation ullamco. </a> <a href="single.html" class="fh5co_mini_time py-3"> Thomson Smith -
+                        <a href="single.php" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        nostrud quis xercitation ullamco. </a> <a href="single.php" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
                             ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
@@ -340,7 +340,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="single.php" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                         nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -365,7 +365,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="single.php" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                         nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Quis nostrud xercitation ullamco laboris nisi aliquip ex ea commodo
@@ -381,7 +381,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <a href="single.html" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
+                        <a href="single.php" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
                         nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
                         April 18,2016 </a>
                         <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt

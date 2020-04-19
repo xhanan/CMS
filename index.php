@@ -392,22 +392,13 @@
             </div>
             <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
                 <div>
-                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Categories</div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="fh5co_tags_all">
                 
-                <!-- Dinamyc Tags -->
-                <?php
-                        include "dbConnection.php";
-                        $category = "SELECT * FROM category";
-                        $select_all_category_qyert = mysqli_query($connection,$category);
-
-                        while($row = mysqli_fetch_assoc($select_all_category_qyert)){
-                            $cat_title = $row['category_name'];
-                            echo "<a href='#' class='fh5co_tagg'>{$cat_title}</a>";
-                        }   
-                    ?>
+                    <!-- Dinamyc Tags -->
+                    <?php include "tags.php"?>
                 
                 </div>
                 <div>

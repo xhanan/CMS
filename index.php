@@ -19,12 +19,14 @@
     <script src="js/modernizr-3.5.0.min.js"></script>
 </head>
 <body>
+<!-- including header -->
 <?php include "header.php"?>
 
 <div class="container-fluid paddding mb-5">
+    <!-- FOTOJA E MADHE -->
     <div class="row mx-0">
         <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
-            <div class="fh5co_suceefh5co_height"><img src="images/R1.jpg" alt="img"/>
+            <div class="fh5co_suceefh5co_height"><img src="images/R5.jpg" alt="img"/>
                 <div class="fh5co_suceefh5co_height_position_absolute"></div>
                 <div class="fh5co_suceefh5co_height_position_absolute_font">
                     <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Dec 31,2017
@@ -33,6 +35,7 @@
                 </div>
             </div>
         </div>
+        <!-- 4 FOTOT E NJEJTA -->
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
@@ -78,6 +81,10 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- TRENDING -->
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
@@ -138,6 +145,8 @@
         </div>
     </div>
 </div>
+
+<!-- NEWS -->
 <div class="container-fluid pb-4 pt-5">
     <div class="container animate-box">
         <div>
@@ -183,6 +192,8 @@
         </div>
     </div>
 </div>
+
+<!-- VIDEO NEWS -->
 <div class="container-fluid fh5co_video_news_bg pb-4">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
@@ -296,6 +307,8 @@
         </div>
     </div>
 </div>
+
+<!-- NEWS -->
 <div class="container-fluid pb-4 pt-4 paddding">
     <div class="container paddding">
         <div class="row mx-0">
@@ -383,18 +396,19 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="fh5co_tags_all">
-                    <a href="#" class="fh5co_tagg">Business</a>
-                    <a href="#" class="fh5co_tagg">Technology</a>
-                    <a href="#" class="fh5co_tagg">Sport</a>
-                    <a href="#" class="fh5co_tagg">Art</a>
-                    <a href="#" class="fh5co_tagg">Lifestyle</a>
-                    <a href="#" class="fh5co_tagg">Three</a>
-                    <a href="#" class="fh5co_tagg">Photography</a>
-                    <a href="#" class="fh5co_tagg">Lifestyle</a>
-                    <a href="#" class="fh5co_tagg">Art</a>
-                    <a href="#" class="fh5co_tagg">Education</a>
-                    <a href="#" class="fh5co_tagg">Social</a>
-                    <a href="#" class="fh5co_tagg">Three</a>
+                
+                <!-- Dinamyc Tags -->
+                <?php
+                        include "dbConnection.php";
+                        $category = "SELECT * FROM category";
+                        $select_all_category_qyert = mysqli_query($connection,$category);
+
+                        while($row = mysqli_fetch_assoc($select_all_category_qyert)){
+                            $cat_title = $row['category_name'];
+                            echo "<a href='#' class='fh5co_tagg'>{$cat_title}</a>";
+                        }   
+                    ?>
+                
                 </div>
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
@@ -448,6 +462,8 @@
         </div>
     </div>
 </div>
+
+<!-- including footer -->
 <?php include "footer.php"?>
 
 <div class="gototop js-top">

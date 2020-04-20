@@ -42,6 +42,42 @@
         $result = mysqli_query($connection, $query);
         }
     }
+
+    if(isset($_POST['loginsubmit'])){
+        include "dbConnection.php";
+
+        $emailorusername = $_POST['loginstr'];
+        $password = $_POST['loginpassword'];
+
+        $emailorusername = mysqli_real_escape_string($connection, $emailorusername);
+        $password = mysqli_real_escape_string($connection, $password);
+
+        $hash_format = "$2y$10$";
+        $salt = "iusesomecrazystrings22";
+        $hash_and_salt = $hash_format.$salt;
+        $password =  crypt($password, $hash_and_salt);
+
+        $query = "SELECT * FROM users WHERE email = '$emailorusername' OR username = '$emailorusername'";
+
+        $select_query = mysqli_query($connection, $query);
+        if(!$select_query){
+            die("Couldn't connect to the database ".mysqli_error($connection));
+        }
+        while($row = mysqli_fetch_assoc($select_query)){
+            $dbemail = $row['email'];
+            $dbusername = $row['username'];
+            $dbpassword = $row['passwordd'];
+        }
+        if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
+            if(($emailorusername == $dbemail || $emailorusername == $dbusername) && $password == $dbpassword){
+                $print_message = "<p> Succesful login </p>";
+            }else {
+                $print_message = "<p>This user doesn't exist. Email/Username or Password wrong? </p>";
+            }
+        }
+
+    }
+
 ?>   
 
 <!DOCTYPE html>
@@ -245,8 +281,13 @@
         <div class="form-container sign-in-container">
             <form method="post" action="login.php" name="loginform">
                 <h1>Sign in</h1>
-                <input type="text" placeholder="Email or username" name="loginemail"/>
+                <input type="text" placeholder="Email or username" name="loginstr"/>
                 <input type="password" placeholder="Password" name="loginpassword" />
+                <?php
+                   if(isset($print_message)){
+                       echo $print_message;
+                   }
+                ?>
                 <a href="#">Forgot your password?</a>
                 <button type="submit" name="loginsubmit" value="LoginSubmit">Sign In</button>
             </form>

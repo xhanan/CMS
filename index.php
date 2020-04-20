@@ -27,8 +27,7 @@
     <div class="row mx-0">
     <?php  
         $min = 0;
-        $max = 5;
-
+        $max =3;
         $k1 = mt_rand($min,$max);
         $topPostQuery = "SELECT `articles`.`title`,`articles`.`published_date`,`media`.`url` 
         FROM `articles` 
@@ -58,50 +57,7 @@
     ?>
        
         <!-- 4 FOTOT E NJEJTA -->
-        <?php
-            $array = array();
-            for($i=1;$i<=$max;$i++){
-                $k = mt_rand($min,$max);
-                $topPostQuery1 = "SELECT `articles`.`title`,`articles`.`published_date`,`media`.`url` 
-                FROM `articles` 
-                INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-                INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
-                INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
-                WHERE `articles`.`id` = $k"; 
-                $select_top_articles1 = mysqli_query($connection,$topPostQuery1);
-                if($row2 = mysqli_fetch_assoc($select_top_articles1)){
-                    $title1 = $row2['title'];
-                    $date1 = $row2['published_date'];
-                    $photo1 = $row2['url'];
-                    if($i<3){
-                        echo "<div class='col-md-6'>
-                        <div class='row'>
-                            <div class='col-md-6 col-6 paddding animate-box' data-animate-effect='col-md-6 col-6 paddding animate-box'>
-                                <div class='fh5co_suceefh5co_height_2'><img src={$photo1} alt='img'/>
-                                    <div class='fh5co_suceefh5co_height_position_absolute'></div>
-                                    <div class='fh5co_suceefh5co_height_position_absolute_font_2'>
-                                        <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date1} </a></div>
-                                        <div class=''><a href='single.php' class='fh5co_good_font_2'> {$title1} </a></div>
-                                    </div>
-                                </div>
-                            </div>";
-                    }else{
-                        echo "<div class='col-md-6 col-6 paddding animate-box' data-animate-effect='fadeIn'>
-                        <div class='fh5co_suceefh5co_height_2'><img src={$photo1} alt='img'/>
-                            <div class='fh5co_suceefh5co_height_position_absolute'></div>
-                            <div class='fh5co_suceefh5co_height_position_absolute_font_2'>
-                                <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date1}</a></div>
-                                <div class=''><a href='single.php' class='fh5co_good_font_2'>{$title1}</a></div>
-                            </div>
-                        </div>
-                    </div>";
-                    }
-                }
-            }
-        
-        ?>
-
-        <!-- <div class="col-md-6">
+        <div class="col-md-6">
             <div class="row">
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     <div class="fh5co_suceefh5co_height_2"><img src="images/R2.jpg" alt="img"/>
@@ -112,8 +68,8 @@
                             <div class=""><a href="single.php" class="fh5co_good_font_2"> After all is said and done, <br>more is said than done </a></div>
                         </div>
                     </div>
-                </div> -->
-                <!-- <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                </div> 
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     <div class="fh5co_suceefh5co_height_2"><img src="images/R3.jpg" alt="img"/>
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
@@ -139,7 +95,7 @@
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
                                 28,2017 </a></div>
                             <div class=""><a href="single.php" class="fh5co_good_font_2"> After all is said and done, more is said... </a></div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

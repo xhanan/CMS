@@ -91,7 +91,6 @@
                 $trending_posts_query = "SELECT `articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
                                         FROM `articles` 
                                         INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-                                        INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
                                         INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
                                         ORDER BY  `articles`.`id` DESC LIMIT 10";
 
@@ -115,7 +114,6 @@
                     </div>
                 </div>";
                 }
-
             ?>
         </div>
     </div>
@@ -128,42 +126,30 @@
             <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
         </div>
         <div class="owl-carousel owl-theme" id="slider2">
-            <div class="item px-2">
-                <div class="fh5co_hover_news_img">
-                    <div class="fh5co_news_img"><img src="images/4.jpg" alt=""/></div>
-                    <div>
-                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                        <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
+        <?php
+                $news_posts_query = "SELECT `articles`.`title`,`articles`.`published_date`,`media`.`url` 
+                                        FROM `articles` 
+                                        INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
+                                        ORDER BY  `articles`.`id` DESC LIMIT 6";
+
+                $select_news_posts = mysqli_query($connection,$news_posts_query);
+
+                while($row4 = mysqli_fetch_assoc($select_news_posts)){
+                    $news_title = $row4['title'];
+                    $news_published = $row4['published_date'];
+                    $news_img = $row4['url'];
+
+                    echo "<div class='item px-2'>
+                    <div class='fh5co_hover_news_img'>
+                        <div class='fh5co_news_img'><img src='{$news_img}' alt=''/></div>
+                        <div>
+                            <a href='single.php' class='d-block fh5co_small_post_heading'><span class=''>{$news_title}</span></a>
+                            <div class='c_g'><i class='fa fa-clock-o'></i> {$news_published}</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_hover_news_img">
-                    <div class="fh5co_news_img"><img src="images/5.jpg" alt=""/></div>
-                    <div>
-                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                        <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_hover_news_img">
-                    <div class="fh5co_news_img"><img src="images/6.jpg" alt=""/></div>
-                    <div>
-                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                        <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_hover_news_img">
-                    <div class="fh5co_news_img"><img src="images/7.jpg" alt=""/></div>
-                    <div>
-                        <a href="single.php" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                        <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                    </div>
-                </div>
-            </div>
+                </div>";
+                }
+            ?>
         </div>
     </div>
 </div>

@@ -87,57 +87,36 @@
             <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
         </div>
         <div class="owl-carousel owl-theme js" id="slider1">
-            <div class="item px-2">
-                <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="images/R6.jpg" alt=""
-                                                           class="fh5co_img_special_relative"/></div>
-                    <div class="fh5co_latest_trading_img_position_absolute"></div>
-                    <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
+            <?php
+                $trending_posts_query = "SELECT `articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
+                                        FROM `articles` 
+                                        INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
+                                        INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
+                                        INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
+                                        ORDER BY  `articles`.`id` DESC LIMIT 10";
+
+                $select_trending_posts = mysqli_query($connection,$trending_posts_query);
+
+                while($row3 = mysqli_fetch_assoc($select_trending_posts)){
+                    $trending_title = $row3['title'];
+                    $trending_fname = $row3['first_name'];
+                    $trending_lname = $row3['last_name'];
+                    $trending_published = $row3['published_date'];
+                    $trending_img = $row3['url'];
+
+                    echo "<div class='item px-2'>
+                    <div class='fh5co_latest_trading_img_position_relative'>
+                        <div class='fh5co_latest_trading_img'><img src='{$trending_img}' alt='' class='fh5co_img_special_relative'/></div>
+                        <div class='fh5co_latest_trading_img_position_absolute'></div>
+                        <div class='fh5co_latest_trading_img_position_absolute_1'>
+                            <a href='single.php' class='text-white'> {$trending_title} </a>
+                            <div class='fh5co_latest_trading_date_and_name_color'> {$trending_fname} {$trending_lname} - {$trending_published} </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="images/R7.jpg" alt="" class="fh5co_img_special_relative"/></div>
-                    <div class="fh5co_latest_trading_img_position_absolute"></div>
-                    <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="images/1.jpg" alt="" class="fh5co_img_special_relative"/></div>
-                    <div class="fh5co_latest_trading_img_position_absolute"></div>
-                    <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="images/2.jpg" alt="" class="fh5co_img_special_relative"/></div>
-                    <div class="fh5co_latest_trading_img_position_absolute"></div>
-                    <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item px-2">
-                <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="images/3.jpg" alt="" class="fh5co_img_special_relative"/></div>
-                    <div class="fh5co_latest_trading_img_position_absolute"></div>
-                    <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.php" class="text-white"> Here's a new way to take better photos for instagram </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                    </div>
-                </div>
-            </div>
+                </div>";
+                }
+
+            ?>
         </div>
     </div>
 </div>
@@ -321,7 +300,7 @@
                                     FROM `articles` 
                                     INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
                                     INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
-                                    INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`";
+                                    INNER JOIN `media` ON `articles`.`id` = `media`.`article_id` LIMIT 10";
 
                     $select_all_articles = mysqli_query($connection,$articleQuery);
                     while($row = mysqli_fetch_assoc($select_all_articles)){

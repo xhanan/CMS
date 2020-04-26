@@ -341,7 +341,7 @@
                 <div class="fh5co_tags_all">
                 
                     <!-- Dinamyc Tags -->
-                    <?php include "tags.php"?>
+                    <?php include "tags.php";?>
                 
                 </div>
                 <div>

@@ -306,7 +306,7 @@
                             </div>
                         </div>
                         <div class='col-md-7 animate-box'>
-                            <a href='single.php' class='fh5co_magna py-2'>{$post_title}</a><br> <a href='single.php' class='fh5co_mini_time py-3'> {$post_fname}{$post_lname} -
+                            <a href='single.php' class='fh5co_magna py-2'>{$post_title}</a><br> <a href='single.php' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
                             {$post_date} </a>
                             <div class='fh5co_consectetur'> {$post_content}
                             </div>

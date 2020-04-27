@@ -27,31 +27,46 @@
     <div class="container">
         <div class="row">
             <div class="col-12 align-self-center">
-                <div class="text-center d-inline-block">
+                <div class="text-center d-inline-block" style="margin-top:4px">
                     <a href = "https://www.linkedin.com/in/xhanan-shehu-baa151188/" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin" style="color: #fff"></i></div></a>
                 </div>
-                <div class="text-center d-inline-block">
+                <div class="text-center d-inline-block" style="margin-top:4px">
                     <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus" style="color: #fff" ></i></div></a>
                 </div>
-                <div class="text-center d-inline-block">
+                <div class="text-center d-inline-block" style="margin-top:4px">
                     <a href="https://twitter.com/Xhanansh1" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter" style="color: #fff"></i></div></a>
                 </div>
-                <div class="text-center d-inline-block">
+                <div class="text-center d-inline-block" style="margin-top:4px">
                     <a href="https://www.facebook.com/xhannyy" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook" style="color: #fff"></i></div></a>
                 </div>
+
                 <?php
                     if(isset($_SESSION['user'])){
-                        $text = '<div class="text-center d-inline-block float-right mt-2" style="font-size: 15px"><a href="logout.php">';
-                        $text .= $_SESSION["user"];
-                        $text .= '</a></div>';
-                        echo $text;
+                        // $text = '<div class="text-center d-inline-block float-right mt-2" style="font-size: 15px"><a href="logout.php">';
+                        // $text .= $_SESSION["user"];
+                        // $text .= '</a></div>';
+                        echo '<div class="btn-group float-right mt-2" style="margin-top:4px">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                '.$_SESSION["user"].'  
+                                </button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.php">Log Out</a>
+                                </div>
+                            </div>';
                     }else{
-                        echo '<div class="text-center d-inline-block float-right">
-                        <a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Register</a>
-                        </div>
-                        <div class="text-center d-inline-block float-right">
-                            <a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Login</a>
-                        </div>';
+                        echo '<div class="btn-group float-right mt-2" style="margin-bottom:4px">
+                                <a href="login.php"><button type="button" class="btn btn-danger" aria-haspopup="true" aria-expanded="false"> 
+                                Log In / Sign Up
+                                </button>
+                                </a>
+                                </div>';
+                            //     <div class="text-center d-inline-block float-right">
+                            //     a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Login</a>
+                            // </div>';
                     }
                 ?>
                 

@@ -122,12 +122,25 @@
     }
 
     function news(){
+
+        if(isset($_GET['page'])){
+            $page = $_GET['page'];
+        }else{
+            $page=0;
+        }
+        
+        $pagenum = $page * 8;
+
         global $connection;
         $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
         FROM `articles` 
-        INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-        INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
-        INNER JOIN `media` ON `articles`.`id` = `media`.`article_id` LIMIT 10";
+        LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
+        LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
+        LEFT JOIN `media` ON `articles`.`id` = `media`.`article_id` 
+        ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
+
+
+        
 
         $select_all_articles = mysqli_query($connection,$articleQuery);
         while($row = mysqli_fetch_assoc($select_all_articles)){
@@ -152,5 +165,18 @@
                     </div>
                 </div>";
         }
+    }
+
+    function pagination(){
+        global $connection;
+        $articleQuery = "SELECT * FROM articles";
+        $find_count = mysqli_query($connection,$articleQuery);
+        $count = mysqli_num_rows($find_count);
+        $count = ceil($count / 8);
+
+        for($i=1;$i<$count;$i++){
+            
+            echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
+        }  
     }
 ?>

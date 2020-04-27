@@ -1,14 +1,14 @@
 
 <!DOCTYPE php>
 <php lang="en" class="no-js">
-<?php include "dbConnection.php";?>
+<?php include "postFunctions.php";?>
 <?php
 
 
 if(isset($_POST['create_post'])) {
-    $title = mysqli_real_escape_string($connection, $_POST['title']);
-    $content =  mysqli_real_escape_string($connection,$_POST['content']);
-    $category = mysqli_real_escape_string($connection,$_POST['category_id']);
+    $title = esc($_POST['title']);
+    $content =  esc($_POST['content']);
+    $category = esc($_POST['category_id']);
     $user_id = 1;    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
     $date = date('d-m-y');
     $tags = "test";

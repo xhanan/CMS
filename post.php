@@ -1,7 +1,9 @@
 
 <!DOCTYPE php>
 <php lang="en" class="no-js">
+
 <?php include "postFunctions.php";?>
+<?php include "header.php"?>
 <?php
 
 
@@ -9,25 +11,34 @@ if(isset($_POST['create_post'])) {
     $title = esc($_POST['title']);
     $content =  esc($_POST['content']);
     $category = esc($_POST['category_id']);
-    $user_id = 1;    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
+    if(isset($_SESSION['id'])){
+    $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
+    }
     $date = date('d-m-y');
     $tags = "test";
     
-$query = "INSERT INTO articles(title, content, category_id ,user_id, published_date, tags) ";
 
-$query .= "VALUES('{$title}','{$content}',{$category},{$user_id}, now(),'{$tags}')";
+if(isset($_SESSION['id'])){
+    $query = "INSERT INTO articles(title, content, category_id ,user_id, published_date, tags) ";
+    
+    $query .= "VALUES('{$title}','{$content}',{$category},{$user_id}, now(),'{$tags}')";
 
-$create_post_query = mysqli_query($connection, $query); 
-if(!$create_post_query){
-    die("Gabim: " . mysqli_error($connection));
+    $create_post_query = mysqli_query($connection, $query);
+    if(!$create_post_query){
+        die("Gabim: " . mysqli_error($connection));
+    }
+    else{
+        echo "postimi u ruajt";
+    }
 }
 else{
-    echo "postimi u ruajt";
+    echo "Nuk eshte i kycur ndonje admin";
 }
+
 }
 ?>
 <body class="single">
-<?php include "header.php"?>
+
 <div id="fh5co-single-content" class="container-fluid pb-4 pt-4 paddding">
     <div class="container paddding">
         <div class="row mx-0">

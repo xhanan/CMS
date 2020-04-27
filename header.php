@@ -41,9 +41,10 @@
                 </div>
                 <?php
                     if(isset($_SESSION['user'])){
-                        echo '<div class="text-center d-inline-block float-right">
-                        <a href="logout.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Logout</a>
-                        </div>';
+                        $text = '<div class="text-center d-inline-block float-right mt-2" style="font-size: 15px"><a href="logout.php">';
+                        $text .= $_SESSION["user"];
+                        $text .= '</a></div>';
+                        echo $text;
                     }else{
                         echo '<div class="text-center d-inline-block float-right">
                         <a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Register</a>

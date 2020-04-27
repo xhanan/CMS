@@ -24,13 +24,25 @@
         }
     
     if($error == NULL){
-        
+        include "dbConnection.php";
         require "oopsignup.php";
+       
+         
+        $firstname = mysqli_real_escape_string($connection, $firstname);
+        $lastname = mysqli_real_escape_string($connection, $lastname);
+        $email = mysqli_real_escape_string($connection, $email);
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
+        
+        $hash_format = "$2y$10$";
+        $salt = "iusesomecrazystrings22";
+        $hash_and_salt = $hash_format.$salt;
+
+        $password =  crypt($password, $hash_and_salt);
         $user = new Users($firstname, $lastname, $email, $username, $password);
-        $user->escapeStrings();
         $user->insertUsers(); 
       
-        include "dbConnection.php";
+        
         $query_signup = "SELECT * FROM users WHERE username = '$username'";
         $select_query_signup = mysqli_query($connection, $query_signup);
 
@@ -42,11 +54,15 @@
             $dbemail = $row['email'];    
             $dbusername = $row['username'];
             $dbpassword = $row['passwordd'];
+            $dbfirstname = $row['first_name']; 
+            $dblastname = $row['last_name']; 
+            $dbid = $row['id']; 
         }
         if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
             if($username == $dbusername && $password == $dbpassword){
                 session_start();
-                $_SESSION['user'] = $dbusername;
+                $_SESSION['user'] = $dbfirstname;
+                $_SESSION['id'] = $dbid;
                 header("Location: index.php");
             }
         }
@@ -82,11 +98,15 @@
                 $dbemail = $row['email'];    
                 $dbusername = $row['username'];
                 $dbpassword = $row['passwordd'];
+                $dbfirstname = $row['first_name']; 
+                $dblastname = $row['last_name']; 
+                $dbid = $row['id']; 
             }
             if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
                 if(($emailorusername == $dbemail || $emailorusername == $dbusername) && $password == $dbpassword){
                     session_start();
-                    $_SESSION['user'] = $dbusername;
+                    $_SESSION['user'] = $dbfirstname;
+                    $_SESSION['id'] = $dbid;
                     header("Location: index.php"); 
                 }else {
                     $print_message = "<p>This user doesn't exist. Email/Username or Password wrong? </p>";

@@ -28,16 +28,16 @@
         <div class="row">
             <div class="col-12 align-self-center">
                 <div class="text-center d-inline-block">
-                    <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin" style="color: #fff"></i></div></a>
+                    <a href = "https://www.linkedin.com/in/xhanan-shehu-baa151188/" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin" style="color: #fff"></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
                     <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus" style="color: #fff" ></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a href="https://twitter.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter" style="color: #fff"></i></div></a>
+                    <a href="https://twitter.com/Xhanansh1" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter" style="color: #fff"></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook" style="color: #fff"></i></div></a>
+                    <a href="https://www.facebook.com/xhannyy" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook" style="color: #fff"></i></div></a>
                 </div>
                 <?php
                     if(isset($_SESSION['user'])){

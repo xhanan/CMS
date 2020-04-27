@@ -119,8 +119,7 @@
 
     function news(){
         global $connection;
-        $articleQuery = "SELECT `articles`.`title`, `articles`.`content`, `category`.`category_name`, `users`.`first_name`,`users`.`last_name`,
-        `articles`.`published_date`,`articles`.`schedule_post`,`media`.`url` 
+        $articleQuery = "SELECT `articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
         FROM `articles` 
         INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
         INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
@@ -129,8 +128,6 @@
         $select_all_articles = mysqli_query($connection,$articleQuery);
         while($row = mysqli_fetch_assoc($select_all_articles)){
         $post_title = $row['title'];
-        $post_content = $row['content'];
-        $post_category = $row['category_name'];
         $post_date = $row['published_date'];
         $post_fname = $row['first_name'];
         $post_lname = $row['last_name'];
@@ -145,9 +142,8 @@
                     </div>
                 </div>
                 <div class='col-md-7'>
-                    <a href='single.php' class='fh5co_magna py-2'> {$post_title} </a> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
+                    <a href='single.php' class='fh5co_magna py-2' style = 'font-size: 20px'> {$post_title} </a> <br> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
                         {$post_date} </a>
-                    <div class='fh5co_consectetur'>{$post_content}</div>
                     </div>
                 </div>";
         }

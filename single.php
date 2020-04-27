@@ -1,8 +1,13 @@
 <!DOCTYPE php>
 <php lang="en" class="no-js">
 <body class="single">
-<?php include "dbConnection.php";?>
-
+<?php include "postFunctions.php";?>
+<?php 
+	// if (isset($_GET['id'])) {
+    $id = 5;
+	$post = getPost($id);
+	// }
+?>
 <?php include "header.php"?>
 <div id="fh5co-title-box" style="background-image: url(images/R1.jpg); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>

@@ -3,10 +3,10 @@
 <body class="single">
 <?php include "postFunctions.php";?>
 <?php 
-	// if (isset($_GET['id'])) {
-    $id = 5;
-	$post = getPost($id);
-	// }
+	if (isset($_GET['p_id'])) {
+        $id = $_GET['p_id'];
+	    $post = getPost($id);
+	}
 ?>
 <?php include "header.php"?>
 <div id="fh5co-title-box" style="background-image: url(images/R1.jpg); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">

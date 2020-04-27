@@ -1,4 +1,5 @@
 <?php
+
     $error = NULL;
     if(isset($_POST['signupsubmit'])){
         $firstname = $_POST['signupname'];
@@ -23,23 +24,32 @@
         }
     
     if($error == NULL){
-
-        include "dbConnection.php";
-        $firstname = mysqli_real_escape_string($connection, $firstname);
-        $lastname = mysqli_real_escape_string($connection, $lastname);
-        $email = mysqli_real_escape_string($connection, $email);
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
-
-        $hash_format = "$2y$10$";
-        $salt = "iusesomecrazystrings22";
-        $hash_and_salt = $hash_format.$salt;
-        $password =  crypt($password, $hash_and_salt);
-
-        $query = "INSERT INTO users (first_name,last_name,email, username, passwordd)";
-        $query .= "VALUES('$firstname', '$lastname', '$email','$username', '$password')";
         
-        $result = mysqli_query($connection, $query);
+        require "oopsignup.php";
+        $user = new Users($firstname, $lastname, $email, $username, $password);
+        $user->escapeStrings();
+        $user->insertUsers(); 
+      
+        include "dbConnection.php";
+        $query_signup = "SELECT * FROM users WHERE username = '$username'";
+        $select_query_signup = mysqli_query($connection, $query_signup);
+
+        if(!$select_query_signup){
+            die("Couldn't connect to the database ".mysqli_error($connection));
+        }
+    
+        while($row = mysqli_fetch_assoc($select_query_signup)){   
+            $dbemail = $row['email'];    
+            $dbusername = $row['username'];
+            $dbpassword = $row['passwordd'];
+        }
+        if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
+            if($username == $dbusername && $password == $dbpassword){
+                session_start();
+                $_SESSION['user'] = $dbusername;
+                header("Location: index.php");
+            }
+        }
         }
     }
 

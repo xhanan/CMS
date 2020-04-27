@@ -51,24 +51,7 @@
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                 </div>
-
                 <?php news() ?>
-                <div class="row pb-4">
-                    <div class="col-md-5">
-                        <div class="fh5co_hover_news_img">
-                            <div class="fh5co_news_img"><img src="images/office-768x512.jpg" alt=""/></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <a href="single.php" class="fh5co_magna py-2"> Magna aliqua ut enim ad minim veniam quis
-                        nostrud quis xercitation ullamco. </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
-                        April 18,2016 </a>
-                        <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
                 <div>

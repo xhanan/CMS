@@ -136,21 +136,20 @@
         $post_lname = $row['last_name'];
         $post_photo = $row['url'];
 
-        echo " <div class='row pb-4'>
-                    <div class='col-md-5'>
-                        <div class='fh5co_hover_news_img'>
-                            <div class='fh5co_news_img'><img src={$post_photo} alt=''/></div>
-                        <div>
+            echo " <div class='row pb-4'>
+                        <div class='col-md-5'>
+                            <div class='fh5co_hover_news_img'>
+                                <div class='fh5co_news_img'><img src='{$post_photo}' alt=''/></div>
+                            <div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class='col-md-7 animate-box'>
-                <a href='single.php' class='fh5co_magna py-2'>{$post_title}</a><br> <a href='single.php' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
-                            {$post_date} </a>
-                <div class='fh5co_consectetur'> {$post_content}
-                </div>
-            </div>
-            </div>";
+                <div class='col-md-7'>
+                    <a href='single.php' class='fh5co_magna py-2'> {$post_title} </a> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
+                        {$post_date} </a>
+                    <div class='fh5co_consectetur'>{$post_content}</div>
+                    </div>
+                </div>";
         }
 
     }

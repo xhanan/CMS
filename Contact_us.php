@@ -1,3 +1,47 @@
+<?php 
+    
+    if(isset($_POST['contact_send'])){
+        require 'phpmailer/class.phpmailer.php';
+        require 'phpmailer/class.smtp.php';
+        require 'phpmailer/PHPMailerAutoLoad.php';
+        $my_email = "braynbyte@gmail.com";
+        $my_password = "!1braynbyte";
+        $my_name = "Braynbyte";
+
+        $email_to = $_POST['contact_email'];
+        $name_to = $_POST['contact_name'];
+        $subject = $_POST['contact_subject'];
+        $message = $_POST['contact_message'];
+        
+        $mail = new PHPMailer();
+
+        $mail->IsSMTP(); // telling the class to use SMTP
+        $mail->SMTPAuth = true; // enable SMTP authentication
+        $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
+        $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+        $mail->Port = 465; // set the SMTP port for the GMAIL server
+        $mail->Username = $my_email; // GMAIL username
+        $mail->Password = $my_password; // GMAIL password
+    
+        // Typical mail data
+        $mail->AddAddress($email_to, $name_to);
+        $mail->SetFrom($my_email, $my_name);
+        $mail->Subject = "Contact";
+        $mail->Body = "We have recived your message to us. We will reply to you shortly.";
+        
+        try{
+            $mail->Send();
+            echo "Success!";
+        } catch(Exception $e){
+            // Something went bad
+            die("Error" );
+        }
+        $mail->smtpClose();
+    }
+    ?>
+    
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -50,7 +94,7 @@
                     </div>
                     <div class="col-9 align-self-center fh5co_contact_us_no_icon_difh5co_hover_2">
                         <span class="c_g d-block">Have any questions?</span>
-                        <span class="d-block c_g fh5co_contact_us_no_text">News@example.com</span>
+                        <span class="d-block c_g fh5co_contact_us_no_text">braynbyte@gmail.com</span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -78,20 +122,20 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <form class="row" id="fh5co_contact_form">
+                <form class="row" id="fh5co_contact_form" method="post" action="Contact_us.php">
                     <div class="col-12 py-3">
-                        <input type="text" class="form-control fh5co_contact_text_box" placeholder="Enter Your Name" />
+                        <input type="text" class="form-control fh5co_contact_text_box" name="contact_name" placeholder="Enter Your Name" />
                     </div>
                     <div class="col-6 py-3">
-                        <input type="text" class="form-control fh5co_contact_text_box" placeholder="E-mail" />
+                        <input type="text" class="form-control fh5co_contact_text_box" name="contact_email" placeholder="E-mail" />
                     </div>
                     <div class="col-6 py-3">
-                        <input type="text" class="form-control fh5co_contact_text_box" placeholder="Subject" />
+                        <input type="text" class="form-control fh5co_contact_text_box" name="contact_subject" placeholder="Subject" />
                     </div>
                     <div class="col-12 py-3">
-                        <textarea class="form-control fh5co_contacts_message" placeholder="Message"></textarea>
+                        <textarea class="form-control fh5co_contacts_message" name="contact_message" placeholder="Message"></textarea>
                     </div>
-                    <div class="col-12 py-3 text-center"> <a href="#" class="btn contact_btn">Send Message</a> </div>
+                    <div class="col-12 py-3 text-center"><button class="btn contact_btn" name="contact_send">Send Message</button> </div>
                 </form>
             </div>
             <div class="col-12 col-md-6 align-self-center">

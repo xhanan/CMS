@@ -26,16 +26,16 @@
         <div class="row">
             <div class="col-12 align-self-center">
                 <div class="text-center d-inline-block">
-                    <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div></a>
+                    <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin" style="color: #fff"></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div></a>
+                    <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus" style="color: #fff" ></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a href="https://twitter.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div></a>
+                    <a href="https://twitter.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter" style="color: #fff"></i></div></a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
+                    <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook" style="color: #fff"></i></div></a>
                 </div>
                 <div class="text-center d-inline-block float-right">
                     <a href="#" class="input-group-addon mt-1" id="basic-addon12">Register</a>

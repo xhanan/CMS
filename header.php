@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -37,12 +39,22 @@
                 <div class="text-center d-inline-block">
                     <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook" style="color: #fff"></i></div></a>
                 </div>
-                <div class="text-center d-inline-block float-right">
-                    <a href="#" class="input-group-addon mt-1" id="basic-addon12">Register</a>
-                </div>
-                <div class="text-center d-inline-block float-right">
-                    <a href="#" class="input-group-addon mt-1 mr-2" id="basic-addon12">Login</a>
-                </div>
+                <?php
+                    if(isset($_SESSION['user'])){
+                        echo '<div class="text-center d-inline-block float-right">
+                        <a href="logout.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Logout</a>
+                        </div>';
+                    }else{
+                        echo '<div class="text-center d-inline-block float-right">
+                        <a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Register</a>
+                        </div>
+                        <div class="text-center d-inline-block float-right">
+                            <a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Login</a>
+                        </div>';
+                    }
+                ?>
+                
+                
                 <div class="clearfix"></div>
             </div>
         </div>

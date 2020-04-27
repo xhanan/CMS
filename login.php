@@ -49,32 +49,42 @@
         $emailorusername = $_POST['loginstr'];
         $password = $_POST['loginpassword'];
 
-        $emailorusername = mysqli_real_escape_string($connection, $emailorusername);
-        $password = mysqli_real_escape_string($connection, $password);
-
-        $hash_format = "$2y$10$";
-        $salt = "iusesomecrazystrings22";
-        $hash_and_salt = $hash_format.$salt;
-        $password =  crypt($password, $hash_and_salt);
-
-        $query = "SELECT * FROM users WHERE email = '$emailorusername' OR username = '$emailorusername'";
-
-        $select_query = mysqli_query($connection, $query);
-        if(!$select_query){
-            die("Couldn't connect to the database ".mysqli_error($connection));
+        if(empty($emailorusername) || empty($password)){
+            $print_message = "Enter your username or email and password";
         }
-        while($row = mysqli_fetch_assoc($select_query)){
-            $dbemail = $row['email'];
-            $dbusername = $row['username'];
-            $dbpassword = $row['passwordd'];
-        }
-        if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
-            if(($emailorusername == $dbemail || $emailorusername == $dbusername) && $password == $dbpassword){
-                $print_message = "<p> Succesful login </p>";
-            }else {
-                $print_message = "<p>This user doesn't exist. Email/Username or Password wrong? </p>";
+        else{
+            $emailorusername = mysqli_real_escape_string($connection, $emailorusername);
+            $password = mysqli_real_escape_string($connection, $password);
+
+            $hash_format = "$2y$10$";
+            $salt = "iusesomecrazystrings22";
+            $hash_and_salt = $hash_format.$salt;
+            $password =  crypt($password, $hash_and_salt);
+
+            $query = "SELECT * FROM users WHERE email = '$emailorusername' OR username = '$emailorusername'";
+            $select_query = mysqli_query($connection, $query);
+    
+            if(!$select_query){
+                die("Couldn't connect to the database ".mysqli_error($connection));
+            }
+        
+            while($row = mysqli_fetch_assoc($select_query)){   
+                $dbemail = $row['email'];    
+                $dbusername = $row['username'];
+                $dbpassword = $row['passwordd'];
+            }
+            if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
+                if(($emailorusername == $dbemail || $emailorusername == $dbusername) && $password == $dbpassword){
+                    session_start();
+                    $_SESSION['user'] = $dbusername;
+                    header("Location: index.php"); 
+                }else {
+                    $print_message = "<p>This user doesn't exist. Email/Username or Password wrong? </p>";
+                }
+        
             }
         }
+        
 
     }
 

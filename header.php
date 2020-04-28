@@ -93,10 +93,12 @@
                     <img src="images/LOGO1.png" alt="img" class="fh5co_logo_width" style="width: 300px" />
                 </div>
                 <div class="col-12 col-md-3 align-self-center">
-                    <div class="input-group float-right">
-                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                        <input id="Search" type="text" class="form-control" name="search" placeholder="Search">
-                    </div>
+                    <form action="search.php" method="post">
+                        <div class="input-group float-right">
+                            <button class="input-group-addon" name="search_submit"><i class="fa fa-search"></i></button>
+                            <input id="Search" type="text" class="form-control" name="search" placeholder="Search"></input>     
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

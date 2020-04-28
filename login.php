@@ -55,13 +55,13 @@
             $dbusername = $row['username'];
             $dbpassword = $row['passwordd'];
             $dbfirstname = $row['first_name']; 
-            $dblastname = $row['last_name']; 
+            $dblastname = $row['last_Name']; 
             $dbid = $row['id']; 
         }
         if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
             if($username == $dbusername && $password == $dbpassword){
                 session_start();
-                $_SESSION['user'] = $dbfirstname;
+                $_SESSION['user'] = $dbfirstname." ".$dblastname;
                 $_SESSION['id'] = $dbid;
                 header("Location: index.php");
             }
@@ -99,13 +99,13 @@
                 $dbusername = $row['username'];
                 $dbpassword = $row['passwordd'];
                 $dbfirstname = $row['first_name']; 
-                $dblastname = $row['last_name']; 
+                $dblastname = $row['last_Name']; 
                 $dbid = $row['id']; 
             }
             if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
                 if(($emailorusername == $dbemail || $emailorusername == $dbusername) && $password == $dbpassword){
                     session_start();
-                    $_SESSION['user'] = $dbfirstname;
+                    $_SESSION['user'] = $dbfirstname." ".$dblastname;
                     $_SESSION['id'] = $dbid;
                     header("Location: index.php"); 
                 }else {

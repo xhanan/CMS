@@ -20,6 +20,7 @@
     <!-- Modernizr JS -->
     <script src="js/modernizr-3.5.0.min.js"></script>
 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/ui/trumbowyg.min.css" integrity="sha256-B6yHPOeGR8Rklb92mcZU698ZT4LZUw/hTpD/U87aBPc=" crossorigin="anonymous" />
 </head>
 <body>
@@ -45,12 +46,12 @@
                         // $text = '<div class="text-center d-inline-block float-right mt-2" style="font-size: 15px"><a href="logout.php">';
                         // $text .= $_SESSION["user"];
                         // $text .= '</a></div>';
-                        echo '<div class="btn-group float-right mt-2" style="margin-top:4px">
+                        echo '<div class="btn-group float-right mt-2" style="margin-bottom:4px">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 '.$_SESSION["user"].'  
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="profile.php">Profile</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
@@ -93,7 +94,7 @@
 </div>
 <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
     <div class="container padding_786">
-        <nav class="navbar navbar-toggleable-md navbar-light ">
+        <nav class="navbar navbar-toggleable-md navbar-light" style="box-shadow: none;">
             <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>

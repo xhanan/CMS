@@ -60,13 +60,15 @@
                                 ' . $_SESSION["user"] . '  
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="profile.php">Profile</a>'}?>
-                                <?php
-                                if(isset($_SESSION['isadmin']))
+                                <a class="dropdown-item" href="profile.php">Profile</a>';}?>
+                            <?php
+                            if(isset($_SESSION['isadmin'])){
+                            echo
                                 '<a class="dropdown-item" href="post.php">Add Post</a>
-                                <a class="dropdown-item" href="post.php">Edit Post</a>'
-                                ?>
-                                <?php if (isset($_SESSION['user'])){
+                                <a class="dropdown-item" href="post.php">Edit Post</a>';}
+                            ?>
+                        <?php 
+                        if (isset($_SESSION['user'])){
                             echo
                                 '<div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">Log Out</a>

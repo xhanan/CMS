@@ -9,14 +9,40 @@
     }
     ?>
     <?php include "header.php" ?>
-    
+    <?php
+    if (isset($_POST['update_post'])) {
+        $title = esc($_POST['title']);
+        $content =  esc($_POST['content']);
+        $category = esc($_POST['category_id']);
+        $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
+        $tags = esc($_POST['tag']);
+
+
+        if (isset($_SESSION['id'])) {
+            $query = "UPDATE articles SET ";
+
+            $query .= "title='{$title}', content='{$content}', category_id={$category}, ";
+            $query .= "user_id={$user_id}, published_date=now(), tags='{$tags}' ";
+            $query .= "WHERE id={$id}";
+
+            $update_post_query = mysqli_query($connection, $query);
+            if (!$update_post_query) {
+                die("Gabim: " . mysqli_error($connection));
+            } else {
+                echo "<h5> Postimi u ndryshua me sukses. </h5>";
+            }
+        } else {
+            echo "<h5> Nuk eshte i kycur ndonje admin </h5>";
+        }
+    }
+    ?>
     <body class="single">
 
         <div id="fh5co-single-content" class="container-fluid pb-4 pt-4 paddding">
             <div class="container paddding">
                 <div class="row mx-0">
                     <div class="col-md-8 offset-md-2 col-12 animate-box" data-animate-effect="fadeInLeft">
-                        <form action="post.php" method="post">
+                        <form action="editPost.php" method="post">
                             <div class="form-group">
                                 <label for="title">Titulli</label>
                                 <?php $titulli=$post['title']; 
@@ -47,9 +73,9 @@
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>
                                 <?php $permbajtja=$post['content']; 
-                                echo "<textarea id=\"content\" class=\"form-control\" name=\"content\" placeholder=\"Permbajtja\">$permbajtja</textarea>"; ?>
+                                echo "<textarea id=\"content\" class=\"form-control\" name=\"content\" placeholder=\"Permbajtja\">$permbajtja</textarea>";?>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="create_post">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="update_post">Submit</button>
                         </form>
                     </div>
                 </div>

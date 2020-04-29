@@ -2833,6 +2833,11 @@ fieldset[disabled] a.btn {
   background-color: #d9534f;
   border-color: #d9534f;
 }
+.btn-category {
+  color: #464a4c;
+  background-color: #ecf0f1;
+  border-color:#d7e0e2;
+}
 
 .btn-danger:hover {
   color: #fff;

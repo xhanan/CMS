@@ -1,15 +1,14 @@
 <!DOCTYPE php>
 <php lang="en" class="no-js">
 
-    <?php include "postFunctions.php"; ?>
-    <?php 
+    <?php include "postFunctions.php";
+    include "header.php";
 	if (isset($_GET['p_id'])) {
         $id = $_GET['p_id'];
 	    $post = getPost($id);
     }
-    ?>
-    <?php include "header.php" ?>
-    <?php
+    
+
     if (isset($_POST['update_post'])) {
         $title = esc($_POST['title']);
         $content =  esc($_POST['content']);
@@ -17,14 +16,13 @@
         $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         $tags = esc($_POST['tag']);
 
-
         if (isset($_SESSION['id'])) {
             $query = "UPDATE articles SET ";
-
+            
             $query .= "title='{$title}', content='{$content}', category_id={$category}, ";
             $query .= "user_id={$user_id}, published_date=now(), tags='{$tags}' ";
-            $query .= "WHERE id={$id}";
-
+            $query .= "WHERE id={$id} ";
+            
             $update_post_query = mysqli_query($connection, $query);
             if (!$update_post_query) {
                 die("Gabim: " . mysqli_error($connection));

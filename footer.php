@@ -4,7 +4,7 @@
 <div class="container-fluid fh5co_footer_bg pb-3">
     <div class="container animate-box" style = "opacity:100%">
         <div class="row">
-            <div class="col-12 spdp_right py-5"><img src="images/LOGO1.png" alt="img" class="footer_logo" style="width: 250px"/></div>
+            <div class="col-12 spdp_right py-5"><a href="index.php"><img src="images/LOGO1.png" alt="img" class="footer_logo" style="width: 250px"/></a></div>
             <div class="clearfix"></div>
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="footer_main_title py-3"> About</div>

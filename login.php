@@ -57,12 +57,14 @@
             $dbfirstname = $row['first_name']; 
             $dblastname = $row['last_Name']; 
             $dbid = $row['id']; 
+            $dbADMIN = $row['isadmin'];
         }
         if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
             if($username == $dbusername && $password == $dbpassword){
                 session_start();
                 $_SESSION['user'] = $dbfirstname." ".$dblastname;
                 $_SESSION['id'] = $dbid;
+                $_SESSION['isadmin'] = $dbADMIN;
                 header("Location: index.php");
             }
         }
@@ -100,6 +102,7 @@
                 $dbpassword = $row['passwordd'];
                 $dbfirstname = $row['first_name']; 
                 $dblastname = $row['last_Name']; 
+                $dbADMIN = $row['isadmin'];
                 $dbid = $row['id']; 
             }
             if(isset($dbemail) && isset($dbusername) && isset($dbpassword)){
@@ -107,6 +110,7 @@
                     session_start();
                     $_SESSION['user'] = $dbfirstname." ".$dblastname;
                     $_SESSION['id'] = $dbid;
+                    $_SESSION['isadmin'] = $dbADMIN;
                     header("Location: index.php"); 
                 }else {
                     $print_message = "<p>This user doesn't exist. Email/Username or Password wrong? </p>";

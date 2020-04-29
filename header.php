@@ -90,7 +90,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9 fh5co_padding_menu">
+                <a href="index.php">
                     <img src="images/LOGO1.png" alt="img" class="fh5co_logo_width" style="width: 300px" />
+                </a>
                 </div>
                 <div class="col-12 col-md-3 align-self-center">
                     <form action="search.php" method="post">

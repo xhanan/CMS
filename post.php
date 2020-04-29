@@ -14,7 +14,7 @@
         if (isset($_SESSION['id'])) {
             $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         }
-        $date = escape(date('d-m-y'));
+        $date = esc(date('d-m-y'));
         $tags = "test";
 
 

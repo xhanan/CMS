@@ -8,17 +8,17 @@
 	    $post = getPost($id);
     }
     if (isset($_POST['update_post'])) {
-        $title1 = esc($_POST['title']);
-        $content1 =  esc($_POST['content']);
-        $category1 = esc($_POST['category_id']);
-        $user1 = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
-        $tags1 = esc($_POST['tag']);
+        $title = esc($_POST['title']);
+        $content =  esc($_POST['content']);
+        $category = esc($_POST['category_id']);
+        $user = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
+        $tags = esc($_POST['tag']);
 
         if (isset($_SESSION['id'])) {
-            $query1 = "UPDATE articles SET title='{$title1}',content='{$content1}',
-            category_id={$category1},user_id={$user1},tags='{$tags1}' WHERE id={$id}";
+            $query = "UPDATE articles SET title='{$title}',content='{$content}',
+            category_id={$category},user_id={$user},tags='{$tags}' WHERE id={$id}";
             
-            $update_post_query = mysqli_query($connection, $query1);
+            $update_post_query = mysqli_query($connection, $query);
             if (!$update_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
@@ -53,7 +53,7 @@
                                             $cat_id = $row['id'];
                                             $cat_name = $row['category_name'];
                                             echo "<option value='$cat_id'>{$cat_name}</option>";
-                                        }
+                                    }
                                 ?>
                                 </select>
                                 </div>

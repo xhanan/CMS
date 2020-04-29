@@ -24,7 +24,7 @@
 
 
 
-            <?php echo html_entity_decode($post['content']); ?>
+            <?php echo html_entity_decode($post['content']);?>
 
 
 
@@ -78,6 +78,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+        <?php include "comments.php" ?>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@
 
     <?php include "postFunctions.php"; ?>
     <?php include "header.php" ?>
+    
     <?php
 
 

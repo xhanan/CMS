@@ -61,8 +61,8 @@
                                 </button>
                                 <div class="dropdown-menu">
                                 <a class="dropdown-item" href="profile.php">Profile</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="post.php">Add Post</a>
+                                <a class="dropdown-item" href="post.php">Edit Post</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">Log Out</a>
                                 </div>
@@ -124,8 +124,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
                                 <a class="dropdown-item" href="#">Action in</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="post.php">Add Post</a>
+                                <a class="dropdown-item" href="post.php">Edit Post</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

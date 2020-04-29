@@ -126,15 +126,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
                                 <a class="dropdown-item" href="#">Action in</a>
-                                <a class="dropdown-item" href="post.php">Add Post</a>
-                                <a class="dropdown-item" href="post.php">Edit Post</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Post<span class="sr-only">(current)</span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                <a class="dropdown-item" href="post.php">Add Post</a>
-                                <a class="dropdown-item" href="#">Edit Post</a>
+                                <a class="dropdown-item" href="post.php">Something else</a>
                             </div>
                         </li>
                         <li class="nav-item ">

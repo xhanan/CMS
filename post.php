@@ -3,7 +3,7 @@
 
     <?php include "postFunctions.php"; ?>
     <?php include "header.php" ?>
-    
+
     <?php
 
 
@@ -49,6 +49,10 @@
                             <div class="form-group">
                                 <label for="category_id">Kategoria</label>
                                 <input type="text" class="form-control" name="category_id" placeholder="Kategoria">
+                            </div>
+                            <div class="form-group">
+                                <label for="category_id">Tags</label>
+                                <input type="text" class="form-control" name="category_id" placeholder="Post tags">
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>

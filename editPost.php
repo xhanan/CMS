@@ -3,27 +3,22 @@
 
     <?php include "postFunctions.php";
     include "header.php";
-	if (isset($_GET['p_id'])) {
+    if (isset($_GET['p_id'])) {
         $id = $_GET['p_id'];
 	    $post = getPost($id);
     }
-    
-
     if (isset($_POST['update_post'])) {
-        $title = esc($_POST['title']);
-        $content =  esc($_POST['content']);
-        $category = esc($_POST['category_id']);
-        $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
-        $tags = esc($_POST['tag']);
+        $title1 = esc($_POST['title']);
+        $content1 =  esc($_POST['content']);
+        $category1 = esc($_POST['category_id']);
+        $user1 = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
+        $tags1 = esc($_POST['tag']);
 
         if (isset($_SESSION['id'])) {
-            $query = "UPDATE articles SET ";
+            $query1 = "UPDATE articles SET title='{$title1}',content='{$content1}',
+            category_id={$category1},user_id={$user1},tags='{$tags1}' WHERE id={$id}";
             
-            $query .= "title='{$title}', content='{$content}', category_id={$category}, ";
-            $query .= "user_id={$user_id}, published_date=now(), tags='{$tags}' ";
-            $query .= "WHERE id={$id} ";
-            
-            $update_post_query = mysqli_query($connection, $query);
+            $update_post_query = mysqli_query($connection, $query1);
             if (!$update_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
@@ -40,7 +35,7 @@
             <div class="container paddding">
                 <div class="row mx-0">
                     <div class="col-md-8 offset-md-2 col-12 animate-box" data-animate-effect="fadeInLeft">
-                        <form action="editPost.php" method="post">
+                            <?php echo "<form action='editPost.php?p_id={$id}' method='post'>"?>
                             <div class="form-group">
                                 <label for="title">Titulli</label>
                                 <?php $titulli=$post['title']; 

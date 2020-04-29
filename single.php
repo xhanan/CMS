@@ -4,7 +4,7 @@
 <?php include "postFunctions.php";?>
 <?php 
 	if (isset($_GET['p_id'])) {
-        $id = $_GET['p_id'];
+        $id = esc($_GET['p_id']);
 	    $post = getPost($id);
 	}
 ?>

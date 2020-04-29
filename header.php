@@ -133,7 +133,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
                                 <a class="dropdown-item" href="#">Action in</a>
-                                <a class="dropdown-item" href="post.php">Something else</a>
+                                <a class="dropdown-item" href="#">Something else</a>
                             </div>
                         </li>
                         <li class="nav-item ">

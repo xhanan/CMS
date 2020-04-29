@@ -11,11 +11,9 @@
         $title = esc($_POST['title']);
         $content =  esc($_POST['content']);
         $category = esc($_POST['category_id']);
-        if (isset($_SESSION['id'])) {
-            $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
-        }
+        $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         $date = esc(date('d-m-y'));
-        $tags = "test";
+        $tags = esc($_POST['tag']);
 
 
         if (isset($_SESSION['id'])) {
@@ -48,11 +46,24 @@
                             </div>
                             <div class="form-group">
                                 <label for="category_id">Kategoria</label>
-                                <input type="text" class="form-control" name="category_id" placeholder="Kategoria">
+                                <div>
+                                <select class="btn btn-category dropdown-toggle" data-toggle="dropdown" name="category_id">
+                                <?php
+                                        $query = "SELECT * FROM category";
+                                        $select_categories = mysqli_query($connection,$query);
+                                        //confirmQuery($select_categories);
+                                        while($row = mysqli_fetch_assoc($select_categories )) {
+                                            $cat_id = $row['id'];
+                                            $cat_name = $row['category_name'];
+                                            echo "<option value='$cat_id'>{$cat_name}</option>";
+                                        }
+                                ?>
+                                </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="category_id">Tags</label>
-                                <input type="text" class="form-control" name="category_id" placeholder="Post tags">
+                                <label for="tag">Tags</label>
+                                <input type="text" class="form-control" name="tag" placeholder="Post tags">
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>

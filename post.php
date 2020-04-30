@@ -72,10 +72,9 @@
                                 <input type="text" class="form-control" name="tag" placeholder="Post tags">
                             </div>
                             <div class="form-group">
-                                <label for ="image" class="file">
-                                <input type="file" name="image">
-                                    <span class="file-custom"></span>
-                                </label>
+                                <label for ="image" class="file">Fotoja e artikullit</label><br>
+                                <input class="btn btn-category" type="file" name="image">
+                                <span class="file-custom"></span>
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>

@@ -19,7 +19,8 @@ function getPost($id){
 }
 function getComment($id){
 	global $connection;
-        $query1 = "SELECT `comments`.`descriptions`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`  FROM `comments` 
+        $query1 = "SELECT `comments`.`descriptions`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`, `users`.`gender`
+				   FROM `comments` 
                         INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE `comments`.`article_id`={$id}";
 			$comment_query = mysqli_query($connection, $query1);
 			
@@ -27,10 +28,18 @@ function getComment($id){
                   $name = $row['first_name'];
                   $last_name = $row['last_name'];
                   $comment = $row['descriptions']; 
-                  $date = $row['datetimee'];
+				  $date = $row['datetimee'];
+				  $gender = $row['gender'];
+				  if(isset($gender))
+				  {
+					$avatar = "https://bootdey.com/img/Content/avatar/avatar5.png";
+				  }
+				  else{
+					$avatar = "https://bootdey.com/img/Content/avatar/avatar7.png";
+				  }
                   echo "<div class='col-md-8'>
                   <div class='media g-mb-30 media-comment'>
-                      <img class='d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15' src='https://bootdey.com/img/Content/avatar/avatar7.png' alt='Image Description'>
+                      <img class='d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15' src=$avatar alt='Image Description'>
                       <div class='media-body u-shadow-v18 g-bg-secondary g-pa-30'>
                       
                         <div class='g-mb-15'>

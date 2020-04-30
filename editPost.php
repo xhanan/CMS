@@ -22,7 +22,10 @@
             if (!$update_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
-                echo "<h5> Postimi u ndryshua me sukses. </h5>";
+                echo "<script> window.location.href = \"profile.php\";
+                               window.alert(\"Postimi u ndryshua me sukses\");
+                      </script>";
+                        
             }
         } else {
             echo "<h5> Nuk eshte i kycur ndonje admin </h5>";

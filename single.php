@@ -100,7 +100,7 @@
         </div>
         <div>
         <div class="row">
-        <?php getComment($id) ?>
+        <?php getComment($id, $_SESSION['id']) ?>
     <div class="col-md-8">
     <div class="media g-mb-30 media-comment">
             <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">

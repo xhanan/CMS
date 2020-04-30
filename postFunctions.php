@@ -17,7 +17,7 @@ function getPost($id){
 	
 	return $post;
 }
-function getComment($id){
+function getComment($id, $person){
 	global $connection;
         $query1 = "SELECT `comments`.`descriptions`,`comments`.`user_id`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`, `users`.`gender`
 				   FROM `comments` 
@@ -38,7 +38,7 @@ function getComment($id){
 				  else{
 					$avatar = "https://bootdey.com/img/Content/avatar/avatar7.png";
 				  }
-				  if($id == $user_id){
+				  if($person == $user_id){
 					$delete = "<ul class='list-inline d-sm-flex my-0'>
 					<li class='list-inline-item ml-auto'>
 						<button type='submit' name='delete_comment' class='btn btn-primary'>Delete</button>

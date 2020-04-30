@@ -100,40 +100,10 @@
         </div>
         <div>
         <div class="row">
-    <div class="col-md-8">
-        <div class="media g-mb-30 media-comment">
-            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
-            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
-              <div class="g-mb-15">
-                <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
-              </div>
-              <div class="komenti">
-              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-                felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-8">
-        <div class="media g-mb-30 media-comment">
-            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Image Description">
-            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
-              <div class="g-mb-15">
-                <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
-                <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
-              </div>
-              <div class="komenti">
-              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
-                felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-              </div>
-            </div>
-        </div>
-    </div>
+        <?php getComment($id) ?>
     <div class="col-md-8">
     <div class="media g-mb-30 media-comment">
-            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Image Description">
+            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
             <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
               <div class="g-mb-15">
                 <h5 class="h5 g-color-gray-dark-v1 mb-0">Ylber Gashi</h5>

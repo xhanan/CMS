@@ -4,11 +4,8 @@ include "dbConnection.php";
 function first_photo()
 {
     global $connection;
-    $first_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`media`.`url` 
-        FROM `articles` 
-        INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-        INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
-        INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
+    $first_posts_query = "SELECT `id`,`title`,`published_date`,`image` 
+        FROM `articles`
         ORDER BY rand() LIMIT 1";
 
     $select_main_photo = mysqli_query($connection, $first_posts_query);
@@ -18,7 +15,7 @@ function first_photo()
         $postid = $row1['id'];
         $title = $row1['title'];
         $date = $row1['published_date'];
-        $photo = $row1['url'];
+        $photo = $row1['image'];
 
         echo "<div class='col-md-6 col-12 paddding animate-box' data-animate-effect='fadeIn'>
             <div class='fh5co_suceefh5co_height'><img src={$photo} alt='img'/>
@@ -36,11 +33,8 @@ function first_photo()
 function four_photos()
 {
     global $connection;
-    $four_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`media`.`url` 
-                            FROM `articles` 
-                            INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-                            INNER JOIN `category` ON `category`.`id` = `articles`.`category_id`
-                            INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
+    $four_posts_query = "SELECT `id`,`title`,`published_date`,`image` 
+                            FROM `articles`
                             ORDER BY rand() LIMIT 4";
 
     $select_four_photos = mysqli_query($connection, $four_posts_query);
@@ -49,7 +43,7 @@ function four_photos()
         $postid2 = $row2['id'];
         $title = $row2['title'];
         $date = $row2['published_date'];
-        $photo = $row2['url'];
+        $photo = $row2['image'];
 
         echo "<div class='col-md-6 col-6 paddding animate-box' data-animate-effect='fadeIn'>
                 <div class='fh5co_suceefh5co_height_2'><img src={$photo} alt='img'/>
@@ -67,10 +61,9 @@ function four_photos()
 function trending_news()
 {
     global $connection;
-    $trending_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
+    $trending_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
                                 FROM `articles` 
-                                INNER JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-                                INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
+                                INNER JOIN `users` ON `users`.`id` = `articles`.`user_id`
                                 ORDER BY  `articles`.`id` DESC LIMIT 10";
 
     $select_trending_posts = mysqli_query($connection, $trending_posts_query);
@@ -81,7 +74,7 @@ function trending_news()
         $trending_fname = $row3['first_name'];
         $trending_lname = $row3['last_name'];
         $trending_published = $row3['published_date'];
-        $trending_img = $row3['url'];
+        $trending_img = $row3['image'];
 
         echo "<div class='item px-2'>
                 <div class='fh5co_latest_trading_img_position_relative'>
@@ -99,10 +92,9 @@ function trending_news()
 function top_six_news_posts()
 {
     global $connection;
-    $news_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`media`.`url` 
-                            FROM `articles` 
-                            INNER JOIN `media` ON `articles`.`id` = `media`.`article_id`
-                            ORDER BY  `articles`.`id` DESC LIMIT 6";
+    $news_posts_query = "SELECT `id`,`title`,`published_date`,`image` 
+                            FROM `articles`
+                            ORDER BY `id` DESC LIMIT 6";
 
     $select_news_posts = mysqli_query($connection, $news_posts_query);
 
@@ -110,7 +102,7 @@ function top_six_news_posts()
         $news_id = $row4['id'];
         $news_title = $row4['title'];
         $news_published = $row4['published_date'];
-        $news_img = $row4['url'];
+        $news_img = $row4['image'];
 
         echo "<div class='item px-2'>
                 <div class='fh5co_hover_news_img'>
@@ -136,11 +128,10 @@ function news()
     $pagenum = $page * 8;
 
     global $connection;
-    $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
+    $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
         FROM `articles` 
         LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
         LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
-        LEFT JOIN `media` ON `articles`.`id` = `media`.`article_id` 
         ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
 
 
@@ -153,7 +144,7 @@ function news()
         $post_date = $row['published_date'];
         $post_fname = $row['first_name'];
         $post_lname = $row['last_name'];
-        $post_photo = $row['url'];
+        $post_photo = $row['image'];
 
         echo " <div class='row pb-4'>
                         <div class='col-md-5'>

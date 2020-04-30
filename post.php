@@ -14,14 +14,20 @@
         $user_id = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         $date = esc(date('d-m-y'));
         $tags = esc($_POST['tag']);
-
+        $media = esc($_POST['image']);
+        $foto = "images/$media";
+        $media_type = 1;
 
         if (isset($_SESSION['id'])) {
-            $query = "INSERT INTO articles(title, content, category_id ,user_id, published_date, tags) ";
+            $query = "INSERT INTO articles(title, content, category_id ,user_id, published_date, tags, image) ";
 
-            $query .= "VALUES('{$title}','{$content}',{$category},{$user_id}, now(),'{$tags}')";
-
+            $query .= "VALUES('{$title}','{$content}',{$category},{$user_id}, now(),'{$tags}', '{$foto}')";
+            
+            //$query .=
+            //$query2 = "INSERT INTO media(url, media_type, article_id, datetimee) ";
+            //$query2 .= "VALUES('{$media}', '{$media_type}', 
             $create_post_query = mysqli_query($connection, $query);
+            //$saveImage_query = mysqli_query($connection, $query2);
             if (!$create_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
@@ -64,6 +70,12 @@
                             <div class="form-group">
                                 <label for="tag">Tags</label>
                                 <input type="text" class="form-control" name="tag" placeholder="Post tags">
+                            </div>
+                            <div class="form-group">
+                                <label for ="image" class="file">
+                                <input type="file" name="image">
+                                    <span class="file-custom"></span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>

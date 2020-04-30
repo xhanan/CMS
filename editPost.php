@@ -13,10 +13,11 @@
         $category = esc($_POST['category_id']);
         $user = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         $tags = esc($_POST['tag']);
-
+        $media = esc($_POST['image']);
+        $fotoja = "images/$media";
         if (isset($_SESSION['id'])) {
             $query = "UPDATE articles SET title='{$title}',content='{$content}',
-            category_id={$category},user_id={$user},tags='{$tags}' WHERE id={$id}";
+            category_id={$category},user_id={$user},tags='{$tags}', image='{$fotoja}' WHERE id={$id}";
             
             $update_post_query = mysqli_query($connection, $query);
             if (!$update_post_query) {
@@ -24,8 +25,7 @@
             } else {
                 echo "<script> window.location.href = \"profile.php\";
                                window.alert(\"Postimi u ndryshua me sukses\");
-                      </script>";
-                        
+                      </script>";     
             }
         } else {
             echo "<script> window.alert(\"Nuk eshte i kycur ndonje admin \"); </script>";
@@ -65,6 +65,11 @@
                                 <label for="tag">Tags</label>
                                 <?php $tags=$post['tags'];
                                 echo "<input type=\"text\" class=\"form-control\" name=\"tag\" placeholder=\"Post tags\" value='$tags'>"; ?>
+                            </div>
+                            <div class="form-group">
+                                <label for ="image" class="file">Ju lutem zgjedhni nje foto!</label><br>
+                                <input class="btn btn-category" type="file" name="image">
+                                <span class="file-custom"></span>
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>

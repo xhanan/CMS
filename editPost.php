@@ -28,7 +28,7 @@
                         
             }
         } else {
-            echo "<h5> Nuk eshte i kycur ndonje admin </h5>";
+            echo "<script> window.alert(\"Nuk eshte i kycur ndonje admin \"); </script>";
         }
     }
     ?>

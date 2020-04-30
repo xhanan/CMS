@@ -64,8 +64,7 @@
                             <?php
                             if(isset($_SESSION['isadmin'])){
                             echo
-                                '<a class="dropdown-item" href="post.php">Add Post</a>
-                                <a class="dropdown-item" href="post.php">Edit Post</a>';}
+                                '<a class="dropdown-item" href="post.php">Add Post</a>';}
                             ?>
                         <?php 
                         if (isset($_SESSION['user'])){

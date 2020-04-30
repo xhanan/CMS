@@ -50,9 +50,8 @@
 
 
             <?php echo html_entity_decode($post['content']);?>
-
-
-
+            
+            <button type="button" id="fav" class="btn">Favorite</button>
 
             </div>
             <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
@@ -198,6 +197,38 @@
 <!-- Main -->
 <script src="js/main.js"></script>
 <script>if (!navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i)){$(window).stellar();}</script>
-
+<script>
+    $(document).ready(function(){
+        $("#fav").click(function(){
+            if($("#fav").hasClass("btn-success")){
+                var idvar = "<?php echo $id ?>";
+                var iduser = "<?php echo $_SESSION['id'];?>";
+                
+                $.ajax({
+                     type : "POST",  
+                     url  : "favorite.php", 
+                     data : { 
+                         deleteid : idvar, 
+                         userid : iduser 
+                         },
+                     success: function(){
+                         console.log("success");
+                         }
+                 }); 
+                $("#fav").removeClass("btn-success");                               
+            }else {
+                var idvar = "<?php echo $id ?>";
+                var iduser = "<?php echo $_SESSION['id'];?>";
+                $.ajax({
+                     type : "POST",  //type ,of method
+                     url  : "favorite.php",  //your page
+                     data : { insertid : idvar ,  userid : iduser },// passing the values
+                     success: function(){console.log("success");}
+                 }); 
+                $("#fav").addClass("btn-success");               
+                }   
+            }); 
+        });
+</script>
 </body>
 </php>

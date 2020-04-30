@@ -79,11 +79,10 @@
                   <?php
                   $user_id = $_SESSION['id'];
 
-                  $select_users_posts = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`media`.`url` 
+                  $select_users_posts = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
                                   FROM `articles` 
                                   LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
                                   LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
-                                  LEFT JOIN `media` ON `articles`.`id` = `media`.`article_id` 
                                   WHERE `users`.`id` = '$user_id'
                                   ORDER BY `articles`.`id` DESC";
 
@@ -96,7 +95,7 @@
                     $post_date = $rows1['published_date'];
                     $post_fname = $rows1['first_name'];
                     $post_lname = $rows1['last_name'];
-                    $post_photo = $rows1['url'];
+                    $post_photo = $rows1['image'];
 
                     echo " <div class='row pb-4'>
               <div class='col-md-5'>

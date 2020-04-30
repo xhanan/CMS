@@ -25,10 +25,10 @@
             if (!$create_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
-                echo "<h5> Postimi eshte ruajtur me sukses. </h5>";
+                echo "<script> window.alert(\"Postimi eshte ruajtur me sukses.\"); </script>";
             }
         } else {
-            echo "<h5> Nuk eshte i kycur ndonje admin </h5>";
+            echo "<script> window.alert(\"Nuk eshte i kycur ndonje admin.\"); </script>";
         }
     }
     ?>

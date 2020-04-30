@@ -19,13 +19,14 @@ function getPost($id){
 }
 function getComment($id){
 	global $connection;
-        $query1 = "SELECT `comments`.`descriptions`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`, `users`.`gender`
+        $query1 = "SELECT `comments`.`descriptions`,`comments`.`user_id`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`, `users`.`gender`
 				   FROM `comments` 
                         INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE `comments`.`article_id`={$id}";
 			$comment_query = mysqli_query($connection, $query1);
 			
             while ($row = mysqli_fetch_assoc($comment_query)) {
-                  $name = $row['first_name'];
+				  $name = $row['first_name'];
+				  $user_id = $row['user_id'];
                   $last_name = $row['last_name'];
                   $comment = $row['descriptions']; 
 				  $date = $row['datetimee'];
@@ -36,6 +37,16 @@ function getComment($id){
 				  }
 				  else{
 					$avatar = "https://bootdey.com/img/Content/avatar/avatar7.png";
+				  }
+				  if($id == $user_id){
+					$delete = "<ul class='list-inline d-sm-flex my-0'>
+					<li class='list-inline-item ml-auto'>
+						<button type='submit' name='delete_comment' class='btn btn-primary'>Delete</button>
+						</li>
+					  </ul>";
+				  }
+				  else{
+					  $delete = "Empty";
 				  }
                   echo "<div class='col-md-8'>
                   <div class='media g-mb-30 media-comment'>
@@ -48,12 +59,23 @@ function getComment($id){
                         </div>
                         <div class='komenti'>
                         <p>{$comment}</p>
-                        </div>
+						</div>
+						{$delete}
                       </div>
                     </div>
                 </div>";}
 }
-
+function getPostImage($id){
+	global $connection;
+	$query = "SELECT image
+				FROM articles
+                WHERE id = {$id}";
+	$photo_query = mysqli_query($connection, $query);
+	while ($row = mysqli_fetch_assoc($photo_query)) {
+		$image = $row['image'];
+		echo $image;
+	}
+}
 function esc(String $value){
 	// bring the global db connect object into function
 	global $connection;

@@ -28,7 +28,7 @@
       }
     }
 ?>
-<div id="fh5co-title-box" style="background-image: url(images/R1.jpg); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+<div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="page-title">
         <img src="images/1.jpg" alt="Free php5 by Freephp5.co">

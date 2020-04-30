@@ -23,16 +23,22 @@
       $create_post_query = mysqli_query($connection, $query);
       if (!$create_post_query) {
         die("Gabim: " . mysqli_error($connection));
-      } else {
-        echo "<script> window.alert(\"Komenti eshte ruajtur me sukses.\"); </script>";
       }
     }
+    if(isset($_POST['delete_comment'])){
+        $koment_id = $_POST['delete_comment'];
+  
+        $deleteComment_query = "DELETE FROM comments WHERE id=$koment_id ";
+  
+        $queryy = mysqli_query($connection, $deleteComment_query);
+        if (!$deleteComment_query) {
+          die("Gabim: " . mysqli_error($connection));
+        }
+      }
 ?>
 <div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="page-title">
-        <img src="images/1.jpg" alt="Free php5 by Freephp5.co">
-        <span>January 1, 2018</span>
         <h2><?php echo $post['title']; ?></h2>
     </div>
 </div>
@@ -103,10 +109,10 @@
         <?php getComment($id, $_SESSION['id']) ?>
     <div class="col-md-8">
     <div class="media g-mb-30 media-comment">
-            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
+            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src=<?php echo isMale($_SESSION['id']);?> alt="Image Description">
             <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
               <div class="g-mb-15">
-                <h5 class="h5 g-color-gray-dark-v1 mb-0">Ylber Gashi</h5>
+                <h5 class="h5 g-color-gray-dark-v1 mb-0"><?php echo getName($_SESSION['id']);?></h5>
               </div>
               <br>
               <?php echo "<form action='single.php?p_id={$id}' method='post'>"?>

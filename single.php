@@ -10,17 +10,22 @@
 	    $post = getPost($id);
 	}
 ?>
-<?php include "header.php"?>
+<?php include "header.php";
+if (isset($_SESSION['id'])) {
+    $idPerson = $_SESSION['id'];
+}else{
+    $idPerson = null;
+}?>
 <?php
     if(isset($_POST['send_comment'])){
       $content = $_POST['comment'];
       $article_id = $id;
-      $user_id = $_SESSION['id'];
+      $user_id = $idPerson;
 
-      $query = "INSERT INTO comments(article_id, user_id, descriptions, datetimee) ";
+      $queryc = "INSERT INTO comments(article_id, user_id, descriptions, datetimee) ";
 
-      $query .= "VALUES({$article_id},{$user_id},'{$content}', now())";
-      $create_post_query = mysqli_query($connection, $query);
+      $queryc .= "VALUES({$article_id},{$user_id},'{$content}', now())";
+      $create_post_query = mysqli_query($connection, $queryc);
       if (!$create_post_query) {
         die("Gabim: " . mysqli_error($connection));
       }
@@ -52,9 +57,9 @@
             <?php echo html_entity_decode($post['content']);?>
             
             <?php
-                if(isset($_SESSION['id'])){
-                    $userid = $_SESSION['id'];
-                    $query = "SELECT * FROM bookmarks WHERE userid=$userid AND article_id=$id;";
+                if(isset($idPerson)){
+                    $userid = $idPerson;
+                    $query = "SELECT * FROM bookmarks WHERE userid={$userid} AND article_id={$id};";
                     $select_query = mysqli_query($connection, $query);
                     if(mysqli_num_rows($select_query) == 0){
                         echo '<button type="button" id="fav" class="btn">Favorite</button>';
@@ -117,18 +122,22 @@
         </div>
         <div>
         <div class="row">
-        <?php getComment($id, $_SESSION['id']) ?>
+        <?php getComment($id, $idPerson) ?>
+        <?php
+        if(isset($idPerson)){
+            echo '
     <div class="col-md-8">
     <div class="media g-mb-30 media-comment">
-            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src=<?php echo isMale($_SESSION['id']);?> alt="Image Description">
+    <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src='; ?> <?php echo isMale($idPerson);?> <?php echo ' alt="Image Description">
             <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
               <div class="g-mb-15">
-                <h5 class="h5 g-color-gray-dark-v1 mb-0"><?php echo getName($_SESSION['id']);?></h5>
+              <h5 class="h5 g-color-gray-dark-v1 mb-0"> ';?> <?php echo getName($idPerson);?><?php echo ' </h5>
               </div>
-              <br>
-              <?php echo "<form action='single.php?p_id={$id}' method='post'>"?>
-              <div class="form-group">
-              <textarea id="comment" class="form-control" name="comment" placeholder="Type comment"> </textarea>
+              <br> ';?>
+              <?php echo "<form action='single.php?p_id={$id}' method='post'>";?>
+              <?php echo
+              ' <div class="form-group">
+              <textarea class="form-control" name="comment" placeholder="Type comment"></textarea>
               </div>
               <ul class="list-inline d-sm-flex my-0">
                 <li class="list-inline-item ml-auto">
@@ -139,7 +148,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>';}?>
         </div>
     </div>
 </div>
@@ -214,7 +223,7 @@
         $("#fav").click(function(){
             if($("#fav").hasClass("btn-success")){
                 var idvar = "<?php echo $id ?>";
-                var iduser = "<?php echo $_SESSION['id'];?>";
+                var iduser = "<?php echo $idPerson;?>";
                 
                 $.ajax({
                      type : "POST",  
@@ -230,7 +239,7 @@
                 $("#fav").removeClass("btn-success");                               
             }else {
                 var idvar = "<?php echo $id ?>";
-                var iduser = "<?php echo $_SESSION['id'];?>";
+                var iduser = "<?php echo $idPerson;?>";
                 $.ajax({
                      type : "POST",  //type ,of method
                      url  : "favorite.php",  //your page

@@ -30,20 +30,24 @@ function getComment($id, $person){
                   $last_name = $row['last_name'];
                   $comment = $row['descriptions']; 
 				  $date = $row['datetimee'];
+				  if(isset($person)){
+					if($person == $user_id){
+						$delete = "
+						<form id='form' action='single.php?p_id={$id}' method='post'>
+						<ul class='list-inline d-sm-flex my-0'>
+						<li class='list-inline-item ml-auto'>
+							<button id='delete_comment' type='submit' name='delete_comment' class='btn btn-primary' value='$comment_id'>Delete</button>
+							</li>
+						  </ul>";
+					  }
+					  else{
+						  $delete = "Empty";
+					  }
+				  }else{
+					$delete = "Empty";
+				  }
 				  
-				  if($person == $user_id){
-					$delete = "
-					<form id='form' action='single.php?p_id={$id}' method='post'>
-					<ul class='list-inline d-sm-flex my-0'>
-					<li class='list-inline-item ml-auto'>
-						<button id='delete_comment' type='submit' name='delete_comment' class='btn btn-primary' value='$comment_id'>Delete</button>
-						</li>
-					  </ul>";
-				  }
-				  else{
-					  $delete = "Empty";
-				  }
-				  $avatar = isMale($person);
+				  $avatar = isMale($user_id);
 				  echo "
 				  <div class='col-md-8'>
                   <div class='media g-mb-30 media-comment'>

@@ -61,9 +61,6 @@
                     }else{
                         echo '<button type="button" id="fav" class="btn btn-success">Favorite</button>';
                     }
-
-                }else{
-                    echo '<button type="button" id="fav" class="btn">Favorite</button>';
                 }
             ?>
             

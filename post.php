@@ -18,16 +18,14 @@
         $foto = "images/$media";
         $media_type = 1;
 
-        if (isset($_SESSION['id'])) {
+        $query1 = "SELECT isadmin  FROM users WHERE id={$user_id} ";
+        $isAdmin = mysqli_query($connection, $query1);
+        if ($isAdmin == '1') {
             $query = "INSERT INTO articles(title, content, category_id ,user_id, published_date, tags, image) ";
 
             $query .= "VALUES('{$title}','{$content}',{$category},{$user_id}, now(),'{$tags}', '{$foto}')";
-            
-            //$query .=
-            //$query2 = "INSERT INTO media(url, media_type, article_id, datetimee) ";
-            //$query2 .= "VALUES('{$media}', '{$media_type}', 
+             
             $create_post_query = mysqli_query($connection, $query);
-            //$saveImage_query = mysqli_query($connection, $query2);
             if (!$create_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {

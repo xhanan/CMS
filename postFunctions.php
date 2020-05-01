@@ -44,7 +44,7 @@ function getComment($id, $person){
 						  $delete = "Empty";
 					  }
 				  }else{
-					$delete = "Empty";
+					$delete = "";
 				  }
 				  
 				  $avatar = isMale($user_id);

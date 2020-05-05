@@ -17,10 +17,15 @@
         $media = esc($_POST['image']);
         $foto = "images/$media";
         $media_type = 1;
+        $adminNumber = 1;
+        $adminNumberRead;
 
-        $query1 = "SELECT isadmin  FROM users WHERE id={$user_id} ";
+        $query1 = "SELECT isadmin  FROM users WHERE id={$user_id}";
         $isAdmin = mysqli_query($connection, $query1);
-        if ($isAdmin == '1') {
+        while ($row = mysqli_fetch_assoc($isAdmin)) {
+            $adminNumberRead = $row['isadmin'];
+        }
+        if ($adminNumberRead == $adminNumber) {
             $query = "INSERT INTO articles(title, content, category_id ,user_id, published_date, tags, image) ";
 
             $query .= "VALUES('{$title}','{$content}',{$category},{$user_id}, now(),'{$tags}', '{$foto}')";

@@ -175,3 +175,63 @@ function pagination()
         echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
     }
 }
+
+function profilePagination($user_id)
+{
+    global $connection;
+    $articleQuery = "SELECT * FROM articles WHERE user_id = {$user_id}";
+    $find_count = mysqli_query($connection, $articleQuery);
+    $count = mysqli_num_rows($find_count);
+    $count = ceil($count / 8);
+
+    for ($i = 1; $i < $count; $i++) {
+
+        echo "<a href='profile.php?bookmarks={$i}' class='btn_pagging'>{$i}</a>";
+    }
+}
+
+function profileArticles($user_id)
+{
+
+    if (isset($_GET['bookmarks'])) {
+        $bookmark = $_GET['bookmarks'];
+    } else {
+        $bookmark = 0;
+    }
+
+    $pagenum = $bookmark * 8;
+
+    global $connection;
+    $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
+        FROM `articles` 
+        LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
+        WHERE `users`.`id` = {$user_id}
+        ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
+
+
+
+
+    $select_all_articles = mysqli_query($connection, $articleQuery);
+    while ($row = mysqli_fetch_assoc($select_all_articles)) {
+        $post_id = $row['id'];
+        $post_title = $row['title'];
+        $post_date = $row['published_date'];
+        $post_fname = $row['first_name'];
+        $post_lname = $row['last_name'];
+        $post_photo = $row['image'];
+
+        echo " <div class='row pb-4'>
+                        <div class='col-md-5'>
+                            <div class='fh5co_hover_news_img'>
+                                <div class='fh5co_news_img'><img src='{$post_photo}' alt=''/></div>
+                            <div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-7'>
+                    <a href='single.php?p_id={$post_id}'class='fh5co_magna py-2' style = 'font-size: 20px'> {$post_title} </a> <br> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
+                        {$post_date} </a>
+                    </div>
+                </div>";
+    }
+}

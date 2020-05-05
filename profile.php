@@ -7,7 +7,7 @@
   <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
   <title>Profile</title>
 </head>
-
+<?php include "indexFunctions.php";?>
 <body class="profile-page">
   <?php include "header.php"; ?>
   <div class="main main-raised">
@@ -20,7 +20,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuKV7IS2_F-xbDj7YdCT55b7wWgMKd_OQ2am0mgG0X_bUYzR-g&usqp=CAU" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <?php
-              include "dbConnection.php";
+              // include "dbConnection.php";
               global $connection;
               $user_id = $_SESSION['id'];
 
@@ -76,49 +76,22 @@
                     <div class="col-md-3 mr-auto">
                     </div>
                   </div>
-                  <?php
-                  $user_id = $_SESSION['id'];
-
-                  $select_users_posts = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
-                                  FROM `articles` 
-                                  LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-                                  LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
-                                  WHERE `users`.`id` = '$user_id'
-                                  ORDER BY `articles`.`id` DESC";
-
-
-                  $select_user_posts_query = mysqli_query($connection, $select_users_posts);
-
-                  while ($rows1 = mysqli_fetch_assoc($select_user_posts_query)) {
-                    $post_id = $rows1['id'];
-                    $post_title = $rows1['title'];
-                    $post_date = $rows1['published_date'];
-                    $post_fname = $rows1['first_name'];
-                    $post_lname = $rows1['last_name'];
-                    $post_photo = $rows1['image'];
-
-                    echo " <div class='row pb-4'>
-              <div class='col-md-5'>
-                  <div class='fh5co_hover_news_img'>
-                      <div class='fh5co_news_img'><img src='{$post_photo}' alt=''/></div>
-                  <div>
-              </div>
-          </div>
-      </div>
-      <div class='col-md-7'>
-          <a href='editPost.php?p_id={$post_id}' class='fh5co_magna py-2' style = 'font-size: 20px'> {$post_title} </a> <br> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
-              {$post_date} </a>
-          </div>
-      </div>";
-                  }
-                  ?>
+                  <?php profileArticles($user_id); ?>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-
+        <div class="row mx-0">
+            <div class="col-12 text-center pb-4 pt-4">
+                <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+                    <?php profilePagination($user_id);?>
+                <a href="#" class="btn_pagging">...</a>
+                <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+             </div>
+        </div>
+    </div>
       </div>
     </div>
   </div>

@@ -59,7 +59,7 @@ if (isset($_SESSION['id'])) {
             <?php
                 if(isset($idPerson)){
                     $userid = $idPerson;
-                    $query = "SELECT * FROM bookmarks WHERE userid={$userid} AND article_id={$id};";
+                    $query = "SELECT * FROM bookmarks WHERE user_id={$userid} AND article_id={$id};";
                     $select_query = mysqli_query($connection, $query);
                     if(mysqli_num_rows($select_query) == 0){
                         echo '<button type="button" id="fav" class="btn">Favorite</button>';

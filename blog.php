@@ -24,7 +24,7 @@
                 </div>
                 <div class="clearfix"></div>
                     <div class="fh5co_tags_all">
-                        <?php include "tags.php"; showCategories();?>
+                        <?php showCategories();?>
                     </div>
 
 

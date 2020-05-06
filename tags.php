@@ -1,4 +1,5 @@
 <?php
+    include "dbConnection.php";
    function showCategories(){
     global $connection;
     $category = "SELECT * FROM category";
@@ -55,4 +56,24 @@
                     </div>";
         }
     }
+
+ function categoryPagination()
+{  
+    if (isset($_GET['cat_id'])) {
+        $cat_id = $_GET['cat_id'];
+    } else {
+        $cat_id = 0;
+    }
+    global $connection;
+    $articleQuery = "SELECT * FROM articles WHERE category_id = $cat_id";
+    $find_count = mysqli_query($connection, $articleQuery);
+    $count = mysqli_num_rows($find_count);
+    $count = ceil($count / 8);
+
+    for ($i = 1; $i < $count; $i++) {
+
+        echo "<a href='categories.php?category={$i}' class='btn_pagging'>{$i}</a>";
+    }
+}
+
 ?>

@@ -48,19 +48,18 @@
                                       <div class='profile-tabs'>
                                         <ul class='nav nav-pills nav-pills-icons justify-content-center' role='tablist'>
                                           <li class='nav-item'>
-                                            <a class='nav-link active' href='#studio' role='tab' data-toggle='tab'>
-                                            <i class='material-icons'>camera</i>
-                                            Studio</a>
+                                            <a class='nav-link active' href='profile.php' role='tab' data-toggle='tab'>
+                                            <i class='material-icons'>bookmarks</i>Bookmarks</a>
                                           </li>
                                         <li class='nav-item'>
-                                          <a class='nav-link' href='#works' role='tab' data-toggle='tab'>
-                                          <i class='material-icons'>palette</i>
-                                          Work</a>
+                                          <a class='nav-link' href='profile.php' role='tab' data-toggle='tab'>
+                                          <i class='material-icons'>comment</i>
+                                          Comments</a>
                                         </li>
                                         <li class='nav-item'>
-                                          <a class='nav-link' href='#favorite' role='tab' data-toggle='tab'>
-                                          <i class='material-icons'>favorite</i>
-                                            Favorite</a>
+                                          <a class='nav-link' href='profile.php' role='tab' data-toggle='tab'>
+                                          <i class='material-icons'>list_alt</i>
+                                            Posts</a>
                                         </li>
                                         </ul>
                                       </div>

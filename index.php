@@ -63,7 +63,7 @@
                     <div class="fh5co_tags_all">
 
                         <!-- Dinamyc Tags -->
-                        <?php include "tags.php"; showCategories();?>
+                        <?php showCategories();?>
 
 
                     </div>

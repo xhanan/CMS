@@ -13,13 +13,17 @@
    }  
    
    function categoriesPosts(){
-        if (isset($_GET['cat_id'])) {
+        if (isset($_GET['cat_id']) ) {
             $cat_id = $_GET['cat_id'];
         } else {
             $cat_id = 0;
         }
-    
-        $pagenum = $cat_id * 8;
+        if (isset($_GET['cat_page']) ) {
+            $cat_page = $_GET['cat_page'];
+            $pagenum = $cat_page * 8;
+        }else{
+            $pagenum = 0;
+        }
     
         global $connection;
         $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
@@ -72,7 +76,7 @@
 
     for ($i = 1; $i < $count; $i++) {
 
-        echo "<a href='categories.php?category={$i}' class='btn_pagging'>{$i}</a>";
+        echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
     }
 }
 

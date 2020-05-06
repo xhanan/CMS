@@ -246,4 +246,4 @@ function showCategories(){
         $cat_id = $row['id'];
         echo "<a href='categories.php?cat_id=$cat_id' class='fh5co_tagg'>{$cat_title}</a>";
     }
-   }  
+}  

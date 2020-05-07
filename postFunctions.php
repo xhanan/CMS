@@ -24,6 +24,7 @@ function getComment($id, $person){
 			$comment_query = mysqli_query($connection, $query1);
 			
             while ($row = mysqli_fetch_assoc($comment_query)) {
+				  global $comment_id;
 				  $comment_id = $row['id'];
 				  $name = $row['first_name'];
 				  $user_id = $row['user_id'];
@@ -35,7 +36,7 @@ function getComment($id, $person){
 						$delete = "
 						<ul class='list-inline d-sm-flex my-0'>
 						<li class='list-inline-item ml-auto'>
-							<button id='delete_comment' type='submit' name='delete_comment' class='btn btn-primary' value='$comment_id'>Delete</button>
+							<button id='delete_comment' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
 							</li>
 						  </ul>";
 					  }

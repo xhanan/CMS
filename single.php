@@ -255,6 +255,7 @@ if (isset($_SESSION['id'])) {
                          },
                      success: function(){
                          console.log("success");
+                         $('#commentDiv').load(document.URL +  ' #commentDiv');
                          }
                 }); 
             });

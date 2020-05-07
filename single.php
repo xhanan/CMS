@@ -245,7 +245,7 @@ if (isset($_SESSION['id'])) {
 <script>
     $(document).ready(function(){
         $("#delete_comment").click(function(){
-                var comment = $comment_id;
+                var comment ="<?php echo $comment_id; ?>";
                 
                 $.ajax({
                      type : "POST",  

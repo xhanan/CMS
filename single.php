@@ -78,7 +78,7 @@ if (isset($_SESSION['id'])) {
                 <div class="clearfix"></div>
                 <div class="fh5co_tags_all">
                     <!-- Dinamyc Tags -->
-                    <?php include "tags.php"; showCategories();?>
+                    <?php showCategories();?>
 
                 </div>
                 <div>

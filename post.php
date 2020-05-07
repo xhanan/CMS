@@ -20,6 +20,11 @@
         $adminNumber = 1;
         $adminNumberRead;
 
+        $query2 = "SELECT max(id) as postid FROM articles";
+        $query2result = mysqli_query($connection, $query2);
+        while ($row = mysqli_fetch_assoc($query2result)) {
+            $post_id= $row['postid'] + 1;
+        }
         $query1 = "SELECT isadmin  FROM users WHERE id={$user_id}";
         $isAdmin = mysqli_query($connection, $query1);
         while ($row = mysqli_fetch_assoc($isAdmin)) {
@@ -34,7 +39,8 @@
             if (!$create_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
-                echo "<script> window.alert(\"Postimi eshte ruajtur me sukses.\"); </script>";
+                echo "<script> window.alert(\"Postimi eshte bere me sukses.\"); </script>";
+               echo "<script type=\"text/javascript\">location.href = 'single.php?p_id={$post_id}';</script>";
             }
         } else {
             echo "<script> window.alert(\"Nuk eshte i kycur ndonje admin.\"); </script>";
@@ -84,7 +90,7 @@
                                 <textarea id="content" class="form-control" name="content" placeholder="Permbajtja">
                     </textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="create_post">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="create_post" onclick>Submit</button>
                         </form>
                     </div>
                 </div>

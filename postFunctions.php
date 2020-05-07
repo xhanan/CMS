@@ -33,7 +33,6 @@ function getComment($id, $person){
 				  if(isset($person)){
 					if($person == $user_id){
 						$delete = "
-						<form id='form' action='single.php?p_id={$id}' method='post'>
 						<ul class='list-inline d-sm-flex my-0'>
 						<li class='list-inline-item ml-auto'>
 							<button id='delete_comment' type='submit' name='delete_comment' class='btn btn-primary' value='$comment_id'>Delete</button>

@@ -30,16 +30,6 @@ if (isset($_SESSION['id'])) {
         die("Gabim: " . mysqli_error($connection));
       }
     }
-    if(isset($_POST['delete_comment'])){
-        $koment_id = $_POST['delete_comment'];
-  
-        $deleteComment_query = "DELETE FROM comments WHERE id=$koment_id ";
-  
-        $queryy = mysqli_query($connection, $deleteComment_query);
-        if (!$deleteComment_query) {
-          die("Gabim: " . mysqli_error($connection));
-        }
-      }
 ?>
 <div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -123,7 +113,7 @@ if (isset($_SESSION['id'])) {
         </div>
         <div>
         <div class="row">
-        <?php getComment($id, $idPerson) ?>
+        <?php $comment_id; getComment($id, $idPerson)?>
         <?php
         if(isset($idPerson)){
             echo '
@@ -251,6 +241,24 @@ if (isset($_SESSION['id'])) {
                 }   
             }); 
         });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#delete_comment").click(function(){
+                var comment = $comment_id;
+                
+                $.ajax({
+                     type : "POST",  
+                     url  : "comments.php", 
+                     data : { 
+                         deleteid : comment 
+                         },
+                     success: function(){
+                         console.log("success");
+                         }
+                }); 
+            });
+        }); 
 </script>
 </body>
 </php>

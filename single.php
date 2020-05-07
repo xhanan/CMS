@@ -78,7 +78,8 @@ if (isset($_SESSION['id'])) {
                 <div class="clearfix"></div>
                 <div class="fh5co_tags_all">
                     <!-- Dinamyc Tags -->
-                    <?php include "tags.php"?>
+                    <?php showCategories();?>
+
                 </div>
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>

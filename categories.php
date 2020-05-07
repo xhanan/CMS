@@ -3,7 +3,7 @@
 
 <body>
 <?php include "header.php"?>
-<?php include "indexFunctions.php"?>
+<?php include "tags.php";?>
 
 <!-- ----------------------BODY------------------ -->
 <div class="container-fluid pb-4 pt-4 paddding">
@@ -13,7 +13,7 @@
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                 </div>
-                <?php news();?>
+                <?php categoriesPosts();?>
             </div>
                    
             
@@ -46,7 +46,7 @@
         <div class="row mx-0">
             <div class="col-12 text-center pb-4 pt-4">
                 <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-                    <?php pagination();?>
+                    <?php categoryPagination();?>
                 <a href="#" class="btn_pagging">...</a>
                 <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
              </div>

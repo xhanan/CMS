@@ -36,7 +36,7 @@ function getComment($id, $person){
 						$delete = "
 						<ul class='list-inline d-sm-flex my-0'>
 						<li class='list-inline-item ml-auto'>
-							<button id='delete_comment' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
+							<button id='delete_button' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
 							</li>
 						  </ul>";
 					  }
@@ -49,7 +49,7 @@ function getComment($id, $person){
 				  
 				  $avatar = isMale($user_id);
 				  echo "
-				  <div id='commentDiv' class='col-md-8'>
+				  <div class='col-md-8'>
                   <div class='media g-mb-30 media-comment'>
                       <img class='d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15' src=$avatar alt='Image Description'>
                       <div class='media-body u-shadow-v18 g-bg-secondary g-pa-30'>

@@ -8,7 +8,8 @@
 	if (isset($_GET['p_id'])) {
         $id = esc($_GET['p_id']);
 	    $post = getPost($id);
-	}
+    }
+    $comment_id; 
 ?>
 <?php include "header.php";
 if (isset($_SESSION['id'])) {
@@ -17,19 +18,19 @@ if (isset($_SESSION['id'])) {
     $idPerson = null;
 }?>
 <?php
-    if(isset($_POST['send_comment'])){
-      $content = $_POST['comment'];
-      $article_id = $id;
-      $user_id = $idPerson;
+    // if(isset($_POST['send_comment'])){
+    //   $content = $_POST['comment'];
+    //   $article_id = $id;
+    //   $user_id = $idPerson;
 
-      $queryc = "INSERT INTO comments(article_id, user_id, descriptions, datetimee) ";
+    //   $queryc = "INSERT INTO comments(article_id, user_id, descriptions, datetimee) ";
 
-      $queryc .= "VALUES({$article_id},{$user_id},'{$content}', now())";
-      $create_post_query = mysqli_query($connection, $queryc);
-      if (!$create_post_query) {
-        die("Gabim: " . mysqli_error($connection));
-      }
-    }
+    //   $queryc .= "VALUES({$article_id},{$user_id},'{$content}', now())";
+    //   $create_post_query = mysqli_query($connection, $queryc);
+    //   if (!$create_post_query) {
+    //     die("Gabim: " . mysqli_error($connection));
+    //   }
+    // }
 ?>
 <div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -112,8 +113,8 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
         <div>
-        <div class="row">
-        <?php $comment_id; getComment($id, $idPerson)?>
+        <div id = "commentDiv" class="row">
+        <?php getComment($id, $idPerson)?>
         <?php
         if(isset($idPerson)){
             echo '
@@ -125,17 +126,16 @@ if (isset($_SESSION['id'])) {
               <h5 class="h5 g-color-gray-dark-v1 mb-0"> ';?> <?php echo getName($idPerson);?><?php echo ' </h5>
               </div>
               <br> ';?>
-              <?php echo "<form action='single.php?p_id={$id}' method='post'>";?>
+              <?php //echo "<form action='single.php?p_id={$id}' method='post'>";?>
               <?php echo
-              ' <div class="form-group">
-              <textarea class="form-control" name="comment" placeholder="Type comment"></textarea>
+              '<div class="form-group">
+              <textarea id="permbajtja" class="form-control" placeholder="Type comment"></textarea>
               </div>
               <ul class="list-inline d-sm-flex my-0">
                 <li class="list-inline-item ml-auto">
-                    <button type="submit" name="send_comment" class="btn btn-primary">Comment</button>
+                    <button id="createComment" type="submit" name="send_comment" class="btn btn-primary">Comment</button>
                 </li>
               </ul>
-              </form>
             </div>
         </div>
     </div>
@@ -244,9 +244,8 @@ if (isset($_SESSION['id'])) {
 </script>
 <script>
     $(document).ready(function(){
-        $("#delete_comment").click(function(){
-                var comment ="<?php echo $comment_id; ?>";
-                
+        $("#delete_button").click(function(){
+                var comment ="<?php echo $comment_id;?>";
                 $.ajax({
                      type : "POST",  
                      url  : "comments.php", 
@@ -259,7 +258,31 @@ if (isset($_SESSION['id'])) {
                          }
                 }); 
             });
-        }); 
+        });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#createComment").click(function(){
+                var commentContent = $("#permbajtja").val();
+                var id_article = "<?php echo $id;?>";
+                var iduser = "<?php echo $idPerson;?>";
+                
+                $.ajax({
+                     type : "POST",  
+                     url  : "comments.php", 
+                     data : { 
+                         contenti : commentContent,
+                         article_id : id_article,
+                         user_id : iduser
+                         },
+                     success: function(){
+                         console.log("success");
+                         var commentContent =$("#permbajtja").val('');
+                         $('#commentDiv').load(document.URL +  ' #commentDiv');
+                         }
+                }); 
+            });
+        });
 </script>
 </body>
 </php>

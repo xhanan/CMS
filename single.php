@@ -19,21 +19,6 @@
         } else {
             $idPerson = null;
         } ?>
-        <?php
-        // if(isset($_POST['send_comment'])){
-        //   $content = $_POST['comment'];
-        //   $article_id = $id;
-        //   $user_id = $idPerson;
-
-        //   $queryc = "INSERT INTO comments(article_id, user_id, descriptions, datetimee) ";
-
-        //   $queryc .= "VALUES({$article_id},{$user_id},'{$content}', now())";
-        //   $create_post_query = mysqli_query($connection, $queryc);
-        //   if (!$create_post_query) {
-        //     die("Gabim: " . mysqli_error($connection));
-        //   }
-        // }
-        ?>
         <div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="page-title">

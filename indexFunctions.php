@@ -247,3 +247,30 @@ function showCategories(){
         echo "<a href='categories.php?cat_id=$cat_id' class='fh5co_tagg'>{$cat_title}</a>";
     }
 }  
+
+function most_viewed_posts(){
+
+    global $connection;
+    $most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image` 
+    FROM `articles` 
+    ORDER BY post_views DESC LIMIT 5";
+    
+    $execute_query = mysqli_query($connection,$most_viewed_posts_query);
+
+    while($rows = mysqli_fetch_assoc($execute_query)){
+        $id = $rows['id'];
+        $title = $rows['title'];
+        $date = $rows['published_date'];
+        $img = $rows['image'];
+
+        echo "<div class='row pb-3'>
+        <div class='col-5 align-self-center'>
+            <img src='{$img}' alt='img' class='fh5co_most_trading' />
+        </div>
+        <div class='col-7 paddding'>
+            <div class='most_fh5co_treding_font'><a href = 'single.php/p_id = {$id}'>{$title}</a> </div>
+            <div class='most_fh5co_treding_font_123'> {$date} </div>
+        </div>
+    </div>";
+    }
+}

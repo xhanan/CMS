@@ -236,28 +236,30 @@ function profileArticles($user_id)
     }
 }
 
-function showCategories(){
+function showCategories()
+{
     global $connection;
     $category = "SELECT * FROM category";
-    $select_all_category_qyert = mysqli_query($connection,$category);
+    $select_all_category_qyert = mysqli_query($connection, $category);
 
-    while($row = mysqli_fetch_assoc($select_all_category_qyert)){
+    while ($row = mysqli_fetch_assoc($select_all_category_qyert)) {
         $cat_title = $row['category_name'];
         $cat_id = $row['id'];
         echo "<a href='categories.php?cat_id=$cat_id' class='fh5co_tagg'>{$cat_title}</a>";
     }
-}  
+}
 
-function most_viewed_posts(){
+function most_viewed_posts()
+{
 
     global $connection;
     $most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image` 
     FROM `articles` 
     ORDER BY post_views DESC LIMIT 5";
-    
-    $execute_query = mysqli_query($connection,$most_viewed_posts_query);
 
-    while($rows = mysqli_fetch_assoc($execute_query)){
+    $execute_query = mysqli_query($connection, $most_viewed_posts_query);
+
+    while ($rows = mysqli_fetch_assoc($execute_query)) {
         $id = $rows['id'];
         $title = $rows['title'];
         $date = $rows['published_date'];

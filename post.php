@@ -39,11 +39,11 @@
             if (!$create_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
-                echo "<script> window.alert(\"Postimi eshte bere me sukses.\"); </script>";
+                echo "<script> alert(\"Postimi eshte bere me sukses.\"); </script>";
                echo "<script type=\"text/javascript\">location.href = 'single.php?p_id={$post_id}';</script>";
             }
         } else {
-            echo "<script> window.alert(\"Nuk eshte i kycur ndonje admin.\"); </script>";
+            echo "<script> alert(\"Nuk eshte i kycur ndonje admin.\"); </script>";
         }
     }
     ?>

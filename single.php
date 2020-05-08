@@ -12,6 +12,7 @@
             cout_page_views($id);
         }
         $comment_id;
+        $komentet = array();
         ?>
         <?php include "header.php";
         if (isset($_SESSION['id'])) {
@@ -65,8 +66,8 @@
                         <?php most_viewed_posts(); ?>
                     </div>
                 </div>
-                <div>
-                    <div id="commentDiv" class="row">
+                <div id="commentDiv">
+                    <div class="row">
                         <?php getComment($id, $idPerson) ?>
                         <?php
                         if (isset($idPerson)) {
@@ -202,23 +203,25 @@
                     });
                 });
             </script>
+            
             <script>
-                $(document).ready(function() {
-                    $("#delete_button").click(function() {
-                        var comment = "<?php echo $comment_id; ?>";
-                        $.ajax({
-                            type: "POST",
-                            url: "comments.php",
-                            data: {
-                                deleteid: comment
+            $(document).ready(function() {
+                $('#delete_button').click(function() {
+                    var comment = "<?php echo $comment_id;?>";
+                    $.ajax({
+                    type: 'POST',
+                        url: 'comments.php',
+                        data: {
+                            deleteid: comment
                             },
-                            success: function() {
-                                console.log("success");
-                                $('#commentDiv').load(document.URL + ' #commentDiv');
-                            }
+                        success: function() {
+                            console.log('success');
+                            $('#commentDiv').load(document.URL + ' #commentDiv');
+                        }
                         });
                     });
-                });
+                
+            });
             </script>
             <script>
                 $(document).ready(function() {

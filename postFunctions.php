@@ -24,7 +24,7 @@ function getComment($id, $person)
 				   FROM `comments` 
                         INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE `comments`.`article_id`={$id}";
 	$comment_query = mysqli_query($connection, $query1);
-
+	global $komentet;
 	while ($row = mysqli_fetch_assoc($comment_query)) {
 		global $comment_id;
 		$comment_id = $row['id'];
@@ -38,15 +38,18 @@ function getComment($id, $person)
 				$delete = "
 						<ul class='list-inline d-sm-flex my-0'>
 						<li class='list-inline-item ml-auto'>
-							<button id='delete_button' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
+							<button id='delete_button$comment_id' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
 							</li>
 						  </ul>";
+						  array_push($komentet, $comment_id);
 			} else {
 				$delete = "Empty";
 			}
 		} else {
 			$delete = "";
 		}
+
+		
 
 		$avatar = isMale($user_id);
 		echo "

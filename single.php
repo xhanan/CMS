@@ -7,7 +7,8 @@
 <?php 
 	if (isset($_GET['p_id'])) {
         $id = esc($_GET['p_id']);
-	    $post = getPost($id);
+        $post = getPost($id);
+        cout_page_views($id);
     }
     $comment_id; 
 ?>

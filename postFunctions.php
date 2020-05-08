@@ -132,4 +132,13 @@ function showCategories(){
         echo "<a href='categories.php?cat_id=$cat_id' class='fh5co_tagg'>{$cat_title}</a>";
     }
 } 
+
+function cout_page_views($id){
+	global $connection;
+	$countingQuery = "UPDATE articles SET post_views = post_views + 1 WHERE id = {$id}";
+	$execute_query = mysqli_query($connection,$countingQuery);
+	if(!$execute_query){
+		die("Query failed");
+	}
+}
 ?>

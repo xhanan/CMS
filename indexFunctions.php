@@ -268,7 +268,7 @@ function most_viewed_posts(){
             <img src='{$img}' alt='img' class='fh5co_most_trading' />
         </div>
         <div class='col-7 paddding'>
-            <div class='most_fh5co_treding_font'><a href = 'single.php/p_id = {$id}'>{$title}</a> </div>
+            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
             <div class='most_fh5co_treding_font_123'> {$date} </div>
         </div>
     </div>";

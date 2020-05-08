@@ -42,13 +42,24 @@
             </div>
             <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
                 <div class="footer_main_title py-3"> Most Viewed Posts</div>
-                <div class="footer_makes_sub_font"> Dec 31, 2016</div>
-                <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
-                <div class="footer_makes_sub_font"> Dec 31, 2016</div>
-                <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
-                <div class="footer_makes_sub_font"> Dec 31, 2016</div>
-                <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
-                <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
+                <?php 
+                    global $connection;
+                    $most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image` 
+                    FROM `articles` 
+                    ORDER BY post_views DESC LIMIT 4";
+
+                    $execute_query = mysqli_query($connection, $most_viewed_posts_query);
+
+                    while ($rows = mysqli_fetch_assoc($execute_query)) {
+                        $id = $rows['id'];
+                        $title = $rows['title'];
+                        $date = $rows['published_date'];
+
+                        echo "<div class='footer_makes_sub_font'> {$date}</div>
+                        <a href='single.php?p_id={$id}' class='footer_post pb-4'>{$title}</a>";                
+                    }
+                ?>
+                <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div> -->
             </div>
             <div class="col-12 col-md-12 col-lg-4 ">
                 <div class="footer_main_title py-3"> Last Modified Posts</div>

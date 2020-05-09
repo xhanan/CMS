@@ -83,18 +83,18 @@
                             <?php //echo "<form action='single.php?p_id={$id}' method='post'>";
                             ?>
                         <?php echo
-                                '<div class="form-group">
-              <textarea id="permbajtja" class="form-control" placeholder="Type comment"></textarea>
+                                "<div class='form-group'>
+              <textarea id='permbajtja' class='form-control' placeholder='Type comment'></textarea>
               </div>
-              <ul class="list-inline d-sm-flex my-0">
-                <li class="list-inline-item ml-auto">
-                    <button id="createComment" type="submit" name="send_comment" class="btn btn-primary">Comment</button>
+              <ul class='list-inline d-sm-flex my-0'>
+                <li class='list-inline-item ml-auto'>
+                    <button onclick='create_();' type='submit' name='send_comment' class='btn btn-primary'>Comment</button>
                 </li>
               </ul>
             </div>
         </div>
     </div>
-    </div>';
+    </div>";
                         } ?>
                     </div>
                 </div>
@@ -203,49 +203,34 @@
                     });
                 });
             </script>
-            
-            <script>
-            $(document).ready(function() {
-                $('#delete_button').click(function() {
-                    var comment = "<?php echo $comment_id;?>";
-                    $.ajax({
-                    type: 'POST',
-                        url: 'comments.php',
-                        data: {
-                            deleteid: comment
-                            },
-                        success: function() {
-                            console.log('success');
-                            $('#commentDiv').load(document.URL + ' #commentDiv');
-                        }
-                        });
-                    });
-                
+            <script type="text/javascript">
+            function delete_(cid){
+            $.ajax({
+                 type: "POST",
+                 url: "comments.php",
+                 data: "deleteid="+cid,
+                success: function(){
+                 $("#comment-"+cid).remove();
+                 }
             });
+            }
             </script>
-            <script>
-                $(document).ready(function() {
-                    $("#createComment").click(function() {
-                        var commentContent = $("#permbajtja").val();
-                        var id_article = "<?php echo $id; ?>";
-                        var iduser = "<?php echo $idPerson; ?>";
-
-                        $.ajax({
-                            type: "POST",
-                            url: "comments.php",
-                            data: {
-                                contenti: commentContent,
-                                article_id: id_article,
-                                user_id: iduser
-                            },
-                            success: function() {
-                                console.log("success");
-                                var commentContent = $("#permbajtja").val('');
-                                $('#commentDiv').load(document.URL + ' #commentDiv');
-                            }
-                        });
-                    });
-                });
+            <script type="text/javascript">
+            function create_(){
+                var commentContent = $("#permbajtja").val();
+                var id_article = <?php echo $id; ?>;
+                var iduser = <?php echo $idPerson; ?>;
+            $.ajax({
+                 type: "POST",
+                 url: "comments.php",
+                 data: {contenti: commentContent, article_id: id_article, user_id: iduser},
+                success: function(){
+                    console.log("success");
+                    var commentContent = $("#permbajtja").val('');
+                    $('#commentDiv').load(document.URL + ' #commentDiv');
+                 }
+            });
+            }
             </script>
     </body>
 </php>

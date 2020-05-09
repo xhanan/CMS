@@ -8,9 +8,8 @@
             <div class="clearfix"></div>
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="footer_main_title py-3"> About</div>
-                <div class="footer_sub_about pb-3"> Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                <div class="footer_sub_about pb-3"> Jemi nje website i cili ju sjell juve me te rejat nga teknologjia boterore dhe te trendeve me te medha. Ne ju njoftojme me 
+                reviews te keyre tekonlogjive dhe te dhenat te cilat do ju duhen juve parase te ndermerni nje hap.
                 </div>
                 <div class="footer_mediya_icon">
                     <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">

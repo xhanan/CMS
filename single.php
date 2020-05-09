@@ -11,8 +11,6 @@
             $post = getPost($id);
             cout_page_views($id);
         }
-        $comment_id;
-        $komentet = array();
         ?>
         <?php include "header.php";
         if (isset($_SESSION['id'])) {
@@ -88,7 +86,7 @@
               </div>
               <ul class='list-inline d-sm-flex my-0'>
                 <li class='list-inline-item ml-auto'>
-                    <button onclick='create_();' type='submit' name='send_comment' class='btn btn-primary'>Comment</button>
+                    <button onclick='create_($id);' type='submit' name='send_comment' class='btn btn-primary'>Comment</button>
                 </li>
               </ul>
             </div>
@@ -216,14 +214,13 @@
             }
             </script>
             <script type="text/javascript">
-            function create_(){
+            function create_(id){
                 var commentContent = $("#permbajtja").val();
-                var id_article = <?php echo $id; ?>;
                 var iduser = <?php echo $idPerson; ?>;
             $.ajax({
                  type: "POST",
                  url: "comments.php",
-                 data: {contenti: commentContent, article_id: id_article, user_id: iduser},
+                 data: "contenti="+ commentContent+"&article_id="+id+"&user_id="+iduser,
                 success: function(){
                     console.log("success");
                     var commentContent = $("#permbajtja").val('');

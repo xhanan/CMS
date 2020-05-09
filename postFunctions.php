@@ -24,9 +24,7 @@ function getComment($id, $person)
 				   FROM `comments` 
                         INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE `comments`.`article_id`={$id}";
 	$comment_query = mysqli_query($connection, $query1);
-	global $komentet;
 	while ($row = mysqli_fetch_assoc($comment_query)) {
-		global $comment_id;
 		$comment_id = $row['id'];
 		$name = $row['first_name'];
 		$user_id = $row['user_id'];
@@ -42,7 +40,7 @@ function getComment($id, $person)
 							</li>
 						  </ul>";
 			} else {
-				$delete = "Empty";
+				$delete = "";
 			}
 		} else {
 			$delete = "";

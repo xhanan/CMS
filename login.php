@@ -358,7 +358,7 @@ if (isset($_POST['loginsubmit'])) {
                     echo $print_message;
                 }
                 ?>
-                <a href="#">Forgot your password?</a>
+                <a href="forgotpassword.php">Forgot your password?</a>
                 <button type="submit" name="loginsubmit" value="LoginSubmit">Sign In</button>
             </form>
         </div>

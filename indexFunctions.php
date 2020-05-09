@@ -202,7 +202,7 @@ function profileArticles($user_id)
     $pagenum = $bookmark * 8;
 
     global $connection;
-    $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
+    $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`users`.`isadmin`,`articles`.`published_date`,`articles`.`image` 
         FROM `articles` 
         LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
         WHERE `users`.`id` = {$user_id}
@@ -219,6 +219,7 @@ function profileArticles($user_id)
         $post_fname = $row['first_name'];
         $post_lname = $row['last_name'];
         $post_photo = $row['image'];
+        $admin = $row['isadmin'];
 
         echo " <div class='row pb-4'>
                         <div class='col-md-5'>
@@ -231,7 +232,8 @@ function profileArticles($user_id)
                 <div class='col-md-7'>
                     <a href='single.php?p_id={$post_id}'class='fh5co_magna py-2' style = 'font-size: 20px'> {$post_title} </a> <br> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
                         {$post_date} </a>
-                    </div>
+                        <br> "; if(isset($admin)){ echo "<input class='btn btn-primary' type='button' onclick='location.href=\"editPost.php?p_id={$post_id}\";' value='Edit Post' />";}
+                    echo "</div>
                 </div>";
     }
 }

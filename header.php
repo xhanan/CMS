@@ -121,19 +121,14 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
-
-                        <li class="nav-item ">
-                            <a class="nav-link" href="blog.php">Blog <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.php?category_id=2">Tech <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="single.php">Single <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.php?category_id=3">Coding <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                <a class="dropdown-item" href="#">Action in</a>
-                                <a class="dropdown-item" href="#">Something else</a>
-                            </div>
+                            <a class="nav-link" href="blog.php?category_id=4" >Gaming <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="Contact_us.php">Contact <span class="sr-only">(current)</span></a>

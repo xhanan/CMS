@@ -17,7 +17,7 @@
         $fotoja = "images/$media";
         if (isset($_SESSION['id'])) {
             $query = "UPDATE articles SET title='{$title}',content='{$content}',
-            category_id={$category},user_id={$user},tags='{$tags}', image='{$fotoja}' WHERE id={$id}";
+            category_id={$category},user_id={$user},tags='{$tags}', image='{$fotoja}', edit_date=now() WHERE id={$id}";
             
             $update_post_query = mysqli_query($connection, $query);
             if (!$update_post_query) {

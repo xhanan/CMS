@@ -26,7 +26,7 @@
             header("Location: forgotpassword.php?requestexpired=".$request);
         }
     
-        $validator=hex2bin($validator);
+        $validator = hex2bin($validator);
         $isvalid = password_verify($validator,$row['pwdResetToken']);
         if(!$isvalid){
             die("Your request is FALSE! You need to resubmit your request.");
@@ -55,15 +55,6 @@
         
             mysqli_stmt_bind_param($stmt, "ss", $newpassword, $email);
             mysqli_stmt_execute($stmt);
-
-            $sql = "DELETE FROM pwdreset WHERE email=?";
-            $stmt = mysqli_stmt_init($connection);
-            if(!mysqli_stmt_prepare($stmt, $sql)){
-                die("Can't delete the request from database!");
-            }            
-            mysqli_stmt_bind_param($stmt, "s", $email);
-            mysqli_stmt_execute($stmt);
-    
 
             $sql = "SELECT * FROM users WHERE email=?";
             $stmt = mysqli_stmt_init($connection);

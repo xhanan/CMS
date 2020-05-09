@@ -35,7 +35,7 @@
                             while($row = mysqli_fetch_assoc($select_categories )) {
                                 $cat_id = $row['id'];
                                 $cat_name = $row['category_name'];
-                                echo "<ul class='footer_menu'><li><a href='#' class=''><i class='fa fa-angle-right'></i>&nbsp;&nbsp; $cat_name</a></li></ul>";
+                                echo "<ul class='footer_menu'><li><a href='categories.php?cat_id=$cat_id' class=''><i class='fa fa-angle-right'></i>&nbsp;&nbsp; $cat_name</a></li></ul>";
                             } ?>
             </div>
             <div class="col-12 col-md-5 col-lg-3 position_footer_relative">

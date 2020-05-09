@@ -12,9 +12,9 @@ if (isset($_POST['contact_send'])) {
     $name_to = $_POST['contact_name'];
     $subject = $_POST['contact_subject'];
     $message = $_POST['contact_message'];
-    $adminEmail = "treshedyshe@gmail.com";
-    $adminName = "Beli";
-
+    $adminEmails = array("treshedyshe@gmail.com", "rrustemhyseni14@gmail.com", "xhanan.shehu4@gmail.com");
+    $adminNames = array("Beli", "Xhani", "Rrusta");
+    $gjatesia = count($adminEmails);
     //Query for savind the submited message in database
     $query = "INSERT INTO contact_us(email, name, subject, message, date_received) ";
     $query .= "VALUES('{$email_to}','{$name_to}','{$subject}','{$message}', now())";
@@ -34,19 +34,15 @@ if (isset($_POST['contact_send'])) {
     $mailAdmin->Username = $my_email; // GMAIL username
     $mailAdmin->Password = $my_password; // GMAIL password
 
-    // Typical mail data
-    $mailAdmin->AddAddress($adminEmail, $adminName);
-    $mailAdmin->SetFrom($my_email, $my_name);
-    $mailAdmin->Subject = "Client message";
-    $mailAdmin->Body = "A client sent us this message: \n\nSubject: \n\n". $subject ."\n\nMessage: \n". $message;
-
-    try {
+    for($i=0; $i<$gjatesia; $i++){
+        // Typical mail data
+        $mailAdmin->AddAddress($adminEmails[$i], $adminNames[$i]);
+        $mailAdmin->SetFrom($my_email, $my_name);
+        $mailAdmin->Subject = "Client message";
+        $mailAdmin->Body = $name_to . " sent us this message: \n\nSubject: \n\n". $subject ."\n\nMessage: \n". $message . "\n\n\nEmail: ". $email_to;
         $mailAdmin->Send();
-        echo "Success!";
-    } catch (Exception $e) {
-        // Something went bad
-        die("Error");
     }
+    
     $mailAdmin->smtpClose();
 
 
@@ -86,7 +82,7 @@ if (isset($_POST['contact_send'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>24 News — Free Website Template, Free HTML5 Template by FreeHTML5.co</title>
+    <title>BrainByte</title>
     <link href="css/media_query.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">

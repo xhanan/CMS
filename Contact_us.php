@@ -1,5 +1,5 @@
+<?php include "dbConnection";?>
 <?php
-
 if (isset($_POST['contact_send'])) {
     require 'phpmailer/class.phpmailer.php';
     require 'phpmailer/class.smtp.php';
@@ -140,7 +140,7 @@ if (isset($_POST['contact_send'])) {
                     </form>
                 </div>
                 <div class="col-12 col-md-6 align-self-center">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3168.639290621062!2d-122.08624618469247!3d37.421999879825215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sbe!4v1514861541665" class="map_sss" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13615.008269018117!2d21.167136203817964!3d42.66303054679151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1589063128415!5m2!1sen!2s" class='map_sss' allowfullscreen></iframe>
                 </div>
             </div>
         </div>

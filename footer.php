@@ -57,7 +57,7 @@
                         <a href='single.php?p_id={$id}' class='footer_post pb-4'>{$title}</a>";                
                     }
                 ?>
-                <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div> -->
+                <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 ">
                 <div class="footer_main_title py-3"> Last Modified Posts</div>
@@ -72,6 +72,7 @@
                 <a href="#" class="footer_img_post_6"><img src="images/ryan-moreno-98837.jpg" alt="img"/></a>
             </div>
         </div>
+        <br>
     </div>
 </div>
 <div class="container-fluid fh5co_footer_right_reserved">

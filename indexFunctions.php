@@ -231,6 +231,7 @@ function profileArticles($user_id)
                 <div class='col-md-7'>
                     <a href='single.php?p_id={$post_id}'class='fh5co_magna py-2' style = 'font-size: 20px'> {$post_title} </a> <br> <a href='#' class='fh5co_mini_time py-3'> {$post_fname} {$post_lname} -
                         {$post_date} </a>
+                        <br> <input class='btn btn-primary' type='button' onclick='location.href=\"editPost.php?p_id={$post_id}\";' value='Edit Post' />
                     </div>
                 </div>";
     }

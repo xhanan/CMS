@@ -1,17 +1,54 @@
-<?php include "dbConnection";?>
+<?php include "dbConnection.php";?>
 <?php
 if (isset($_POST['contact_send'])) {
     require 'phpmailer/class.phpmailer.php';
     require 'phpmailer/class.smtp.php';
     require 'phpmailer/PHPMailerAutoLoad.php';
-    $my_email = "braynbyte@gmail.com";
-    $my_password = "!1braynbyte";
-    $my_name = "Braynbyte";
+    $my_email = "brainbyteinfo@gmail.com";
+    $my_password = "xhanibelirrusta";
+    $my_name = "Brainbyte";
 
     $email_to = $_POST['contact_email'];
     $name_to = $_POST['contact_name'];
     $subject = $_POST['contact_subject'];
     $message = $_POST['contact_message'];
+    $adminEmail = "treshedyshe@gmail.com";
+    $adminName = "Beli";
+
+    //Query for savind the submited message in database
+    $query = "INSERT INTO contact_us(email, name, subject, message, date_received) ";
+    $query .= "VALUES('{$email_to}','{$name_to}','{$subject}','{$message}', now())";
+     
+    $contact_us_query = mysqli_query($connection, $query);
+    if (!$contact_us_query) {
+        die("Gabim: " . mysqli_error($connection));
+    }
+
+    $mailAdmin = new PHPMailer();
+
+    $mailAdmin->IsSMTP(); // telling the class to use SMTP
+    $mailAdmin->SMTPAuth = true; // enable SMTP authentication
+    $mailAdmin->SMTPSecure = "ssl"; // sets the prefix to the servier
+    $mailAdmin->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+    $mailAdmin->Port = 465; // set the SMTP port for the GMAIL server
+    $mailAdmin->Username = $my_email; // GMAIL username
+    $mailAdmin->Password = $my_password; // GMAIL password
+
+    // Typical mail data
+    $mailAdmin->AddAddress($adminEmail, $adminName);
+    $mailAdmin->SetFrom($my_email, $my_name);
+    $mailAdmin->Subject = "Client message";
+    $mailAdmin->Body = "A client sent us this message: \n\nSubject: \n\n". $subject ."\n\nMessage: \n". $message;
+
+    try {
+        $mailAdmin->Send();
+        echo "Success!";
+    } catch (Exception $e) {
+        // Something went bad
+        die("Error");
+    }
+    $mailAdmin->smtpClose();
+
 
     $mail = new PHPMailer();
 
@@ -65,14 +102,7 @@ if (isset($_POST['contact_send'])) {
 
 <body>
     <?php include "header.php" ?>
-    <div class="container-fluid contact_us_bg_img">
-        <div class="container">
-            <div class="row">
-                <a href="#" class="fh5co_con_123"><i class="fa fa-home"></i></a>
-                <a href="#" class="fh5co_con pt-2"> Contact Us </a>
-            </div>
-        </div>
-    </div>
+    
     <div class="container-fluid  fh5co_fh5co_bg_contcat">
         <div class="container">
             <div class="row py-4">
@@ -95,7 +125,7 @@ if (isset($_POST['contact_send'])) {
                         </div>
                         <div class="col-9 align-self-center fh5co_contact_us_no_icon_difh5co_hover_2">
                             <span class="c_g d-block">Have any questions?</span>
-                            <span class="d-block c_g fh5co_contact_us_no_text">braynbyte@gmail.com</span>
+                            <span class="d-block c_g fh5co_contact_us_no_text">braynbyteinfo@gmail.com</span>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -107,7 +137,7 @@ if (isset($_POST['contact_send'])) {
                         </div>
                         <div class="col-9 align-self-center fh5co_contact_us_no_icon_difh5co_hover_2">
                             <span class="c_g d-block">Address</span>
-                            <span class="d-block c_g fh5co_contact_us_no_text"> 123 Some Street USA</span>
+                            <span class="d-block c_g fh5co_contact_us_no_text">FIEK, Rruga Agim Ramadani</span>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -140,7 +170,7 @@ if (isset($_POST['contact_send'])) {
                     </form>
                 </div>
                 <div class="col-12 col-md-6 align-self-center">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13615.008269018117!2d21.167136203817964!3d42.66303054679151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1589063128415!5m2!1sen!2s" class='map_sss' allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13615.008269018117!2d21.167136203817964!3d42.66303054679151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1589063128415!5m2!1sen!2s" class="map_sss" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

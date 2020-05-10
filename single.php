@@ -213,8 +213,23 @@
             
             <script type="text/javascript">
                 function edit_(cid, content){
-                    document.getElementById("komenti-"+cid).innerHTML = "<textarea id='permbajtja' class='form-control' placeholder='Type comment'>"+content+"</textarea>";
-                    document.getElementById("list"+cid).innerHTML = '<button onclick="delete_(\"$comment_id\");" type="submit" class="btn btn-primary" value="$comment_id">Done</button>';
+                    document.getElementById("komenti-"+cid).innerHTML = "<br><textarea id='permbajtja' class='form-control' placeholder='Type comment'>"+content+"</textarea><br>";
+                    document.getElementById("list"+cid).innerHTML = '<button onclick="update_('+cid+');" type="submit" class="btn btn-primary" value="$comment_id">Done</button>';
+                }
+            </script>
+
+            <script type="text/javascript">
+                function update_(cid){
+                    var commentChange = $("#permbajtja").val();
+                $.ajax({
+                    type: "POST",
+                    url: "comments.php",
+                    data: "commentChange="+ commentChange+"&commentid="+cid,
+                    success: function(){
+                        console.log("success");
+                        $('#commentDiv').load(document.URL + ' #commentDiv');
+                    }
+                });
                 }
             </script>
 
@@ -227,7 +242,6 @@
                  url: "comments.php",
                  data: "contenti="+ commentContent+"&article_id="+id+"&user_id="+iduser,
                 success: function(){
-                    <?php getComment($id, $idPerson) ?>
                     var commentContent = $("#permbajtja").val('');
                     $('#commentDiv').load(document.URL + ' #commentDiv');
                  }

@@ -52,16 +52,16 @@
                   <div class='profile-tabs'>
                     <ul class='nav nav-pills nav-pills-icons justify-content-center' role='tablist'>
                       <li class='nav-item'>
-                        <a class='nav-link active' href='profile.php?page_id=bookmarks'>
+                        <a class='nav-link <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=bookmarks') !== false) { echo "active"; } ?>' href='profile.php?page_id=bookmarks'>
                           <i class='material-icons'>bookmarks</i>Bookmarks</a>
                       </li>
                       <li class='nav-item'>
-                        <a class='nav-link' href='profile.php?page_id=comments'>
+                        <a class='nav-link <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=comments') !== false) { echo "active"; } ?>' href='profile.php?page_id=comments'>
                           <i class='material-icons'>comment</i>
                           Comments</a>
                       </li>
                       <li class='nav-item'>
-                        <a class='nav-link' href='profile.php?page_id=posts'>
+                        <a class='nav-link <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=posts') !== false) { echo "active"; } ?>' href='profile.php?page_id=posts'>
                           <i class='material-icons'>list_alt</i>
                           Posts</a>
                       </li>

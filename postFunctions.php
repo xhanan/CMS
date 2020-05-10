@@ -36,6 +36,7 @@ function getComment($id, $person)
 				$delete = "
 						<ul class='list-inline d-sm-flex my-0'>
 						<li class='list-inline-item ml-auto'>
+							<button onclick='edit_(\"$comment_id\");' type='submit' class='btn btn-primary' value='$comment_id'>Edit</button>
 							<button onclick='delete_(\"$comment_id\");' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
 							</li>
 						  </ul>";

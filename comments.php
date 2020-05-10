@@ -25,4 +25,15 @@ if(isset($_POST['contenti'])){
           die("Gabim: " . mysqli_error($connection));
         }
   }
+
+  // if(isset($_POST['editid'])){
+  //   $koment_id = $_POST['editid'];
+  //   $content = $_POST['contenti'];
+  //   $editComment_query = "UPDATE comments SET descriptions=$content WHERE id={$koment_id} ";
+
+  //   $queryy = mysqli_query($connection, $editComment_query);
+  //   if (!$deleteComment_query) {
+  //     die("Gabim: " . mysqli_error($connection));
+  //   }
+
 ?>

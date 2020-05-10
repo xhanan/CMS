@@ -17,9 +17,12 @@ function getPost($id)
 
 	return $post;
 }
+
+
 function getComment($id, $person)
 {
 	global $connection;
+	global $editOrNot;
 	$query1 = "SELECT `comments`.`id`,`comments`.`descriptions`,`comments`.`user_id`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`
 				   FROM `comments` 
                         INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE `comments`.`article_id`={$id}";
@@ -35,8 +38,8 @@ function getComment($id, $person)
 			if ($person == $user_id) {
 				$delete = "
 						<ul class='list-inline d-sm-flex my-0'>
-						<li class='list-inline-item ml-auto'>
-							<button onclick='edit_(\"$comment_id\");' type='submit' class='btn btn-primary' value='$comment_id'>Edit</button>
+						<li id='list$comment_id' class='list-inline-item ml-auto'>
+							<button onclick='edit_(\"$comment_id\", \"$comment\");' type='submit' class='btn btn-primary' value='$comment_id'>Edit</button>
 							<button onclick='delete_(\"$comment_id\");' type='submit' class='btn btn-primary' value='$comment_id'>Delete</button>
 							</li>
 						  </ul>";
@@ -48,7 +51,6 @@ function getComment($id, $person)
 		}
 
 		
-
 		$avatar = isMale($user_id);
 		echo "
 				  <div id='comment-$comment_id' class='col-md-8'>
@@ -59,9 +61,9 @@ function getComment($id, $person)
                         <div class='g-mb-15'>
                           <h5 class='h5 g-color-gray-dark-v1 mb-0'>{$name} {$last_name}</h5>
                           <span class='g-color-gray-dark-v4 g-font-size-12'>{$date}</span>
-                        </div>
-                        <div class='komenti'>
-                        <p>{$comment}</p>
+						</div> 
+						<div id='komenti-$comment_id'>
+						<p>{$comment}</p>
 						</div>
 						{$delete}
 						</form>

@@ -60,7 +60,7 @@
                                 ' . $_SESSION["user"] . '  
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="profile.php">Profile</a>';
+                                <a class="dropdown-item" href="profile.php?page_id=bookmarks">Profile</a>';
                     } ?>
                     <?php
                     if (isset($_SESSION['isadmin'])) {

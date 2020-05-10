@@ -292,13 +292,20 @@ class querys
         if(isset($_GET['page_id'])){
             $pgnName = $_GET['page_id'];
         }
-        $articleQuery = "SELECT * FROM articles WHERE user_id = {$user_id}";
+        
+        if($pgnName === "bookmarks"){
+            $articleQuery = "SELECT * FROM bookmarks WHERE user_id = {$user_id}";
+        }else if($pgnName === "comments"){
+            $articleQuery = "SELECT * FROM comments WHERE user_id = {$user_id}";
+        }else if($pgnName === "posts"){
+            $articleQuery = "SELECT * FROM articles WHERE user_id = {$user_id}";
+        }
+
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
         for ($i = 1; $i < $count; $i++) {
-
             echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
         }
     }

@@ -3,7 +3,7 @@
 
 <body>
     <?php include "header.php" ?>
-    <?php include "dbConnection.php"?>
+    <?php include "dbConnection.php" ?>
     <?php include "articlesDisplayQuerys.php" ?>
     <!-- ----------------------BODY------------------ -->
     <div class="container-fluid pb-4 pt-4 paddding">
@@ -13,7 +13,7 @@
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                     </div>
-                    <?php querys::indexNewsArticles();?>
+                    <?php querys::indexNewsArticles(); ?>
                 </div>
 
 

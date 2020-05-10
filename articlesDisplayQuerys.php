@@ -289,6 +289,9 @@ class querys
     static function profilePagination($user_id)
     {
         global $connection;
+        if(isset($_GET['page_id'])){
+            $pgnName = $_GET['page_id'];
+        }
         $articleQuery = "SELECT * FROM articles WHERE user_id = {$user_id}";
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
@@ -296,29 +299,47 @@ class querys
 
         for ($i = 1; $i < $count; $i++) {
 
-            echo "<a href='profile.php?bookmarks={$i}' class='btn_pagging'>{$i}</a>";
+            echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
         }
     }
 
     static function profileArticles($user_id)
     {
-
-        if (isset($_GET['bookmarks'])) {
-            $bookmark = $_GET['bookmarks'];
-        } else {
-            $bookmark = 0;
+        global $connection;
+        if(isset($_GET['page_id'])){
+            $table = $_GET['page_id'];
         }
 
-        $pagenum = $bookmark * 8;
+        if (isset($_GET['pagination'])) {
+            $pagination = $_GET['pagination'];
+        } else {
+            $pagination = 0;
+        }
 
-        global $connection;
-        $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`users`.`isadmin`,`articles`.`published_date`,`articles`.`image` 
-        FROM `articles` 
-        LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-        WHERE `users`.`id` = {$user_id}
-        ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
+        $pagenum = $pagination * 8;
 
-
+        if($table === "posts"){
+            $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`users`.`isadmin`,`articles`.`published_date`,`articles`.`image` 
+            FROM `articles` 
+            LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
+            WHERE `users`.`id` = {$user_id}
+            ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
+    
+        }else if($table === "bookmarks"){
+            $articleQuery = "SELECT bookmarks.id,bookmarks.user_id,bookmarks.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
+            FROM bookmarks 
+            INNER JOIN articles ON articles.id = bookmarks.article_id 
+            INNER JOIN users ON users.id = bookmarks.user_id 
+            WHERE bookmarks.user_id = $user_id 
+            ORDER BY `bookmarks`.`id` DESC LIMIT 8 OFFSET $pagenum";
+        }else if($table == "comments"){
+            $articleQuery = "SELECT articles.id,comments.user_id,comments.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
+            FROM comments 
+            INNER JOIN articles ON articles.id = comments.article_id 
+            INNER JOIN users ON users.id = comments.user_id 
+            WHERE comments.user_id = $user_id
+            ORDER BY `comments`.`id` DESC LIMIT 8 OFFSET $pagenum";
+        }
 
 
         $select_all_articles = mysqli_query($connection, $articleQuery);

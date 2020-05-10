@@ -44,56 +44,56 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class='row'>
-                                  <div class='col-md-6 ml-auto mr-auto'>
-                                      <div class='profile-tabs'>
-                                        <ul class='nav nav-pills nav-pills-icons justify-content-center' role='tablist'>
-                                          <li class='nav-item'>
-                                            <a class='nav-link active' href='profile.php' role='tab' data-toggle='tab'>
-                                            <i class='material-icons'>bookmarks</i>Bookmarks</a>
-                                          </li>
-                                        <li class='nav-item'>
-                                          <a class='nav-link' href='profile.php' role='tab' data-toggle='tab'>
-                                          <i class='material-icons'>comment</i>
-                                          Comments</a>
-                                        </li>
-                                        <li class='nav-item'>
-                                          <a class='nav-link' href='profile.php' role='tab' data-toggle='tab'>
-                                          <i class='material-icons'>list_alt</i>
-                                            Posts</a>
-                                        </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>";
+                               ";
               }
               ?>
-              <div class="tab-content tab-space">
-                <div class="tab-pane active text-center gallery" id="studio">
-                  <div class="row">
-                    <div class="col-md-3 ml-auto">
-                    </div>
-                    <div class="col-md-3 mr-auto">
-                    </div>
+              <div class='row'>
+                <div class='col-md-6 ml-auto mr-auto'>
+                  <div class='profile-tabs'>
+                    <ul class='nav nav-pills nav-pills-icons justify-content-center' role='tablist'>
+                      <li class='nav-item'>
+                        <a class='nav-link active' href='profile.php?page_id=bookmarks'>
+                          <i class='material-icons'>bookmarks</i>Bookmarks</a>
+                      </li>
+                      <li class='nav-item'>
+                        <a class='nav-link' href='profile.php?page_id=comments'>
+                          <i class='material-icons'>comment</i>
+                          Comments</a>
+                      </li>
+                      <li class='nav-item'>
+                        <a class='nav-link' href='profile.php?page_id=posts'>
+                          <i class='material-icons'>list_alt</i>
+                          Posts</a>
+                      </li>
+                    </ul>
                   </div>
-                  <?php querys::profileArticles($user_id); ?>
+                </div>
+                <div class="tab-content tab-space">
+                  <div class="tab-pane active text-center gallery" id="studio">
+                    <div class="row">
+                      <div class="col-md-3 ml-auto">
+                      </div>
+                      <div class="col-md-3 mr-auto">
+                      </div>
+                    </div>
+                    <?php querys::profileArticles($user_id); ?>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row mx-0">
-          <div class="col-12 text-center pb-4 pt-4">
-            <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-            <?php querys::profilePagination($user_id); ?>
-            <a href="#" class="btn_pagging">...</a>
-            <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+          <div class="row mx-0">
+            <div class="col-12 text-center pb-4 pt-4">
+              <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+              <?php querys::profilePagination($user_id); ?>
+              <a href="#" class="btn_pagging">...</a>
+              <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <div>
     <?php include "footer.php"; ?>

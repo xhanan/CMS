@@ -122,13 +122,13 @@
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.php?category_id=2">Tech <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="categories.php?cat_id=2">Tech <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.php?category_id=3">Coding <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="categories.php?cat_id=3">Coding <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="blog.php?category_id=4" >Gaming <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="categories.php?cat_id=4" >Gaming <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="Contact_us.php">Contact <span class="sr-only">(current)</span></a>

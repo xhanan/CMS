@@ -3,19 +3,18 @@
 
 <body>
     <!-- including header -->
-    <?php include "header.php" ?>
-    <?php //include "dbConnection.php";
-    ?>
-    <?php include "indexFunctions.php"; ?>
+    <?php include "header.php"; ?>
+    <?php include "dbConnection.php";?>
+    <?php include "articlesDisplayQuerys.php";?>
     <div class="container-fluid paddding mb-5">
         <!-- FOTOJA E MADHE ka vend per permisime -->
         <div class="row mx-0">
-            <?php first_photo() ?>
+            <?php querys::mainPhoto(); ?>
 
             <!-- 4 FOTOT E NJEJTA -->
             <div class="col-md-6">
                 <div class="row">
-                    <?php four_photos() ?>
+                    <?php querys::main4Photos(); ?>
                 </div>
             </div>
         </div>
@@ -28,7 +27,7 @@
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
             </div>
             <div class="owl-carousel owl-theme js" id="slider1">
-                <?php trending_news() ?>
+                <?php querys::trending_news() ?>
             </div>
         </div>
     </div>
@@ -40,7 +39,7 @@
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Top News</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
-                <?php top_six_news_posts() ?>
+                <?php querys::top_news() ?>
             </div>
         </div>
     </div>
@@ -53,7 +52,7 @@
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                     </div>
-                    <?php include "articlesDisplayQuerys.php"; querys::indexNewsArticles(); ?>
+                    <?php querys::indexNewsArticles(); ?>
                 </div>
                 <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
                     <div>
@@ -63,23 +62,19 @@
                     <div class="fh5co_tags_all">
 
                         <!-- Dinamyc Tags -->
-                        <?php showCategories();?>
+                        <?php querys::displayCategories();?>
 
                     </div>
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
                     </div>
-                    <?php most_viewed_posts();?>
+                    <?php querys::most_viewed_posts();?>
                     </div>
             </div>
             <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
                 <div class="col-12 text-center pb-4 pt-4">
                     <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-                    <?php pagination(); ?>
-                    <!-- <a href="#" class="btn_pagging">1</a> -->
-                    <!-- <a href="#" class="btn_pagging">2</a> -->
-                    <!-- <a href="#" class="btn_pagging">3</a> -->
-                    <!-- <a href="#" class="btn_pagging">...</a> -->
+                    <?php querys::pagination(); ?>
                     <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
                 </div>
             </div>

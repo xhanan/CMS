@@ -60,16 +60,18 @@
                                 ' . $_SESSION["user"] . '  
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="profile.php">Profile</a>';}?>
-                            <?php
-                            if(isset($_SESSION['isadmin'])){
-                            echo
-                                '<a class="dropdown-item" href="post.php">Add Post</a>';}
-                            ?>
-                        <?php 
-                        if (isset($_SESSION['user'])){
-                            echo
-                                '<div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="profile.php">Profile</a>';
+                    } ?>
+                    <?php
+                    if (isset($_SESSION['isadmin'])) {
+                        echo
+                            '<a class="dropdown-item" href="post.php">Add Post</a>';
+                    }
+                    ?>
+                    <?php
+                    if (isset($_SESSION['user'])) {
+                        echo
+                            '<div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">Log Out</a>
                                 </div>
                             </div>';
@@ -96,15 +98,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9 fh5co_padding_menu">
-                <a href="index.php">
-                    <img src="images/LOGO1.png" alt="img" class="fh5co_logo_width" style="width: 300px" />
-                </a>
+                    <a href="index.php">
+                        <img src="images/LOGO1.png" alt="img" class="fh5co_logo_width" style="width: 300px" />
+                    </a>
                 </div>
                 <div class="col-12 col-md-3 align-self-center">
                     <form action="search.php" method="post">
                         <div class="input-group float-right">
                             <button class="input-group-addon" name="search_submit"><i class="fa fa-search"></i></button>
-                            <input id="Search" type="text" class="form-control" name="search" placeholder="Search"></input>     
+                            <input id="Search" type="text" class="form-control" name="search" placeholder="Search"></input>
                         </div>
                     </form>
                 </div>
@@ -118,19 +120,19 @@
                 <a class="navbar-brand" href="#"><img src="images/logo.png" alt="img" class="mobile_logo_width" /></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/index') !== false) { echo "active"; } ?>">
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/categories.php?cat_id=2') !== false) { echo "active"; } ?>">
                             <a class="nav-link" href="categories.php?cat_id=2">Tech <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/categories.php?cat_id=3') !== false) { echo "active"; } ?>">
                             <a class="nav-link" href="categories.php?cat_id=3">Coding <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="categories.php?cat_id=4" >Gaming <span class="sr-only">(current)</span></a>
+                        <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/categories.php?cat_id=4') !== false) { echo "active"; } ?>">
+                            <a class="nav-link" href="categories.php?cat_id=4">Gaming <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/Contact_us.php') !== false) { echo "active"; } ?>">
                             <a class="nav-link" href="Contact_us.php">Contact <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
@@ -138,3 +140,5 @@
             </nav>
         </div>
     </div>
+</body>
+</html>

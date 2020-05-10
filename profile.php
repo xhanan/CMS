@@ -7,9 +7,10 @@
   <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
   <title>Profile</title>
 </head>
-<?php include "indexFunctions.php";?>
+
 <body class="profile-page">
   <?php include "header.php"; ?>
+  <?php include "articlesDisplayQuerys.php"; ?>
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
@@ -20,7 +21,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuKV7IS2_F-xbDj7YdCT55b7wWgMKd_OQ2am0mgG0X_bUYzR-g&usqp=CAU" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <?php
-              // include "dbConnection.php";
+              include "dbConnection.php";
               global $connection;
               $user_id = $_SESSION['id'];
 
@@ -75,7 +76,7 @@
                     <div class="col-md-3 mr-auto">
                     </div>
                   </div>
-                  <?php profileArticles($user_id); ?>
+                  <?php querys::profileArticles($user_id); ?>
                 </div>
               </div>
             </div>
@@ -83,16 +84,16 @@
         </div>
 
         <div class="row mx-0">
-            <div class="col-12 text-center pb-4 pt-4">
-                <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-                    <?php profilePagination($user_id);?>
-                <a href="#" class="btn_pagging">...</a>
-                <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
-             </div>
+          <div class="col-12 text-center pb-4 pt-4">
+            <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+            <?php querys::profilePagination($user_id); ?>
+            <a href="#" class="btn_pagging">...</a>
+            <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+          </div>
         </div>
-    </div>
       </div>
     </div>
+  </div>
   </div>
   <div>
     <?php include "footer.php"; ?>

@@ -3,7 +3,8 @@
 
 <body>
 <?php include "header.php"?>
-<?php include "tags.php";?>
+<?php include "dbConnection.php";?>
+<?php include "articlesDisplayQuerys.php";?>
 
 <!-- ----------------------BODY------------------ -->
 <div class="container-fluid pb-4 pt-4 paddding">
@@ -13,7 +14,7 @@
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                 </div>
-                <?php include "articlesDisplayQuerys.php"; querys::categoryNews();?>
+                <?php querys::categoryNews();?>
             </div>
                    
             
@@ -24,7 +25,7 @@
                 </div>
                 <div class="clearfix"></div>
                     <div class="fh5co_tags_all">
-                        <?php showCategories();?>
+                        <?php querys::displayCategories();?>
                     </div>
 
 
@@ -33,20 +34,14 @@
                     <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
                 </div>
                 <div class="row pb-3">
-                    <div class="col-5 align-self-center">
-                        <img src="images/download (1).jpg" alt="img" class="fh5co_most_trading"/>
-                    </div>
-                    <div class="col-7 paddding">
-                        <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
-                        <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
-                    </div>
+                    <?php querys::most_viewed_posts();?>
                 </div>
             </div>
         </div>
         <div class="row mx-0">
             <div class="col-12 text-center pb-4 pt-4">
                 <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-                    <?php categoryPagination();?>
+                    <?php querys::categoryPagination();?>
                 <a href="#" class="btn_pagging">...</a>
                 <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
              </div>

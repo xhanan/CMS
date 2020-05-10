@@ -263,7 +263,26 @@ class querys
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
             <div class='most_fh5co_treding_font_123'> {$date} </div>
         </div>
-    </div>";
+        </div>";
+        }
+    }
+
+    static function categoryPagination()
+    {  
+        if (isset($_GET['cat_id'])) {
+            $cat_id = $_GET['cat_id'];
+        } else {
+            $cat_id = 0;
+        }
+        global $connection;
+        $articleQuery = "SELECT * FROM articles WHERE category_id = $cat_id";
+        $find_count = mysqli_query($connection, $articleQuery);
+        $count = mysqli_num_rows($find_count);
+        $count = ceil($count / 8);
+    
+        for ($i = 1; $i < $count; $i++) {
+    
+            echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
         }
     }
 }

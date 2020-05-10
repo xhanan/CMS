@@ -3,8 +3,8 @@
 
 <body>
     <?php include "header.php" ?>
-    <?php include "indexFunctions.php" ?>
-
+    <?php include "dbConnection.php"?>
+    <?php include "articlesDisplayQuerys.php" ?>
     <!-- ----------------------BODY------------------ -->
     <div class="container-fluid pb-4 pt-4 paddding">
         <div class="container paddding">
@@ -13,7 +13,7 @@
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                     </div>
-                    <?php news(); ?>
+                    <?php querys::indexNewsArticles();?>
                 </div>
 
 
@@ -24,7 +24,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="fh5co_tags_all">
-                        <?php showCategories(); ?>
+                        <?php querys::displayCategories(); ?>
                     </div>
 
 
@@ -33,7 +33,7 @@
                         <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
                     </div>
                     <div class="row pb-3">
-                        <?php most_viewed_posts(); ?>
+                        <?php querys::most_viewed_posts(); ?>
 
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             <div class="row mx-0">
                 <div class="col-12 text-center pb-4 pt-4">
                     <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-                    <?php pagination(); ?>
+                    <?php querys::pagination(); ?>
                     <a href="#" class="btn_pagging">...</a>
                     <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
                 </div>

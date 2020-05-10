@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div id="commentDiv">
-                    <div class="row">
+                 <div class="row">
                         <?php getComment($id, $idPerson) ?>
                         <?php
                         if (isset($idPerson)) {
@@ -75,13 +75,9 @@
     <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src='; ?> <?php echo isMale($idPerson); ?> <?php echo ' alt="Image Description">
             <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
               <div class="g-mb-15">
-              <h5 class="h5 g-color-gray-dark-v1 mb-0"> '; ?> <?php echo getName($idPerson); ?><?php echo ' </h5>
+              <h5 class="h5 g-color-gray-dark-v1 mb-0"> '; ?> <?php echo getName($idPerson); ?><?php echo " </h5>
               </div>
-              <br> '; ?>
-                            <?php //echo "<form action='single.php?p_id={$id}' method='post'>";
-                            ?>
-                        <?php echo
-                                "<div class='form-group'>
+              <br> <div class='form-group'>
               <textarea id='permbajtja' class='form-control' placeholder='Type comment'></textarea>
               </div>
               <ul class='list-inline d-sm-flex my-0'>
@@ -201,6 +197,7 @@
                     });
                 });
             </script>
+
             <script type="text/javascript">
             function delete_(cid){
             $.ajax({
@@ -213,6 +210,14 @@
             });
             }
             </script>
+            
+            <script type="text/javascript">
+                function edit_(cid, content){
+                    document.getElementById("komenti-"+cid).innerHTML = "<textarea id='permbajtja' class='form-control' placeholder='Type comment'>"+content+"</textarea>";
+                    document.getElementById("list"+cid).innerHTML = '<button onclick="delete_(\"$comment_id\");" type="submit" class="btn btn-primary" value="$comment_id">Done</button>';
+                }
+            </script>
+
             <script type="text/javascript">
             function create_(id){
                 var commentContent = $("#permbajtja").val();
@@ -222,7 +227,7 @@
                  url: "comments.php",
                  data: "contenti="+ commentContent+"&article_id="+id+"&user_id="+iduser,
                 success: function(){
-                    console.log("success");
+                    <?php getComment($id, $idPerson) ?>
                     var commentContent = $("#permbajtja").val('');
                     $('#commentDiv').load(document.URL + ' #commentDiv');
                  }

@@ -23,7 +23,7 @@ function getComment($id, $person)
 {
 	global $connection;
 	global $editOrNot;
-	$query1 = "SELECT `comments`.`id`,`comments`.`descriptions`,`comments`.`user_id`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`
+	$query1 = "SELECT `comments`.`id`,`comments`.`descriptions`,`comments`.`user_id`, `users`.`first_name`, `users`.`last_name`, `comments`.`datetimee`, `comments`.`editedDate`
 				   FROM `comments` 
                         INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE `comments`.`article_id`={$id}";
 	$comment_query = mysqli_query($connection, $query1);
@@ -34,6 +34,14 @@ function getComment($id, $person)
 		$last_name = $row['last_name'];
 		$comment = $row['descriptions'];
 		$date = $row['datetimee'];
+		$editedDate = $row['editedDate'];
+		if($editedDate != ""){
+			$edited = "Edited";
+		}
+		else{
+			$edited="";
+		}
+
 		if (isset($person)) {
 			if ($person == $user_id) {
 				$delete = "
@@ -64,8 +72,9 @@ function getComment($id, $person)
 						</div> 
 						<div id='komenti-$comment_id'>
 						<p>{$comment}</p>
-						</div>
-						{$delete}
+						</div> " .
+						"{$edited}" .
+						"{$delete}
 						</form>
                       </div>
                     </div>

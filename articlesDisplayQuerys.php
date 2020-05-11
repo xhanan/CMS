@@ -261,11 +261,17 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-
-        for ($i = 1; $i < $count; $i++) {
-
-            echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
-        }
+        if($count > 0){
+            echo "<div class='col-12 text-center pb-4 pt-4'>
+            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+            for ($i = 1; $i < $count; $i++) {
+    
+                echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
+            }
+            echo"<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+            </div>";
+    
+        }        
     }
 
     static function most_viewed_posts()
@@ -309,12 +315,18 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        for ($i = 1; $i < $count; $i++) {
-
-            echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
-        }
+        if($count != 1){
+            echo "<div class='col-12 text-center pb-4 pt-4'>
+            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+            for ($i = 1; $i < $count; $i++) {
+    
+                echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
+            }
+            echo"<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+            </div>";
+    
+        }  
     }
-
     static function profilePagination($user_id)
     {
         global $connection;

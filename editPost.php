@@ -23,7 +23,7 @@
             if (!$update_post_query) {
                 die("Gabim: " . mysqli_error($connection));
             } else {
-                echo "<script> window.location.href = \"profile.php\";
+                echo "<script> window.location.href = \"profile.php?page_id=posts\";
                                window.alert(\"Postimi u ndryshua me sukses\");
                       </script>";     
             }

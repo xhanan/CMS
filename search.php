@@ -24,7 +24,7 @@
                         FROM `articles` 
                         LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
                         LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
-                        WHERE `articles`.`tags` LIKE '%$search%';";
+                        WHERE `articles`.`tags` LIKE '%$search%' or `articles`.`title` LIKE '%$search%';";
                             $search_query = mysqli_query($connection, $query);
                             if (!$search_query) {
                                 die("Query failed" . mysqli_error($connection));

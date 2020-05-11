@@ -60,8 +60,9 @@
                 <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 ">
-                <div class="footer_main_title py-3"> Last Modified Posts</div>
-                <a href="#" class="footer_img_post_6"><img src="images/allef-vinicius-108153.jpg" alt="img"/></a>
+                <div class="footer_main_title py-3">Latest Posts</div>
+                <?php querys::latest_posts(); ?>
+                <!-- <a href="#" class="footer_img_post_6"><img src="images/allef-vinicius-108153.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/32-450x260.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/download (1).jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/science-578x362.jpg" alt="img"/></a>
@@ -69,7 +70,7 @@
                 <a href="#" class="footer_img_post_6"><img src="images/zack-minor-15104.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/download.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/download (2).jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/ryan-moreno-98837.jpg" alt="img"/></a>
+                <a href="#" class="footer_img_post_6"><img src="images/ryan-moreno-98837.jpg" alt="img"/></a> -->
             </div>
         </div>
         <br>

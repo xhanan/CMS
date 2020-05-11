@@ -36,7 +36,7 @@
     <div class="container-fluid pb-4 pt-5">
         <div class="container animate-box">
             <div>
-                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Top News</div>
+                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Top Articles</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
                 <?php querys::top_news() ?>
@@ -50,7 +50,7 @@
             <div class="row mx-0">
                 <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
                     <div>
-                        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+                        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Latest</div>
                     </div>
                     <?php querys::indexNewsArticles(); ?>
                 </div>

@@ -52,10 +52,10 @@ class querys
 
         global $connection;
         $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
-	FROM `articles` 
-	LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-	LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
-	ORDER BY `articles`.`id` DESC LIMIT 3;";
+	    FROM `articles` 
+	    LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
+	    LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
+	    ORDER BY `articles`.`id` DESC LIMIT 3;";
 
         $articles = mysqli_query($connection, $articleQuery);
         while ($row = mysqli_fetch_assoc($articles)) {
@@ -72,7 +72,7 @@ class querys
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='footer_post pb-4'> {$title} </a> </div>
             <div class='most_fh5co_treding_font_123'> {$date} </div>
         </div>
-    </div>";
+         </div>";
         }
     }
 
@@ -261,7 +261,7 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-        if ($count > 0) {
+        if ($count > 1) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
@@ -314,7 +314,7 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if ($count > 0) {
+        if ($count > 1) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {

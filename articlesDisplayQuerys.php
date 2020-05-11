@@ -315,7 +315,7 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if($count != 1){
+        if($count != 0){
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
@@ -346,8 +346,16 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        for ($i = 1; $i < $count; $i++) {
-            echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
+        if($count != 0){
+            echo "<div class='col-12 text-center pb-4 pt-4'>
+            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+            for ($i = 1; $i < $count; $i++) {
+    
+                echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
+            }
+            echo"<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+            </div>";
+    
         }
     }
 

@@ -344,7 +344,7 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if ($count != 0) {
+        if ($count > 1) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {

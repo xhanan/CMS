@@ -48,33 +48,33 @@ class querys
     }
 
     static function latest_posts()
-{
+    {
 
-	global $connection;
-	$articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
+        global $connection;
+        $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
 	FROM `articles` 
 	LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
 	LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
 	ORDER BY `articles`.`id` DESC LIMIT 3;";
 
-	$articles = mysqli_query($connection, $articleQuery);
-	while ($row = mysqli_fetch_assoc($articles)) {
-	$id = $row['id'];
-	$title = $row['title'];
-	$date = $row['published_date'];
-	$img = $row['image'];
+        $articles = mysqli_query($connection, $articleQuery);
+        while ($row = mysqli_fetch_assoc($articles)) {
+            $id = $row['id'];
+            $title = $row['title'];
+            $date = $row['published_date'];
+            $img = $row['image'];
 
-		echo "<div class='row pb-3'>
+            echo "<div class='row pb-3'>
         <div class='col-5 align-self-center'>
             <img src='{$img}' alt='img' class='fh5co_most_trading' />
         </div>
         <div class='col-7 paddding'>
-            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'color: white;'> {$title} </a> </div>
+            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='footer_post pb-4'> {$title} </a> </div>
             <div class='most_fh5co_treding_font_123'> {$date} </div>
         </div>
     </div>";
-	}
-}
+        }
+    }
 
     static function categoryNews()
     {
@@ -261,17 +261,16 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-        if($count > 0){
+        if ($count > 0) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
-    
+
                 echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
             }
-            echo"<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
-    
-        }        
+        }
     }
 
     static function most_viewed_posts()
@@ -315,30 +314,29 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if($count != 0){
+        if ($count > 0) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
-    
+
                 echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
             }
-            echo"<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
-    
-        }  
+        }
     }
     static function profilePagination($user_id)
     {
         global $connection;
-        if(isset($_GET['page_id'])){
+        if (isset($_GET['page_id'])) {
             $pgnName = $_GET['page_id'];
         }
-        
-        if($pgnName === "bookmarks"){
+
+        if ($pgnName === "bookmarks") {
             $articleQuery = "SELECT * FROM bookmarks WHERE user_id = {$user_id}";
-        }else if($pgnName === "comments"){
+        } else if ($pgnName === "comments") {
             $articleQuery = "SELECT * FROM comments WHERE user_id = {$user_id}";
-        }else if($pgnName === "posts"){
+        } else if ($pgnName === "posts") {
             $articleQuery = "SELECT * FROM articles WHERE user_id = {$user_id}";
         }
 
@@ -346,23 +344,22 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if($count != 0){
+        if ($count != 0) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
-    
+
                 echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
             }
-            echo"<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
-    
         }
     }
 
     static function profileArticles($user_id)
     {
         global $connection;
-        if(isset($_GET['page_id'])){
+        if (isset($_GET['page_id'])) {
             $table = $_GET['page_id'];
         }
 
@@ -374,21 +371,20 @@ class querys
 
         $pagenum = $pagination * 8;
 
-        if($table === "posts"){
+        if ($table === "posts") {
             $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`users`.`isadmin`,`articles`.`published_date`,`articles`.`image` 
             FROM `articles` 
             LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
             WHERE `users`.`id` = {$user_id}
             ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
-    
-        }else if($table === "bookmarks"){
+        } else if ($table === "bookmarks") {
             $articleQuery = "SELECT bookmarks.id,bookmarks.user_id,bookmarks.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
             FROM bookmarks 
             INNER JOIN articles ON articles.id = bookmarks.article_id 
             INNER JOIN users ON users.id = bookmarks.user_id 
             WHERE bookmarks.user_id = $user_id 
             ORDER BY `bookmarks`.`id` DESC LIMIT 8 OFFSET $pagenum";
-        }else if($table == "comments"){
+        } else if ($table == "comments") {
             $articleQuery = "SELECT articles.id,comments.user_id,comments.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
             FROM comments 
             INNER JOIN articles ON articles.id = comments.article_id 

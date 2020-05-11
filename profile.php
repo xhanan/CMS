@@ -25,14 +25,15 @@
               global $connection;
               $user_id = $_SESSION['id'];
 
-              $get_user_query = "SELECT first_name,last_Name,username FROM `users` WHERE `users`.`id` = '$user_id'";
+              $get_user_query = "SELECT first_name,last_Name,username,isadmin FROM `users` WHERE `users`.`id` = '$user_id'";
 
               $select_user_query = mysqli_query($connection, $get_user_query);
-
+              $isAdmin = "";
               while ($rows = mysqli_fetch_assoc($select_user_query)) {
                 $firstName = $rows['first_name'];
                 $lastName = $rows['last_Name'];
                 $username = $rows['username'];
+                $isAdmin = $rows['isadmin'];
 
                 echo " <div class='name'>
                                           <h3 class='title'> {$firstName} {$lastName}</h3>
@@ -52,19 +53,38 @@
                   <div class='profile-tabs'>
                     <ul class='nav nav-pills nav-pills-icons justify-content-center' role='tablist'>
                       <li class='nav-item'>
-                        <a class='nav-link <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=bookmarks') !== false) { echo "active"; } ?>' href='profile.php?page_id=bookmarks'>
+                        <a class='nav-link <?php if (strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=bookmarks') !== false) {
+                                              echo "active";
+                                            } ?>' href='profile.php?page_id=bookmarks'>
                           <i class='material-icons'>bookmarks</i>Bookmarks</a>
                       </li>
                       <li class='nav-item'>
-                        <a class='nav-link <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=comments') !== false) { echo "active"; } ?>' href='profile.php?page_id=comments'>
+                        <a class='nav-link <?php if (strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=comments') !== false) {
+                                              echo "active";
+                                            } ?>' href='profile.php?page_id=comments'>
                           <i class='material-icons'>comment</i>
                           Comments</a>
                       </li>
-                      <li class='nav-item'>
-                        <a class='nav-link <?php if(strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=posts') !== false) { echo "active"; } ?>' href='profile.php?page_id=posts'>
-                          <i class='material-icons'>list_alt</i>
-                          Posts</a>
-                      </li>
+                      <?php
+                      if ($isAdmin == 1) {
+                        if (strpos($_SERVER['REQUEST_URI'], '/cms/profile.php?page_id=posts') !== false) {
+                          echo "
+                            <li class='nav-item'>
+                              <a class='nav-link active'href='profile.php?page_id=posts'>
+                                <i class='material-icons'>list_alt</i>
+                                Posts</a>
+                            </li>";
+                        } else {
+                          echo "
+                            <li class='nav-item'>
+                              <a class='nav-link' href='profile.php?page_id=posts'>
+                                <i class='material-icons'>list_alt</i>
+                                Posts</a>
+                            </li>";
+                        }
+                      }
+
+                      ?>
                     </ul>
                   </div>
                 </div>

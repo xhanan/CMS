@@ -29,7 +29,7 @@ if(isset($_POST['contenti'])){
   if(isset($_POST['commentChange'])){
     $koment_id = $_POST['commentid'];
     $content = $_POST['commentChange'];
-    $editComment_query = "UPDATE comments SET descriptions='{$content}' WHERE id={$koment_id} ";
+    $editComment_query = "UPDATE comments SET descriptions='{$content}', editedDate=now() WHERE id={$koment_id} ";
 
     $queryy = mysqli_query($connection, $editComment_query);
     if (!$deleteComment_query) {

@@ -5,6 +5,8 @@
 
     <body class="single">
         <?php include "postFunctions.php"; ?>
+        <?php include "articlesDisplayQuerys.php"; ?>
+
         <?php
         if (isset($_GET['p_id'])) {
             $id = esc($_GET['p_id']);
@@ -55,13 +57,13 @@
                         <div class="clearfix"></div>
                         <div class="fh5co_tags_all">
                             <!-- Dinamyc Tags -->
-                            <?php showCategories(); ?>
+                            <?php querys::displayCategories(); ?>
 
                         </div>
                         <div>
                             <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
                         </div>
-                        <?php most_viewed_posts(); ?>
+                        <?php querys::most_viewed_posts(); ?>
                     </div>
                 </div>
                 <div id="commentDiv">

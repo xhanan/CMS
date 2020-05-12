@@ -2,7 +2,12 @@
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-
+<?php
+    include "cookies.php";
+    if(!isset($_COOKIE['brainbyte'])){
+        setcookie("brainbyte",cookies::generateCookieValue(), time() + 3600, '/');
+    }
+?>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

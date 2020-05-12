@@ -124,7 +124,7 @@
     <!-- <script>
        window.onbeforeunload = function () {
         <?php 
-            $url = "http://localhost/Php_2020_RYX/resetpassword.php?selector=".$_GET['selector']."&validator=".$_GET['validator'];
+            $url = "http://localhost/CMS/resetpassword.php?selector=".$_GET['selector']."&validator=".$_GET['validator'];
         ?>
         window.location.href =<?php echo $url;?>;
         };

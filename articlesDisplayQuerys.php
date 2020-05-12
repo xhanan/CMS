@@ -405,7 +405,7 @@ class querys
         $last_visited_posts_query = "SELECT count_page_views.article_id,articles.title,articles.content,articles.published_date,articles.image FROM count_page_views
         INNER JOIN articles ON articles.id = count_page_views.article_id
         WHERE count_page_views.cookie_id = '$cookie_value'
-        GROUP BY count_page_views.article_id";
+        GROUP BY count_page_views.article_id LIMIT 5";
 
         $execute_query = mysqli_query($connection, $last_visited_posts_query);
 

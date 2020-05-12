@@ -129,7 +129,7 @@ class querys
             $photo = $row1['image'];
 
             echo "<div class='col-md-6 col-12 paddding animate-box' data-animate-effect='fadeIn'>
-            <div class='fh5co_suceefh5co_height'><img src={$photo} alt='img'/>
+            <div class='fh5co_suceefh5co_height' style = 'object-fit: cover;'><img src={$photo} alt='img'/>
             <div class='fh5co_suceefh5co_height_position_absolute'></div>
             <div class='fh5co_suceefh5co_height_position_absolute_font'>
             <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date}
@@ -157,7 +157,7 @@ class querys
             $photo = $row2['image'];
 
             echo "<div class='col-md-6 col-6 paddding animate-box' data-animate-effect='fadeIn'>
-                <div class='fh5co_suceefh5co_height_2'><img src={$photo} alt='img'/>
+                <div class='fh5co_suceefh5co_height_2' style = 'object-fit: cover;'><img src={$photo} alt='img'/>
                     <div class='fh5co_suceefh5co_height_position_absolute'></div>
                         <div class='fh5co_suceefh5co_height_position_absolute_font_2'>
                             <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date} </a></div>

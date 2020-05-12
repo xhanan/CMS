@@ -137,11 +137,15 @@ function esc(String $value)
 	return $val;
 }
 
-function cout_page_views($id)
+function cout_page_views($id,$user_id)
 {
 	global $connection;
 	$cookie_value = $_COOKIE['brainbyte'];
-	$countingQuery = "INSERT INTO count_page_views(cookie_id,article_id) VALUES('$cookie_value',$id)";
+	if($user_id === null){
+		$countingQuery = "INSERT INTO count_page_views(cookie_id,article_id) VALUES('$cookie_value',$id)";
+	}else
+		$countingQuery = "INSERT INTO count_page_views(cookie_id,user_id,article_id) VALUES('$cookie_value',$user_id,$id)";
+
 	$execute_query = mysqli_query($connection, $countingQuery);
 	if (!$execute_query) {
 		die("Query failed");

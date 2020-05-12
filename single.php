@@ -6,20 +6,19 @@
     <body class="single">
         <?php include "postFunctions.php"; ?>
         <?php include "articlesDisplayQuerys.php"; ?>
-
-        <?php
-        if (isset($_GET['p_id'])) {
-            $id = esc($_GET['p_id']);
-            $post = getPost($id);
-            cout_page_views($id);
-        }
-        ?>
         <?php include "header.php";
         if (isset($_SESSION['id'])) {
             $idPerson = $_SESSION['id'];
         } else {
             $idPerson = null;
         } ?>
+        <?php
+        if (isset($_GET['p_id'])) {
+            $id = esc($_GET['p_id']);
+            $post = getPost($id);
+            cout_page_views($id,$idPerson);
+        }
+        ?>
         <div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="page-title">

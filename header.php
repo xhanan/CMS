@@ -7,6 +7,8 @@
     if(!isset($_COOKIE['brainbyte'])){
         setcookie("brainbyte",cookies::generateCookieValue(), time() + 3600, '/');
     }
+
+    echo $_COOKIE['brainbyte'];
 ?>
 <head>
     <!-- Required meta tags -->

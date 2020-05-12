@@ -113,9 +113,10 @@
                     <form action="search.php" method="post">
                         <div class="input-group float-right">
                             <button class="input-group-addon" name="search_submit"><i class="fa fa-search"></i></button>
-                            <input id="Search" type="text" class="form-control" name="search" placeholder="Search"></input>
+                            <input id="Search" list="liveS" type="text" class="form-control" autocomplete="off" onkeyup="showResult(this.value)" name="search" placeholder="Search"></input>
                         </div>
                     </form>
+                    <div id="liveS"></div>
                 </div>
             </div>
         </div>
@@ -147,5 +148,31 @@
             </nav>
         </div>
     </div>
+    <script>
+function showResult(str) {
+  if (str.length==0) {
+    document.getElementById("liveS").innerHTML="";
+    document.getElementById("liveS").style.border="0px";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("liveS").innerHTML=this.responseText;
+      document.getElementById("liveS").style.border="1px solid #00FFFF";
+      document.getElementById("liveS").style.borderRadius="4px";
+      document.getElementById("liveS").style.font = "bold 15px";
+    }
+  }
+  xmlhttp.open("GET","liveSearch.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+<script type="text/javascript">
+function handleSelect(elm)
+{
+window.location = elm.value+".php";
+}
+</script>
 </body>
 </html>

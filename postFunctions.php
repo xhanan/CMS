@@ -137,54 +137,16 @@ function esc(String $value)
 	return $val;
 }
 
-function showCategories()
-{
-	global $connection;
-	$category = "SELECT * FROM category";
-	$select_all_category_qyert = mysqli_query($connection, $category);
-
-	while ($row = mysqli_fetch_assoc($select_all_category_qyert)) {
-		$cat_title = $row['category_name'];
-		$cat_id = $row['id'];
-		echo "<a href='categories.php?cat_id=$cat_id' class='fh5co_tagg'>{$cat_title}</a>";
-	}
-}
-
 function cout_page_views($id)
 {
 	global $connection;
-	$countingQuery = "UPDATE articles SET post_views = post_views + 1 WHERE id = {$id}";
+	$cookie_value = $_COOKIE['brainbyte'];
+	echo $cookie_value;
+	// $countingQuery = "UPDATE articles SET post_views = post_views + 1 WHERE id = {$id}";
+	$countingQuery = "INSERT INTO count_page_views(cookie_id,article_id) VALUES('$cookie_value',$id)";
 	$execute_query = mysqli_query($connection, $countingQuery);
 	if (!$execute_query) {
 		die("Query failed");
-	}
-}
-
-function most_viewed_posts()
-{
-
-	global $connection;
-	$most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image` 
-    FROM `articles` 
-    ORDER BY post_views DESC LIMIT 5";
-
-	$execute_query = mysqli_query($connection, $most_viewed_posts_query);
-
-	while ($rows = mysqli_fetch_assoc($execute_query)) {
-		$id = $rows['id'];
-		$title = $rows['title'];
-		$date = $rows['published_date'];
-		$img = $rows['image'];
-
-		echo "<div class='row pb-3'>
-        <div class='col-5 align-self-center'>
-            <img src='{$img}' alt='img' class='fh5co_most_trading' />
-        </div>
-        <div class='col-7 paddding'>
-            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
-            <div class='most_fh5co_treding_font_123'> {$date} </div>
-        </div>
-    </div>";
 	}
 }
 ?>

@@ -104,7 +104,7 @@
                                 <div class="card-header"><strong>Restore your password</strong></div>
                                 <div class="card-body">
                                     <?php 
-                                        $url = "http://localhost/Php_2020_RYX/resetpassword.php?selector=".$_GET['selector']."&validator=".$_GET['validator'];
+                                        $url = "http://localhost/CMS/resetpassword.php?selector=".$_GET['selector']."&validator=".$_GET['validator'];
                                     ?>
                                     <form action="<?php echo $url;?>" method="post">
                                         <div class="form-group"><label class="text-muted" for="exampleInputEmail1">New Password</label><input type="password" name="new-password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="new_password"></div>

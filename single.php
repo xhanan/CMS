@@ -165,6 +165,7 @@
                 $(document).ready(function() {
                     $("#fav").click(function() {
                         if ($("#fav").hasClass("btn-success")) {
+                            <?php $id=esc($_GET['p_id']); ?>
                             var idvar = "<?php echo $id ?>";
                             var iduser = "<?php echo $idPerson; ?>";
 
@@ -181,6 +182,7 @@
                             });
                             $("#fav").removeClass("btn-success");
                         } else {
+                            <?php $id=esc($_GET['p_id']); ?>
                             var idvar = "<?php echo $id ?>";
                             var iduser = "<?php echo $idPerson; ?>";
                             $.ajax({
@@ -195,6 +197,7 @@
                                 }
                             });
                             $("#fav").addClass("btn-success");
+                            
                         }
                     });
                 });

@@ -47,34 +47,7 @@ class querys
         }
     }
 
-    static function latest_posts()
-    {
-
-        global $connection;
-        $articleQuery = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
-	    FROM `articles` 
-	    LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
-	    LEFT JOIN `category` ON `category`.`id` = `articles`.`category_id`
-	    ORDER BY `articles`.`id` DESC LIMIT 3;";
-
-        $articles = mysqli_query($connection, $articleQuery);
-        while ($row = mysqli_fetch_assoc($articles)) {
-            $id = $row['id'];
-            $title = $row['title'];
-            $date = $row['published_date'];
-            $img = $row['image'];
-
-            echo "<div class='row pb-3'>
-        <div class='col-5 align-self-center'>
-            <img src='{$img}' alt='img' class='fh5co_most_trading' />
-        </div>
-        <div class='col-7 paddding'>
-            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='footer_post pb-4'> {$title} </a> </div>
-            <div class='most_fh5co_treding_font_123'> {$date} </div>
-        </div>
-         </div>";
-        }
-    }
+    
 
     static function categoryNews()
     {

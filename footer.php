@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
+<?php include "footerFunctions.php"; ?>
 <body>
 <div class="container-fluid fh5co_footer_bg pb-3">
     <div class="container animate-box" style = "opacity:100%">
@@ -28,40 +29,16 @@
             </div>
             <div class="col-12 col-md-3 col-lg-2">
                 <div class="footer_main_title py-3"> Category</div>
-                <?php 
-                            $query = "SELECT * FROM category";
-                            $select_categories = mysqli_query($connection,$query);
-                            //confirmQuery($select_categories);
-                            while($row = mysqli_fetch_assoc($select_categories )) {
-                                $cat_id = $row['id'];
-                                $cat_name = $row['category_name'];
-                                echo "<ul class='footer_menu'><li><a href='categories.php?cat_id=$cat_id' class=''><i class='fa fa-angle-right'></i>&nbsp;&nbsp; $cat_name</a></li></ul>";
-                            } ?>
+                <?php categories(); ?>
             </div>
             <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
                 <div class="footer_main_title py-3"> Most Viewed Posts</div>
-                <?php 
-                    global $connection;
-                    $most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image` 
-                    FROM `articles` 
-                    ORDER BY post_views DESC LIMIT 4";
-
-                    $execute_query = mysqli_query($connection, $most_viewed_posts_query);
-
-                    while ($rows = mysqli_fetch_assoc($execute_query)) {
-                        $id = $rows['id'];
-                        $title = $rows['title'];
-                        $date = $rows['published_date'];
-
-                        echo "<div class='footer_makes_sub_font'> {$date}</div>
-                        <a href='single.php?p_id={$id}' class='footer_post pb-4'>{$title}</a>";                
-                    }
-                ?>
+                <?php  mostViewedPosts(); ?>
                 <div class="footer_position_absolute"><img src="images/footer_sub_tipik.png" alt="img" class="width_footer_sub_img"/></div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 ">
                 <div class="footer_main_title py-3">Latest Posts</div>
-                <?php querys::latest_posts(); ?>
+                <?php latest_posts(); ?>
                 <!-- <a href="#" class="footer_img_post_6"><img src="images/allef-vinicius-108153.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/32-450x260.jpg" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="images/download (1).jpg" alt="img"/></a>

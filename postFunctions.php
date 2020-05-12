@@ -141,8 +141,6 @@ function cout_page_views($id)
 {
 	global $connection;
 	$cookie_value = $_COOKIE['brainbyte'];
-	echo $cookie_value;
-	// $countingQuery = "UPDATE articles SET post_views = post_views + 1 WHERE id = {$id}";
 	$countingQuery = "INSERT INTO count_page_views(cookie_id,article_id) VALUES('$cookie_value',$id)";
 	$execute_query = mysqli_query($connection, $countingQuery);
 	if (!$execute_query) {

@@ -66,9 +66,9 @@
 
                     </div>
                     <div>
-                        <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                        <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Last Visited</div>
                     </div>
-                    <?php querys::most_viewed_posts();?>
+                    <?php querys::last_visited_posts();?>
                     </div>
             </div>
             <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">

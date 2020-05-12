@@ -396,4 +396,35 @@ class querys
                 </div>";
         }
     }
+
+    static function last_visited_posts(){
+        global $connection;
+
+        $cookie_value = $_COOKIE['brainbyte'];
+        
+        $last_visited_posts_query = "SELECT count_page_views.article_id,articles.title,articles.content,articles.published_date,articles.image FROM count_page_views
+        INNER JOIN articles ON articles.id = count_page_views.article_id
+        WHERE count_page_views.cookie_id = '$cookie_value'
+        GROUP BY count_page_views.article_id";
+
+        $execute_query = mysqli_query($connection, $last_visited_posts_query);
+
+        while ($rows = mysqli_fetch_assoc($execute_query)) {
+            $id = $rows['article_id'];
+            $title = $rows['title'];
+            $date = $rows['published_date'];
+            $img = $rows['image'];
+
+            echo "<div class='row pb-3'>
+            <div class='col-5 align-self-center'>
+            <img src='{$img}' alt='img' class='fh5co_most_trading' />
+            </div>
+            <div class='col-7 paddding'>
+            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
+            <div class='most_fh5co_treding_font_123'> {$date} </div>
+            </div>
+            </div>";
+        }
+        
+    }
 }

@@ -202,12 +202,14 @@ class querys
         }
     }
 
-    static function top_news()
+    static function recommended_posts()
     {
         global $connection;
-        $news_posts_query = "SELECT `id`,`title`,`published_date`,`image` 
-                            FROM `articles`
-                            ORDER BY `id` DESC LIMIT 6";
+        $cookie_value = $_COOKIE['brainbyte'];
+        $news_posts_query = "SELECT * FROM articles
+         WHERE id NOT IN (SELECT articles.id FROM articles 
+         WHERE id IN (SELECT count_page_views.article_id FROM count_page_views WHERE count_page_views.cookie_id = '$cookie_value'))
+         ORDER BY id DESC LIMIT 10";
 
         $select_news_posts = mysqli_query($connection, $news_posts_query);
 

@@ -36,10 +36,10 @@
     <div class="container-fluid pb-4 pt-5">
         <div class="container animate-box">
             <div>
-                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Top Articles</div>
+                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Recommended for you</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
-                <?php querys::top_news() ?>
+                <?php querys::recommended_posts() ?>
             </div>
         </div>
     </div>

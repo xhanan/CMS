@@ -26,7 +26,7 @@
             <div>
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
             </div>
-            <div class="owl-carousel owl-theme js" id="slider1">
+            <div class="owl-carousel owl-theme js" id="slider3">
                 <?php querys::trending_news() ?>
             </div>
         </div>

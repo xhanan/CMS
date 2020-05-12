@@ -172,15 +172,17 @@ class querys
     static function trending_news()
     {
         global $connection;
-        $trending_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
-                                FROM `articles` 
+        $trending_posts_query = "SELECT `count_page_views`.`article_id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
+                                FROM `count_page_views`
+                                INNER JOIN articles ON articles.id = count_page_views.article_id
                                 INNER JOIN `users` ON `users`.`id` = `articles`.`user_id`
-                                ORDER BY  `articles`.`id` DESC LIMIT 10";
+                                GROUP BY count_page_views.article_id HAVING COUNT(*)>2
+                                ORDER BY  count_page_views.dateTime DESC LIMIT 10";
 
         $select_trending_posts = mysqli_query($connection, $trending_posts_query);
 
         while ($row3 = mysqli_fetch_assoc($select_trending_posts)) {
-            $trending_id = $row3['id'];
+            $trending_id = $row3['article_id'];
             $trending_title = $row3['title'];
             $trending_fname = $row3['first_name'];
             $trending_lname = $row3['last_name'];

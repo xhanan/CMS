@@ -19,7 +19,7 @@
 
             echo "<div class='row pb-3'>
         <div class='col-5 align-self-center'>
-            <img src='{$img}' alt='img' class='fh5co_most_trading' />
+            <img src='{$img}' alt='img' style = 'object-fit: cover;' class='fh5co_most_trading' />
         </div>
         <div class='col-7 paddding'>
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='footer_post pb-4'> {$title} </a> </div>

@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
 <?php include "footerFunctions.php"; ?>
-<body>
 <div class="container-fluid fh5co_footer_bg pb-3">
     <div class="container animate-box" style = "opacity:100%">
         <div class="row">

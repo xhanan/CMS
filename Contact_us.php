@@ -75,9 +75,6 @@ if (isset($_POST['contact_send'])) {
 
 
 
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -96,7 +93,6 @@ if (isset($_POST['contact_send'])) {
     <script src="js/modernizr-3.5.0.min.js"></script>
 </head>
 
-<body>
     <?php include "header.php" ?>
     
     <div class="container-fluid  fh5co_fh5co_bg_contcat">
@@ -186,5 +182,3 @@ if (isset($_POST['contact_send'])) {
     <script src="js/jquery.waypoints.min.js"></script>
     <!-- Main -->
     <script src="js/main.js"></script>
-
-</body>

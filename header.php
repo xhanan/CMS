@@ -174,5 +174,3 @@ function handleSelect(elm)
 window.location = elm.value+".php";
 }
 </script>
-</body>
-</html>

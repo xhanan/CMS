@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-
-<body>
 <?php include "header.php"?>
 <?php include "dbConnection.php";?>
 <?php include "articlesDisplayQuerys.php";?>
@@ -89,9 +85,3 @@
     </div>
 </div>
 <?php include "footer.php"?>
-<div class="gototop js-top">
-    <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
-</div>
-
-</body>
-</html>

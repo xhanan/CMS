@@ -7,6 +7,7 @@ if (isset($_POST['signupsubmit'])) {
     $email = $_POST['signuppemail'];
     $username = $_POST['signupusername'];
     $password = $_POST['signuppassword'];
+    $gender = $_POST['gender'];
 
     if (empty($firstname)) {
         $error = "You must enter the first name. ";
@@ -21,6 +22,8 @@ if (isset($_POST['signupsubmit'])) {
     } else if (!preg_match("/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/", $password)) {
         $error = "Your password must contain at least 8 characters,
             one lower casse letter, one upper case letter, one number and one character! ";
+    } else if(empty($gender)){
+        $error = "You must select your gender";
     }
 
     if ($error == NULL) {
@@ -39,7 +42,7 @@ if (isset($_POST['signupsubmit'])) {
         $hash_and_salt = $hash_format . $salt;
 
         $password =  crypt($password, $hash_and_salt);
-        $user = new Users($firstname, $lastname, $email, $username, $password);
+        $user = new Users($firstname, $lastname, $email, $username, $password, $gender);
         $user->insertUsers();
 
 
@@ -146,8 +149,8 @@ if (isset($_POST['loginsubmit'])) {
                 <div class="radio-container">
                     <div class="radio-container">
                         <span>Gender:</span>
-                        <span class="gender"><input type="radio" id="male" name="gender" value="male" ><label for="male" style="margin-left: 4px;"> Male </label></span>
-                        <span class="gender"><input type="radio" id="female" name="gender" value="female"><label for="female" style="margin-left: 4px;"> Female </label</span>
+                        <span class="gender"><input type="radio" id="male" name="gender" value="M" ><label for="male" style="margin-left: 4px;"> Male </label></span>
+                        <span class="gender"><input type="radio" id="female" name="gender" value="F"><label for="female" style="margin-left: 4px;"> Female </label</span>
                     </div>
                 </div>
                 

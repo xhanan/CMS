@@ -201,3 +201,9 @@ button.buttons {
     justify-content: center;
     align-items : center;
 }
+.gender{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}

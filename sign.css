@@ -196,3 +196,8 @@ button.buttons {
 .container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
+.radio-container{
+    display:flex;
+    justify-content: center;
+    align-items : center;
+}

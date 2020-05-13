@@ -3,7 +3,15 @@
 /* * * * * * * * * * * * * * *
 * Returns a single post
 * * * * * * * * * * * * * * */
-
+if(isset($_POST['postid'])){
+	$post_id = $_POST['postid'];
+	$queryDelete = "DELETE FROM articles WHERE id={$post_id};";
+	$p_query = mysqli_query($connection, $queryDelete);
+	if (!$p_query) {
+		die("Gabim: " . mysqli_error($connection));
+	  }
+	}
+	
 function getPost($id)
 {
 	global $connection;
@@ -17,6 +25,8 @@ function getPost($id)
 
 	return $post;
 }
+
+
 
 
 function getComment($id, $person)

@@ -354,6 +354,7 @@ class querys
             LEFT JOIN `users` ON `users`.`id` = `articles`.`user_id` 
             WHERE `users`.`id` = {$user_id}
             ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
+            
         } else if ($table === "bookmarks") {
             $articleQuery = "SELECT bookmarks.id,bookmarks.user_id,bookmarks.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
             FROM bookmarks 
@@ -362,7 +363,7 @@ class querys
             WHERE bookmarks.user_id = $user_id 
             ORDER BY `bookmarks`.`id` DESC LIMIT 8 OFFSET $pagenum";
         } else if ($table == "comments") {
-            $articleQuery = "SELECT articles.id,comments.user_id,comments.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
+            $articleQuery = "SELECT distinct articles.id,comments.user_id,comments.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
             FROM comments 
             INNER JOIN articles ON articles.id = comments.article_id 
             INNER JOIN users ON users.id = comments.user_id 
@@ -380,8 +381,14 @@ class querys
             $post_lname = $row['last_name'];
             $post_photo = $row['image'];
             $admin = $row['isadmin'];
+            if($table === "posts"){
+                $delete_button = "<button class='btn btn-primary' type='submit' onclick='delete_post($post_id);'>Delete</button>";
+            }
+            else{
+                $delete_button = "";
+            }
 
-            echo " <div class='row pb-4'>
+            echo " <div id='somePost-{$post_id}' class='row pb-4'>
                         <div class='col-md-5'>
                             <div class='fh5co_hover_news_img'>
                                 <div class='fh5co_news_img'><img src='{$post_photo}' alt=''/></div>
@@ -394,7 +401,7 @@ class querys
                         {$post_date} </a>
                         <br> ";
             if (isset($admin)) {
-                echo "<input class='btn btn-primary' type='button' onclick='location.href=\"editPost.php?p_id={$post_id}\";' value='Edit Post' />";
+                echo "<input class='btn btn-primary' type='button' onclick='location.href=\"editPost.php?p_id={$post_id}\";' value='Edit Post' /> ".$delete_button;
             }
             echo "</div>
                 </div>";
@@ -434,3 +441,4 @@ class querys
         
     }
 }
+

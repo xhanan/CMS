@@ -47,7 +47,7 @@ class querys
         }
     }
 
-    
+
 
     static function categoryNews()
     {
@@ -172,15 +172,17 @@ class querys
     static function trending_news()
     {
         global $connection;
-        $trending_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
-                                FROM `articles` 
+        $trending_posts_query = "SELECT `count_page_views`.`article_id`,`articles`.`title`,`users`.`first_name`,`users`.`last_name`,`articles`.`published_date`,`articles`.`image` 
+                                FROM `count_page_views`
+                                INNER JOIN articles ON articles.id = count_page_views.article_id
                                 INNER JOIN `users` ON `users`.`id` = `articles`.`user_id`
-                                ORDER BY  `articles`.`id` DESC LIMIT 10";
+                                GROUP BY count_page_views.article_id HAVING COUNT(*)>2
+                                ORDER BY  count_page_views.dateTime DESC LIMIT 10";
 
         $select_trending_posts = mysqli_query($connection, $trending_posts_query);
 
         while ($row3 = mysqli_fetch_assoc($select_trending_posts)) {
-            $trending_id = $row3['id'];
+            $trending_id = $row3['article_id'];
             $trending_title = $row3['title'];
             $trending_fname = $row3['first_name'];
             $trending_lname = $row3['last_name'];
@@ -200,12 +202,14 @@ class querys
         }
     }
 
-    static function top_news()
+    static function recommended_posts()
     {
         global $connection;
-        $news_posts_query = "SELECT `id`,`title`,`published_date`,`image` 
-                            FROM `articles`
-                            ORDER BY `id` DESC LIMIT 6";
+        $cookie_value = $_COOKIE['brainbyte'];
+        $news_posts_query = "SELECT * FROM articles
+         WHERE id NOT IN (SELECT articles.id FROM articles 
+         WHERE id IN (SELECT count_page_views.article_id FROM count_page_views WHERE count_page_views.cookie_id = '$cookie_value'))
+         ORDER BY id DESC LIMIT 10";
 
         $select_news_posts = mysqli_query($connection, $news_posts_query);
 
@@ -395,5 +399,38 @@ class querys
             echo "</div>
                 </div>";
         }
+    }
+
+    static function last_visited_posts(){
+        global $connection;
+
+        $cookie_value = $_COOKIE['brainbyte'];
+        
+        $last_visited_posts_query = "SELECT count_page_views.article_id,articles.title,articles.content,articles.published_date,articles.image FROM count_page_views
+        INNER JOIN articles ON articles.id = count_page_views.article_id
+        WHERE count_page_views.cookie_id = '$cookie_value'
+        GROUP BY count_page_views.article_id 
+        ORDER BY dateTime
+        LIMIT 5";
+
+        $execute_query = mysqli_query($connection, $last_visited_posts_query);
+
+        while ($rows = mysqli_fetch_assoc($execute_query)) {
+            $id = $rows['article_id'];
+            $title = $rows['title'];
+            $date = $rows['published_date'];
+            $img = $rows['image'];
+
+            echo "<div class='row pb-3'>
+            <div class='col-5 align-self-center'>
+            <img src='{$img}' alt='img' class='fh5co_most_trading' />
+            </div>
+            <div class='col-7 paddding'>
+            <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
+            <div class='most_fh5co_treding_font_123'> {$date} </div>
+            </div>
+            </div>";
+        }
+        
     }
 }

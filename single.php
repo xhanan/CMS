@@ -6,20 +6,19 @@
     <body class="single">
         <?php include "postFunctions.php"; ?>
         <?php include "articlesDisplayQuerys.php"; ?>
-
-        <?php
-        if (isset($_GET['p_id'])) {
-            $id = esc($_GET['p_id']);
-            $post = getPost($id);
-            cout_page_views($id);
-        }
-        ?>
         <?php include "header.php";
         if (isset($_SESSION['id'])) {
             $idPerson = $_SESSION['id'];
         } else {
             $idPerson = null;
         } ?>
+        <?php
+        if (isset($_GET['p_id'])) {
+            $id = esc($_GET['p_id']);
+            $post = getPost($id);
+            cout_page_views($id,$idPerson);
+        }
+        ?>
         <div id="fh5co-title-box" style="background-image: url(<?php getPostImage($id) ?>); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="page-title">
@@ -61,9 +60,9 @@
 
                         </div>
                         <div>
-                            <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                            <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Last Visited</div>
                         </div>
-                        <?php querys::most_viewed_posts(); ?>
+                        <?php querys::last_visited_posts(); ?>
                     </div>
                 </div>
                 <div id="commentDiv">

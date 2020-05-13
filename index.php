@@ -26,7 +26,7 @@
             <div>
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
             </div>
-            <div class="owl-carousel owl-theme js" id="slider1">
+            <div class="owl-carousel owl-theme js" id="slider3">
                 <?php querys::trending_news() ?>
             </div>
         </div>
@@ -36,10 +36,10 @@
     <div class="container-fluid pb-4 pt-5">
         <div class="container animate-box">
             <div>
-                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Top Articles</div>
+                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Recommended for you</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
-                <?php querys::top_news() ?>
+                <?php querys::recommended_posts() ?>
             </div>
         </div>
     </div>
@@ -66,9 +66,9 @@
 
                     </div>
                     <div>
-                        <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                        <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Last Visited</div>
                     </div>
-                    <?php querys::most_viewed_posts();?>
+                    <?php querys::last_visited_posts();?>
                     </div>
             </div>
             <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">

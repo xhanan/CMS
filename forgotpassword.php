@@ -1,9 +1,7 @@
 <?php
-    
+    include "postFunctions.php";
     if(isset($_POST['forgot_email'])){
-        include "dbConnection.php";
-        include "postFunctions.php";
-
+        
         $user_email = $_POST['forgot_email'];
         $user_email = esc($user_email);
         $sql = "SELECT * FROM users WHERE email ='$user_email';";
@@ -50,9 +48,9 @@
             $mail->SMTPSecure='ssl';
             $mail->Host = 'smtp.gmail.com';
             $mail->Port = '465';
-            $mail->Username = '';
-            $mail->Password = '';
-            $mail->SetFrom('brainbyte@gmail.com');
+            $mail->Username = 'brainbyteinfo@gmail.com';
+            $mail->Password = 'xhanibelirrusta';
+            $mail->SetFrom('brainbyteinfo@gmail.com');
             $mail->Subject = "Reset Password";
             $mail->Body = $message;
             $mail->AddAddress($user_email);

@@ -1,7 +1,8 @@
 <?php
-    include "postMethods.php";
+    
     if(isset($_POST['reset-password'])){
         include 'dbConnection.php';
+        include "postFunctions.php";
         $selector = $_GET['selector'];  
         $validator = $_GET['validator'];
        

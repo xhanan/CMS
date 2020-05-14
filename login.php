@@ -1,5 +1,6 @@
 <?php
-
+include "dbConnection.php";
+include "loginmethods.php";
 $error = NULL;
 if (isset($_POST['signupsubmit'])) {
     $firstname = $_POST['signupname'];
@@ -27,8 +28,7 @@ if (isset($_POST['signupsubmit'])) {
     }
 
     if ($error == NULL) {
-        include "dbConnection.php";
-        include "loginmethods.php";
+        
         require "oopsignup.php";
 
 
@@ -72,7 +72,7 @@ if (isset($_POST['signupsubmit'])) {
 }
 
 if (isset($_POST['loginsubmit'])) {
-    include "dbConnection.php";
+    
 
     $emailorusername = $_POST['loginstr'];
     $password = $_POST['loginpassword'];
@@ -83,10 +83,7 @@ if (isset($_POST['loginsubmit'])) {
         $emailorusername = mysqli_real_escape_string($connection, $emailorusername);
         $password = mysqli_real_escape_string($connection, $password);
 
-        $hash_format = "$2y$10$";
-        $salt = "iusesomecrazystrings22";
-        $hash_and_salt = $hash_format . $salt;
-        $password =  crypt($password, $hash_and_salt);
+        $password = encrypt_password($password);
 
         $query = "SELECT * FROM users WHERE email = '$emailorusername' OR username = '$emailorusername'";
         $select_query = mysqli_query($connection, $query);

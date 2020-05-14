@@ -10,16 +10,16 @@
                 ju sjellim juve ide, mendime e te rejat me te fundit nga bota e teknologjise e me gjere.
                 </div>
                 <div class="footer_mediya_icon">
-                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                    <div class="text-center d-inline-block"><a href="https://www.linkedin.com/in/xhanan-shehu-baa151188/" class="fh5co_display_table_footer">
                         <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
                     </a></div>
-                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
-                        <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                    <div class="text-center d-inline-block"><a href="https://www.instagram.com/xhanansh/" class="fh5co_display_table_footer">
+                        <div class="fh5co_verticle_middle"><i class="fa fa-instagram"></i></div>
                     </a></div>
-                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                    <div class="text-center d-inline-block"><a href="https://twitter.com/Xhanansh1" class="fh5co_display_table_footer">
                         <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
                     </a></div>
-                    <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                    <div class="text-center d-inline-block"><a href="https://www.facebook.com/xhannyy" class="fh5co_display_table_footer">
                         <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
                     </a></div>
                 </div>
@@ -36,15 +36,6 @@
             <div class="col-12 col-md-12 col-lg-4 ">
                 <div class="footer_main_title py-3">Latest Posts</div>
                 <?php latest_posts(); ?>
-                <!-- <a href="#" class="footer_img_post_6"><img src="images/allef-vinicius-108153.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/32-450x260.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/download (1).jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/science-578x362.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/vil-son-35490.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/zack-minor-15104.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/download.jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/download (2).jpg" alt="img"/></a>
-                <a href="#" class="footer_img_post_6"><img src="images/ryan-moreno-98837.jpg" alt="img"/></a> -->
             </div>
         </div>
         <br>

@@ -40,8 +40,8 @@
                         </a>
                     </div>
                     <div class="text-center d-inline-block" style="margin-top:4px">
-                        <a class="fh5co_display_table">
-                            <div class="fh5co_verticle_middle"><i class="fa fa-google-plus" style="color: #fff"></i></div>
+                        <a href="https://www.instagram.com/xhanansh/" class="fh5co_display_table">
+                            <div class="fh5co_verticle_middle"><i class="fa fa-instagram" style="color: #fff"></i></div>
                         </a>
                     </div>
                     <div class="text-center d-inline-block" style="margin-top:4px">

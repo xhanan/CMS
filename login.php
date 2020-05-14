@@ -79,8 +79,8 @@ if (isset($_POST['loginsubmit'])) {
     if (empty($emailorusername) || empty($password)) {
         $print_message = "Enter your username or email and password";
     } else {
-        $emailorusername = esc($connection, $emailorusername);
-        $password = esc($connection, $password);
+        $emailorusername = esc($emailorusername);
+        $password = esc($password);
 
         $password = encrypt_password($password);
 

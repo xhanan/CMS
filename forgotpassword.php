@@ -1,10 +1,11 @@
 <?php
-    include "postMethods.php";
+    
     if(isset($_POST['forgot_email'])){
         include "dbConnection.php";
-        
+        include "postMethods.php";
+
         $user_email = $_POST['forgot_email'];
-        $user_email = esc($connection, $user_email);
+        $user_email = esc($user_email);
         $sql = "SELECT * FROM users WHERE email ='$user_email';";
         $if_exist_query = mysqli_query($connection, $sql);
         

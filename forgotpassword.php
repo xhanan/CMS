@@ -2,7 +2,7 @@
     if(isset($_POST['forgot_email'])){
         include "dbConnection.php";
         $user_email = $_POST['forgot_email'];
-        $user_email = mysqli_real_escape_string($connection, $user_email);
+        $user_email = esc($connection, $user_email);
         $sql = "SELECT * FROM users WHERE email ='$user_email';";
         $if_exist_query = mysqli_query($connection, $sql);
         

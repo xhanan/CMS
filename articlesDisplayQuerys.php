@@ -440,5 +440,33 @@ class querys
         }
         
     }
+
+    static function recommended_posts_single(){
+        global $connection;
+        $cookie_value = $_COOKIE['brainbyte'];
+        $news_posts_query = "SELECT * FROM articles
+         WHERE id NOT IN (SELECT articles.id FROM articles 
+         WHERE id IN (SELECT count_page_views.article_id FROM count_page_views WHERE count_page_views.cookie_id = '$cookie_value'))
+         ORDER BY id DESC LIMIT 10";
+
+        $select_news_posts = mysqli_query($connection, $news_posts_query);
+
+        while ($row4 = mysqli_fetch_assoc($select_news_posts)) {
+            $news_id = $row4['id'];
+            $news_title = $row4['title'];
+            $news_published = $row4['published_date'];
+            $news_img = $row4['image'];
+
+            echo "<div class='item px-2'>
+            <div class='fh5co_hover_news_img'>
+                <div class='fh5co_news_img'><img src={$news_img} alt='' /></div>
+                <div>
+                    <a href='href='single.php?p_id={$news_id}' class='d-block fh5co_small_post_heading'><span class=''>{$news_title}</span></a>
+                    <div class='c_g'><i class='fa fa-clock-o'></i> {$news_published}</div>
+                </div>
+            </div>
+        </div>";
+        }
+    }
 }
 

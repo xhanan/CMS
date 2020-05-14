@@ -28,6 +28,7 @@ if (isset($_POST['signupsubmit'])) {
 
     if ($error == NULL) {
         include "dbConnection.php";
+        include "loginmethods.php";
         require "oopsignup.php";
 
 
@@ -37,7 +38,7 @@ if (isset($_POST['signupsubmit'])) {
         $username = mysqli_real_escape_string($connection, $username);
         $password = mysqli_real_escape_string($connection, $password);
 
-        
+        $password = encrypt_password($password);
         $user = new Users($firstname, $lastname, $email, $username, $password, $gender);
         $user->insertUsers();
 

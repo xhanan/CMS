@@ -1,6 +1,8 @@
 <?php
+    include "postMethods.php";
     if(isset($_POST['forgot_email'])){
         include "dbConnection.php";
+        
         $user_email = $_POST['forgot_email'];
         $user_email = esc($connection, $user_email);
         $sql = "SELECT * FROM users WHERE email ='$user_email';";

@@ -33,11 +33,11 @@ if (isset($_POST['signupsubmit'])) {
         
         require "oopsignup.php";
 
-        $firstname = esc($connection, $firstname);
-        $lastname = esc($connection, $lastname);
-        $email = esc($connection, $email);
-        $username = esc($connection, $username);
-        $password = esc($connection, $password);
+        $firstname = esc($firstname);
+        $lastname = esc($lastname);
+        $email = esc($email);
+        $username = esc($username);
+        $password = esc($password);
 
         $password = encrypt_password($password);
         $user = new Users($firstname, $lastname, $email, $username, $password, $gender);

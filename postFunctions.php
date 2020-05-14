@@ -113,9 +113,9 @@ function isMale($person)
 
 	while ($row = mysqli_fetch_assoc($comment_query)) {
 		$gender = $row['gender'];
-		if (isset($gender)) {
+		if ($gender == "F") {
 			$avatar = "https://bootdey.com/img/Content/avatar/avatar5.png";
-		} else {
+		} elseif($gender == "M" or $gender == "") {
 			$avatar = "https://bootdey.com/img/Content/avatar/avatar7.png";
 		}
 	}

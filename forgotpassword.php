@@ -2,7 +2,7 @@
     
     if(isset($_POST['forgot_email'])){
         include "dbConnection.php";
-        include "postMethods.php";
+        include "postFunctions.php";
 
         $user_email = $_POST['forgot_email'];
         $user_email = esc($user_email);

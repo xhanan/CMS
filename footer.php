@@ -6,8 +6,8 @@
             <div class="clearfix"></div>
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="footer_main_title py-3"> About</div>
-                <div class="footer_sub_about pb-3"> Jemi nje website i cili ju sjell juve me te rejat nga teknologjia boterore dhe te trendeve me te medha. Ne ju njoftojme me 
-                reviews te keyre tekonlogjive dhe te dhenat te cilat do ju duhen juve parase te ndermerni nje hap.
+                <div class="footer_sub_about pb-3"> Jemi nje grup te rinjesh te pasionuar pas teknologjise dhe qe mundohemi te
+                ju sjellim juve ide, mendime e te rejat me te fundit nga bota e teknologjise e me gjere.
                 </div>
                 <div class="footer_mediya_icon">
                     <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">

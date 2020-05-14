@@ -115,11 +115,13 @@ function isMale($person)
 		$gender = $row['gender'];
 		if ($gender == "F") {
 			$avatar = "https://bootdey.com/img/Content/avatar/avatar5.png";
+			return $avatar;
 		} elseif($gender == "M" or $gender == "") {
 			$avatar = "https://bootdey.com/img/Content/avatar/avatar7.png";
+			return $avatar;
 		}
 	}
-	return $avatar;
+	
 }
 function getName($person)
 {

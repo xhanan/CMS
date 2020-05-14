@@ -87,9 +87,6 @@
                                 </button>
                                 </a>
                                 </div>';
-                        //     <div class="text-center d-inline-block float-right">
-                        //     a href="login.php" class="input-group-addon mt-1 mr-2" id="basic-addon12">Login</a>
-                        // </div>';
                     }
                     ?>
 

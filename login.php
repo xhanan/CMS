@@ -1,8 +1,10 @@
 <?php
 include "dbConnection.php";
 include "loginmethods.php";
+include "postFunctions.php";
 $error = NULL;
 if (isset($_POST['signupsubmit'])) {
+
     $firstname = $_POST['signupname'];
     $lastname = $_POST['signuplastname'];
     $email = $_POST['signuppemail'];
@@ -31,17 +33,15 @@ if (isset($_POST['signupsubmit'])) {
         
         require "oopsignup.php";
 
-
-        $firstname = mysqli_real_escape_string($connection, $firstname);
-        $lastname = mysqli_real_escape_string($connection, $lastname);
-        $email = mysqli_real_escape_string($connection, $email);
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
+        $firstname = esc($connection, $firstname);
+        $lastname = esc($connection, $lastname);
+        $email = esc($connection, $email);
+        $username = esc($connection, $username);
+        $password = esc($connection, $password);
 
         $password = encrypt_password($password);
         $user = new Users($firstname, $lastname, $email, $username, $password, $gender);
         $user->insertUsers();
-
 
         $query_signup = "SELECT * FROM users WHERE username = '$username'";
         $select_query_signup = mysqli_query($connection, $query_signup);
@@ -73,7 +73,6 @@ if (isset($_POST['signupsubmit'])) {
 
 if (isset($_POST['loginsubmit'])) {
     
-
     $emailorusername = $_POST['loginstr'];
     $password = $_POST['loginpassword'];
 

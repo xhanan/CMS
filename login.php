@@ -1,8 +1,8 @@
 <?php
-
 include "loginmethods.php";
 include "postFunctions.php";
 $error = NULL;
+
 if (isset($_POST['signupsubmit'])) {
     $firstname = $_POST['signupname'];
     $lastname = $_POST['signuplastname'];

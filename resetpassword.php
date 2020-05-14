@@ -1,5 +1,5 @@
 <?php
-    
+    include "postMethods.php";
     if(isset($_POST['reset-password'])){
         include 'dbConnection.php';
         $selector = $_GET['selector'];  
@@ -8,8 +8,8 @@
         $newpassword = $_POST['new-password'];
         $confirmnewpassword = $_POST['confirm-new-password'];
 
-        $newpassword = mysqli_real_escape_string($connection, $newpassword);
-        $confirmnewpassword = mysqli_real_escape_string($connection, $confirmnewpassword);
+        $newpassword = esc($connection, $newpassword);
+        $confirmnewpassword = esc($connection, $confirmnewpassword);
         
         
         $time = date("U");

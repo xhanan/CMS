@@ -57,9 +57,6 @@
 
                     <?php
                     if (isset($_SESSION['user'])) {
-                        // $text = '<div class="text-center d-inline-block float-right mt-2" style="font-size: 15px"><a href="logout.php">';
-                        // $text .= $_SESSION["user"];
-                        // $text .= '</a></div>';
                         echo '<div class="btn-group float-right mt-2" style="margin-bottom:4px">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 ' . $_SESSION["user"] . '  

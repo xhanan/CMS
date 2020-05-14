@@ -1,10 +1,9 @@
 <?php
-include "dbConnection.php";
+
 include "loginmethods.php";
 include "postFunctions.php";
 $error = NULL;
 if (isset($_POST['signupsubmit'])) {
-
     $firstname = $_POST['signupname'];
     $lastname = $_POST['signuplastname'];
     $email = $_POST['signuppemail'];
@@ -62,7 +61,7 @@ if (isset($_POST['signupsubmit'])) {
         if (isset($dbemail) && isset($dbusername) && isset($dbpassword)) {
             if ($username == $dbusername && $password == $dbpassword) {
                 session_start();
-                $_SESSION['user'] = $dbfirstname . " " . $dblastname;
+                $_SESSION['user'] = $dbfirstname. " " . $dblastname;
                 $_SESSION['id'] = $dbid;
                 $_SESSION['isadmin'] = $dbADMIN;
                 header("Location: index.php");
@@ -72,7 +71,6 @@ if (isset($_POST['signupsubmit'])) {
 }
 
 if (isset($_POST['loginsubmit'])) {
-    
     $emailorusername = $_POST['loginstr'];
     $password = $_POST['loginpassword'];
 
@@ -103,7 +101,7 @@ if (isset($_POST['loginsubmit'])) {
         if (isset($dbemail) && isset($dbusername) && isset($dbpassword)) {
             if (($emailorusername == $dbemail || $emailorusername == $dbusername) && $password == $dbpassword) {
                 session_start();
-                $_SESSION['user'] = $dbfirstname . " " . $dblastname;
+                $_SESSION['user'] = $dbfirstname. " " . $dblastname;
                 $_SESSION['id'] = $dbid;
                 $_SESSION['isadmin'] = $dbADMIN;
                 header("Location: index.php");
@@ -191,7 +189,7 @@ if (isset($_POST['loginsubmit'])) {
         signUpButton.addEventListener('click', () =>
             container.classList.add('right-panel-active'));
         signInButton.addEventListener('click', () =>
-            container.classList.remove('right-panel-active'));
+            container.classList.remove('right-panel-active'));   
     </script>
 </body>
 

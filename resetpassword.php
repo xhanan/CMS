@@ -5,6 +5,9 @@
         include "postFunctions.php";
         $selector = $_GET['selector'];  
         $validator = $_GET['validator'];
+
+        $selector = esc($selector);
+        $validator = esc($validator);
        
         $newpassword = $_POST['new-password'];
         $confirmnewpassword = $_POST['confirm-new-password'];

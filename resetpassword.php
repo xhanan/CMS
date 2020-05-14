@@ -12,8 +12,8 @@
         $newpassword = $_POST['new-password'];
         $confirmnewpassword = $_POST['confirm-new-password'];
 
-        $newpassword = esc($connection, $newpassword);
-        $confirmnewpassword = esc($connection, $confirmnewpassword);
+        $newpassword = esc($newpassword);
+        $confirmnewpassword = esc($confirmnewpassword);
         
         
         $time = date("U");

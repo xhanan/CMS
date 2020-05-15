@@ -7,6 +7,7 @@
         $id = $_GET['p_id'];
 	    $post = getPost($id);
     }
+    
     if (isset($_POST['update_post'])) {
         $title = esc($_POST['title']);
         $content =  esc($_POST['content']);
@@ -14,7 +15,12 @@
         $user = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         $tags = esc($_POST['tag']);
         $media = esc($_POST['image']);
-        $fotoja = "images/$media";
+        if(isset($post['image'])){
+            $fotoja = $post['image'];
+        }else{
+            $fotoja = "images/$media";
+        }
+
         if (isset($_SESSION['id'])) {
             $query = "UPDATE articles SET title='{$title}',content='{$content}',
             category_id={$category},user_id={$user},tags='{$tags}', image='{$fotoja}', edit_date=now() WHERE id={$id}";
@@ -73,7 +79,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>
-                                <?php $permbajtja=$post['content']; 
+                                
+                                <?php if($id==4){
+                                    $myfile = fopen("readForPost.txt", "r") or die("Unable to open file!");
+                                    $permbajtja = fread($myfile,filesize("readForPost.txt"));
+                                    fclose($myfile);
+                                    $myfile = fopen("readForPost.txt", "w") or die("Unable to open file!");
+                                    fwrite($myfile, $post['title']);  //pas leximit e shkruan titullin e artikullit ne qat file
+                                    fclose($myfile);
+                                }
+                                    else{
+                                     $permbajtja=$post['content'];
+                                    } 
                                 echo "<textarea id=\"content\" class=\"form-control\" name=\"content\" placeholder=\"Permbajtja\">$permbajtja</textarea>";?>
                             </div>
                             <button type="submit" class="btn btn-primary" name="update_post">Submit</button>

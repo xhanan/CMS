@@ -1,0 +1,3 @@
+OnePlus has time and again proved to be an OEM worth opting for, by offering timely updates bringing new features. Recently, OnePlus released OxygenOS Beta 3 update for OnePlus 7T that brought the April 2020 security patch. It also added a couple of features like ringtone duration info for missed called and camera lens dirt detection.
+
+Now, according to a Redditor, OnePlus has also silently pushed 960fps slo-mo and 4K@30fps wide-angle video recording features in this update without mentioning these in the changelog.

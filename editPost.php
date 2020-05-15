@@ -84,6 +84,9 @@
                                     $myfile = fopen("readForPost.txt", "r") or die("Unable to open file!");
                                     $permbajtja = fread($myfile,filesize("readForPost.txt"));
                                     fclose($myfile);
+                                    $myfile = fopen("readForPost.txt", "w") or die("Unable to open file!");
+                                    fwrite($myfile, $post['title']);  //pas leximit e shkruan titullin e artikullit ne qat file
+                                    fclose($myfile);
                                 }
                                     else{
                                      $permbajtja=$post['content'];

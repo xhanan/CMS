@@ -356,7 +356,7 @@ class querys
             ORDER BY `articles`.`id` DESC LIMIT 8 OFFSET $pagenum";
             
         } else if ($table === "bookmarks") {
-            $articleQuery = "SELECT bookmarks.id,bookmarks.user_id,bookmarks.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
+            $articleQuery = "SELECT articles.id,bookmarks.user_id,bookmarks.article_id,users.first_name,users.last_name,articles.title,articles.published_date,articles.image,users.isadmin
             FROM bookmarks 
             INNER JOIN articles ON articles.id = bookmarks.article_id 
             INNER JOIN users ON users.id = bookmarks.user_id 

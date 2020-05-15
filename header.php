@@ -18,13 +18,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="css/animate.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
     <link href="css/owl.theme.default.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap CSS -->
     <link href="css/style_1.css" rel="stylesheet" type="text/css" />
     <!-- Modernizr JS -->
     <script src="js/modernizr-3.5.0.min.js"></script>
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/ui/trumbowyg.min.css" integrity="sha256-B6yHPOeGR8Rklb92mcZU698ZT4LZUw/hTpD/U87aBPc=" crossorigin="anonymous" />
 </head>
@@ -105,7 +105,7 @@
                     <form action="search.php" method="post">
                         <div class="input-group float-right">
                             <button class="input-group-addon" name="search_submit"><i class="fa fa-search"></i></button>
-                            <input id="Search" list="liveS" type="text" class="form-control" autocomplete="off" onkeyup="showResult(this.value)" name="search" placeholder="Search"></input>
+                            <input id="Search" list="liveS" type="text" class="form-control" autocomplete="off" name="search" placeholder="Search"></input>
                         </div>
                     </form>
                     <div id="liveS"></div>
@@ -140,29 +140,4 @@
             </nav>
         </div>
     </div>
-    <script>
-function showResult(str) {
-  if (str.length==0) {
-    document.getElementById("liveS").innerHTML="";
-    document.getElementById("liveS").style.border="0px";
-    return;
-  }
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("liveS").innerHTML=this.responseText;
-      document.getElementById("liveS").style.border="1px solid #00FFFF";
-      document.getElementById("liveS").style.borderRadius="4px";
-      document.getElementById("liveS").style.font = "bold 15px";
-    }
-  }
-  xmlhttp.open("GET","liveSearch.php?q="+str,true);
-  xmlhttp.send();
-}
-</script>
-<script type="text/javascript">
-function handleSelect(elm)
-{
-window.location = elm.value+".php";
-}
-</script>
+

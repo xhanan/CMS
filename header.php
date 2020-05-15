@@ -32,7 +32,7 @@
 <body>
     <div class="container-fluid fh5co_header_bg">
         <div class="container">
-            <div class="row">
+            <div class="row">   
                 <div class="col-12 align-self-center">
                     <div class="text-center d-inline-block" style="margin-top:4px">
                         <a href="https://www.linkedin.com/in/xhanan-shehu-baa151188/" class="fh5co_display_table">

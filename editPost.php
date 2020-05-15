@@ -15,10 +15,10 @@
         $user = $_SESSION['id'];    # user id duhet te merret nga useri qe eshte i kycur (nese eshte admin)
         $tags = esc($_POST['tag']);
         $media = esc($_POST['image']);
-        if(isset($post['image'])){
-            $fotoja = $post['image'];
-        }else{
+        if($media != ""){
             $fotoja = "images/$media";
+        }else{
+            $fotoja = $post['image'];
         }
 
         if (isset($_SESSION['id'])) {

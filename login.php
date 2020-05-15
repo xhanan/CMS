@@ -122,7 +122,7 @@ if (isset($_POST['loginsubmit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign</title>
-    <link rel="stylesheet" href="sign.css">
+    <link rel="stylesheet" href="css/sign.css">
     <script src="https://kit.fontawesome.com/0f92c53527.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>

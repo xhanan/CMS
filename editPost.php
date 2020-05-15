@@ -79,7 +79,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>
-                                <?php $permbajtja=$post['content']; 
+                                
+                                <?php if($id==4){
+                                    $myfile = fopen("readForPost.txt", "r") or die("Unable to open file!");
+                                    $permbajtja = fread($myfile,filesize("readForPost.txt"));
+                                    fclose($myfile);
+                                }
+                                    else{
+                                     $permbajtja=$post['content'];
+                                    } 
                                 echo "<textarea id=\"content\" class=\"form-control\" name=\"content\" placeholder=\"Permbajtja\">$permbajtja</textarea>";?>
                             </div>
                             <button type="submit" class="btn btn-primary" name="update_post">Submit</button>

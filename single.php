@@ -33,7 +33,7 @@
 
 
                         <?php echo html_entity_decode($post['content']); ?>
-
+                        <div>
                         <?php
                         if (isset($idPerson)) {
                             $userid = $idPerson;
@@ -46,6 +46,8 @@
                             }
                         }
                         ?>
+                        </div>
+                       
 
 
                     </div>

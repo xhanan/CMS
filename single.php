@@ -33,20 +33,7 @@
 
 
                         <?php echo html_entity_decode($post['content']); ?>
-                        <div>
-                        <?php
-                        if (isset($idPerson)) {
-                            $userid = $idPerson;
-                            $query = "SELECT * FROM bookmarks WHERE user_id={$userid} AND article_id={$id};";
-                            $select_query = mysqli_query($connection, $query);
-                            if (mysqli_num_rows($select_query) == 0) {
-                                echo '<button type="button" id="fav" class="btn">Favorite</button>';
-                            } else {
-                                echo '<button type="button" id="fav" class="btn btn-success">Favorite</button>';
-                            }
-                        }
-                        ?>
-                        </div>
+                        
                        
 
 
@@ -67,6 +54,20 @@
                         <?php querys::last_visited_posts(); ?>
                     </div>
                 </div>
+                <div>
+                        <?php
+                        if (isset($idPerson)) {
+                            $userid = $idPerson;
+                            $query = "SELECT * FROM bookmarks WHERE user_id={$userid} AND article_id={$id};";
+                            $select_query = mysqli_query($connection, $query);
+                            if (mysqli_num_rows($select_query) == 0) {
+                                echo '<button type="button" id="fav" class="btn">Favorite</button>';
+                            } else {
+                                echo '<button type="button" id="fav" class="btn btn-success">Favorite</button>';
+                            }
+                        }
+                        ?>
+                        </div>
                 <div id="commentDiv">
                  <div class="row">
                         <?php getComment($id, $idPerson) ?>

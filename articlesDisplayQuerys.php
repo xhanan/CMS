@@ -238,14 +238,31 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-        if ($count > 1) {
+
+        $pervious =0;
+        $next = 0;
+        if (isset($_GET['page'])) {
+            $pg = $_GET['page'];
+            $pervious = $pg - 1;
+            $next = $pg +1;
+        }else{
+            $pervious=0;
+            $next = 0;
+        }
+            
+        
+        if($pervious>=0){
             echo "<div class='col-12 text-center pb-4 pt-4'>
-            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
-            for ($i = 1; $i < $count; $i++) {
-                $page = $i-1;
+            <a href='blog.php?page={$pervious}' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+        }
+        if ($count > 1) {
+            for ($i = 1; $i <= $count; $i++) {
+                $page = $i - 1;
                 echo "<a href='blog.php?page={$page}' class='btn_pagging'>{$i}</a>";
             }
-            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+        }
+        if($next < $count){
+            echo "<a href='blog.php?page={$next}' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
         }
     }
@@ -291,14 +308,30 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if ($count > 1) {
+        $pervious =0;
+        $next = 0;
+        if (isset($_GET['cat_page'])) {
+            $pg = $_GET['cat_page'];
+            $pervious = $pg - 1;
+            $next = $pg +1;
+        }else{
+            $pervious=0;
+            $next = 0;
+        }
+            
+        
+        if($pervious>=0){
             echo "<div class='col-12 text-center pb-4 pt-4'>
-            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+            <a href='categories.php?cat_id={$cat_id}&cat_page={$pervious}' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+        }
+        if ($count > 1) {
             for ($i = 1; $i <= $count; $i++) {
                 $page = $i - 1;
-                echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$page' class='btn_pagging'>{$i}</a>";
+                echo "<a href='categories.php?cat_id={$cat_id}&cat_page={$page}' class='btn_pagging'>{$i}</a>";
             }
-            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+        }
+        if($next < $count){
+            echo "<a href='categories.php?cat_id={$cat_id}&cat_page={$next}' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
         }
     }
@@ -320,15 +353,31 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-
-        if ($count > 1) {
+        
+        $pervious =0;
+        $next = 0;
+        if (isset($_GET['pagination'])) {
+            $pg = $_GET['pagination'];
+            $pervious = $pg - 1;
+            $next = $pg +1;
+        }else{
+            $pervious=0;
+            $next = 0;
+        }
+            
+        
+        if($pervious>=0){
             echo "<div class='col-12 text-center pb-4 pt-4'>
-            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
-            for ($i = 1; $i < $count; $i++) {
+            <a href='profile.php?page_id={$pgnName}&pagination={$pervious}' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+        }
+        if ($count > 1) {
+            for ($i = 1; $i <= $count; $i++) {
                 $page = $i - 1;
                 echo "<a href='profile.php?page_id={$pgnName}&pagination={$page}' class='btn_pagging'>{$i}</a>";
             }
-            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+        }
+        if($next < $count){
+            echo "<a href='profile.php?page_id={$pgnName}&pagination={$next}' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
         }
     }

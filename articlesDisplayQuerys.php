@@ -134,7 +134,7 @@ class querys
             <div class='fh5co_suceefh5co_height_position_absolute_font'>
             <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date}
             </a></div>
-            <div class=''><a href='single.php?p_id={$postid}' class='fh5co_good_font'> {$title} </a></div>
+            <div class=''><a href='single.php?p_id={$postid}' class='fh5co_good_font' style='font-size: 24px'> {$title} </a></div>
             </div>
             </div>
             </div>";
@@ -161,7 +161,7 @@ class querys
                     <div class='fh5co_suceefh5co_height_position_absolute'></div>
                         <div class='fh5co_suceefh5co_height_position_absolute_font_2'>
                             <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date} </a></div>
-                            <div class=''><a href='single.php?p_id={$postid2}' class='fh5co_good_font_2'>{$title}</a>
+                            <div class=''><a href='single.php?p_id={$postid2}' class='fh5co_good_font_2' style='font-size: 24px'>{$title}</a>
                         </div>
                     </div>
                 </div>

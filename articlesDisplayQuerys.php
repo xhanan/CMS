@@ -34,7 +34,7 @@ class querys
             echo " <div class='row pb-4'>
                                 <div class='col-md-5'>
                                     <div class='fh5co_hover_news_img'>
-                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt=''/></div></a>
+                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' style='object-fit: cover; max-height:100%;'/></div></a>
                                     <div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ class querys
             echo " <div class='row pb-4'>
                                 <div class='col-md-5'>
                                     <div class='fh5co_hover_news_img'>
-                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' /></div></a>
+                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' style='object-fit: cover; max-height:100%;'/></div></a>
                                     <div>
                                 </div>
                             </div>
@@ -191,7 +191,7 @@ class querys
 
             echo "<div class='item px-2'>
                 <div class='fh5co_latest_trading_img_position_relative'>
-                    <div class='fh5co_latest_trading_img'><img src='{$trending_img}' alt='' class='fh5co_img_special_relative'/></div>
+                    <div class='fh5co_latest_trading_img'><img src='{$trending_img}' alt='' class='fh5co_img_special_relative' style='object-fit: cover; max-height:100%;'/></div>
                     <div class='fh5co_latest_trading_img_position_absolute'></div>
                     <div class='fh5co_latest_trading_img_position_absolute_1'>
                         <a href='single.php?p_id={$trending_id}' class='text-white'> {$trending_title} </a>
@@ -221,7 +221,7 @@ class querys
 
             echo "<div class='item px-2'>
                 <div class='fh5co_hover_news_img'>
-                    <div class='fh5co_news_img'><img src='{$news_img}' alt=''/></div>
+                    <div class='fh5co_news_img'><img src='{$news_img}' alt=''style='object-fit: cover; max-height:100%;'/></div>
                     <div>
                         <a href='single.php?p_id={$news_id}' class='d-block fh5co_small_post_heading'><span class=''>{$news_title}</span></a>
                         <div class='c_g'><i class='fa fa-clock-o'></i> {$news_published}</div>
@@ -268,7 +268,7 @@ class querys
 
             echo "<div class='row pb-3'>
         <div class='col-5 align-self-center'>
-        <a href='single.php?p_id={$id}'> <img src='{$img}' alt='img' class='fh5co_most_trading' /></a>
+        <a href='single.php?p_id={$id}'> <img src='{$img}' alt='img' class='fh5co_most_trading' style='object-fit: cover; max-height:100%;'/></a>
         </div>
         <div class='col-7 paddding'>
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
@@ -391,7 +391,7 @@ class querys
             echo " <div id='somePost-{$post_id}' class='row pb-4'>
                         <div class='col-md-5'>
                             <div class='fh5co_hover_news_img'>
-                                <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt=''/></a></div>
+                                <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' style='object-fit: cover; max-height:100%;'/></a></div>
                             <div>
                         </div>
                     </div>
@@ -430,7 +430,7 @@ class querys
 
             echo "<div class='row pb-3'>
             <div class='col-5 align-self-center'>
-            <a href='single.php?p_id={$id}'><img src='{$img}' alt='img' class='fh5co_most_trading' /></a>
+            <a href='single.php?p_id={$id}'><img src='{$img}' alt='img' class='fh5co_most_trading' style='object-fit: cover; max-height:100%;'/></a>
             </div>
             <div class='col-7 paddding'>
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
@@ -459,7 +459,7 @@ class querys
 
             echo "<div class='item px-2'>
             <div class='fh5co_hover_news_img'>
-                <div class='fh5co_news_img'><a href='single.php?p_id={$news_id}'><img src={$news_img} alt=''/></a></div>
+                <div class='fh5co_news_img'><a href='single.php?p_id={$news_id}'><img src={$news_img} style='object-fit: cover; max-height:100%;' alt=''/></a></div>
                 <div>
                     <a href='single.php?p_id={$news_id}' class='d-block fh5co_small_post_heading'><span class=''>{$news_title}</span></a>
                     <div class='c_g'><i class='fa fa-clock-o'></i> {$news_published}</div>

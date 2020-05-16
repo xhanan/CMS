@@ -43,9 +43,11 @@
 
     function mostViewedPosts(){
         global $connection;
-        $most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image` 
-                FROM `articles` 
-                ORDER BY post_views DESC LIMIT 4";
+        $most_viewed_posts_query = "SELECT `articles`.`id`,`articles`.`title`,`articles`.`published_date`,`articles`.`image`
+                                    FROM `articles` 
+                                    INNER JOIN `count_page_views` on `articles`.`id` = `count_page_views`.`article_id`
+                                    GROUP by `articles`.`id`
+                                    ORDER by COUNT(`count_page_views`.`article_id`) desc limit 4";
                 $execute_query = mysqli_query($connection, $most_viewed_posts_query);
             while ($rows = mysqli_fetch_assoc($execute_query)) {
                 $id = $rows['id'];

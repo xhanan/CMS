@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <label for="content">Përmbajtja</label>
                                 
-                                <?php if($id==4){
+                                <?php if($id==13){
                                     $myfile = fopen("readForPost.txt", "r") or die("Unable to open file!");
                                     $permbajtja = fread($myfile,filesize("readForPost.txt"));
                                     fclose($myfile);

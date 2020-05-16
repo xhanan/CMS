@@ -242,8 +242,8 @@ class querys
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
-
-                echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
+                $page = $i-1;
+                echo "<a href='blog.php?page={$page}' class='btn_pagging'>{$i}</a>";
             }
             echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
@@ -294,9 +294,9 @@ class querys
         if ($count > 1) {
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
-            for ($i = 1; $i < $count; $i++) {
-
-                echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
+            for ($i = 1; $i <= $count; $i++) {
+                $page = $i - 1;
+                echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$page' class='btn_pagging'>{$i}</a>";
             }
             echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
@@ -325,8 +325,8 @@ class querys
             echo "<div class='col-12 text-center pb-4 pt-4'>
             <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
             for ($i = 1; $i < $count; $i++) {
-
-                echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
+                $page = $i - 1;
+                echo "<a href='profile.php?page_id={$pgnName}&pagination={$page}' class='btn_pagging'>{$i}</a>";
             }
             echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";

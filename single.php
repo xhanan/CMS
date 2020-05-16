@@ -4,6 +4,8 @@
 <php lang="en" class="no-js">
 
     <body class="single">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>
         <?php include "postFunctions.php"; ?>
         <?php include "articlesDisplayQuerys.php"; ?>
         <?php include "header.php";
@@ -54,8 +56,11 @@
                         <?php querys::last_visited_posts(); ?>
                     </div>
                 </div>
-                <div>
-                        <?php
+                <!-- butonat -->
+                <div style="display: flex;">
+                    <!-- favorite buton 640 -->
+                    <div style="margin-right: 550px;">
+                    <?php
                         if (isset($idPerson)) {
                             $userid = $idPerson;
                             $query = "SELECT * FROM bookmarks WHERE user_id={$userid} AND article_id={$id};";
@@ -66,8 +71,17 @@
                                 echo '<button type="button" id="fav" class="btn btn-success">Favorite</button>';
                             }
                         }
-                        ?>
-                        </div>
+                    ?>
+                    </div>
+                    <!-- share facebook -->
+                    <?php
+                        $url      = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                        $validURL = str_replace("&", "&amp", $url);
+                        echo '<div class="fb-share-button" data-href="'.$validURL.'" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='.$validURL.'" class="fb-xfbml-parse-ignore">Share</a></div>';
+                    ?>
+                    
+                        
+                </div>
                 <div id="commentDiv">
                  <div class="row">
                         <?php getComment($id, $idPerson) ?>

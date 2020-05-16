@@ -34,7 +34,7 @@ class querys
             echo " <div class='row pb-4'>
                                 <div class='col-md-5'>
                                     <div class='fh5co_hover_news_img'>
-                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt=''/></div></a>
+                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' style='object-fit: cover; max-height:100%;'/></div></a>
                                     <div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ class querys
             echo " <div class='row pb-4'>
                                 <div class='col-md-5'>
                                     <div class='fh5co_hover_news_img'>
-                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' /></div></a>
+                                        <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' style='object-fit: cover; max-height:100%;'/></div></a>
                                     <div>
                                 </div>
                             </div>
@@ -191,7 +191,7 @@ class querys
 
             echo "<div class='item px-2'>
                 <div class='fh5co_latest_trading_img_position_relative'>
-                    <div class='fh5co_latest_trading_img'><img src='{$trending_img}' alt='' class='fh5co_img_special_relative'/></div>
+                    <div class='fh5co_latest_trading_img'><img src='{$trending_img}' alt='' class='fh5co_img_special_relative' style='object-fit: cover; max-height:100%;'/></div>
                     <div class='fh5co_latest_trading_img_position_absolute'></div>
                     <div class='fh5co_latest_trading_img_position_absolute_1'>
                         <a href='single.php?p_id={$trending_id}' class='text-white'> {$trending_title} </a>
@@ -221,7 +221,7 @@ class querys
 
             echo "<div class='item px-2'>
                 <div class='fh5co_hover_news_img'>
-                    <div class='fh5co_news_img'><img src='{$news_img}' alt=''/></div>
+                    <div class='fh5co_news_img'><img src='{$news_img}' alt=''style='object-fit: cover; max-height:100%;'/></div>
                     <div>
                         <a href='single.php?p_id={$news_id}' class='d-block fh5co_small_post_heading'><span class=''>{$news_title}</span></a>
                         <div class='c_g'><i class='fa fa-clock-o'></i> {$news_published}</div>
@@ -238,14 +238,31 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-        if ($count > 1) {
-            echo "<div class='col-12 text-center pb-4 pt-4'>
-            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
-            for ($i = 1; $i < $count; $i++) {
 
-                echo "<a href='blog.php?page={$i}' class='btn_pagging'>{$i}</a>";
+        $pervious =0;
+        $next = 0;
+        if (isset($_GET['page'])) {
+            $pg = $_GET['page'];
+            $pervious = $pg - 1;
+            $next = $pg +1;
+        }else{
+            $pervious=0;
+            $next = 0;
+        }
+            
+        
+        if($pervious>=0){
+            echo "<div class='col-12 text-center pb-4 pt-4'>
+            <a href='blog.php?page={$pervious}' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+        }
+        if ($count > 1) {
+            for ($i = 1; $i <= $count; $i++) {
+                $page = $i - 1;
+                echo "<a href='blog.php?page={$page}' class='btn_pagging'>{$i}</a>";
             }
-            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+        }
+        if($next < $count){
+            echo "<a href='blog.php?page={$next}' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
         }
     }
@@ -268,7 +285,7 @@ class querys
 
             echo "<div class='row pb-3'>
         <div class='col-5 align-self-center'>
-        <a href='single.php?p_id={$id}'> <img src='{$img}' alt='img' class='fh5co_most_trading' /></a>
+        <a href='single.php?p_id={$id}'> <img src='{$img}' alt='img' class='fh5co_most_trading' style='object-fit: cover; max-height:100%;'/></a>
         </div>
         <div class='col-7 paddding'>
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
@@ -291,14 +308,30 @@ class querys
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
 
-        if ($count > 1) {
+        $pervious =0;
+        $next = 0;
+        if (isset($_GET['cat_page'])) {
+            $pg = $_GET['cat_page'];
+            $pervious = $pg - 1;
+            $next = $pg +1;
+        }else{
+            $pervious=0;
+            $next = 0;
+        }
+            
+        
+        if($pervious>=0){
             echo "<div class='col-12 text-center pb-4 pt-4'>
-            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
-            for ($i = 1; $i < $count; $i++) {
-
-                echo "<a href='categories.php?cat_id={$cat_id}&cat_page=$i' class='btn_pagging'>{$i}</a>";
+            <a href='categories.php?cat_id={$cat_id}&cat_page={$pervious}' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+        }
+        if ($count > 1) {
+            for ($i = 1; $i <= $count; $i++) {
+                $page = $i - 1;
+                echo "<a href='categories.php?cat_id={$cat_id}&cat_page={$page}' class='btn_pagging'>{$i}</a>";
             }
-            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+        }
+        if($next < $count){
+            echo "<a href='categories.php?cat_id={$cat_id}&cat_page={$next}' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
         }
     }
@@ -320,15 +353,31 @@ class querys
         $find_count = mysqli_query($connection, $articleQuery);
         $count = mysqli_num_rows($find_count);
         $count = ceil($count / 8);
-
-        if ($count > 1) {
+        
+        $pervious =0;
+        $next = 0;
+        if (isset($_GET['pagination'])) {
+            $pg = $_GET['pagination'];
+            $pervious = $pg - 1;
+            $next = $pg +1;
+        }else{
+            $pervious=0;
+            $next = 0;
+        }
+            
+        
+        if($pervious>=0){
             echo "<div class='col-12 text-center pb-4 pt-4'>
-            <a href='#' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
-            for ($i = 1; $i < $count; $i++) {
-
-                echo "<a href='profile.php?page_id={$pgnName}&pagination={$i}' class='btn_pagging'>{$i}</a>";
+            <a href='profile.php?page_id={$pgnName}&pagination={$pervious}' class='btn_mange_pagging'><i class='fa fa-long-arrow-left'></i>&nbsp;&nbsp; Previous</a>";
+        }
+        if ($count > 1) {
+            for ($i = 1; $i <= $count; $i++) {
+                $page = $i - 1;
+                echo "<a href='profile.php?page_id={$pgnName}&pagination={$page}' class='btn_pagging'>{$i}</a>";
             }
-            echo "<a href='#' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
+        }
+        if($next < $count){
+            echo "<a href='profile.php?page_id={$pgnName}&pagination={$next}' class='btn_mange_pagging'>Next <i class='fa fa-long-arrow-right'></i>&nbsp;&nbsp; </a>
             </div>";
         }
     }
@@ -391,7 +440,7 @@ class querys
             echo " <div id='somePost-{$post_id}' class='row pb-4'>
                         <div class='col-md-5'>
                             <div class='fh5co_hover_news_img'>
-                                <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt=''/></a></div>
+                                <div class='fh5co_news_img'><a href='single.php?p_id={$post_id}'><img src='{$post_photo}' alt='' style='object-fit: cover; max-height:100%;'/></a></div>
                             <div>
                         </div>
                     </div>
@@ -430,7 +479,7 @@ class querys
 
             echo "<div class='row pb-3'>
             <div class='col-5 align-self-center'>
-            <a href='single.php?p_id={$id}'><img src='{$img}' alt='img' class='fh5co_most_trading' /></a>
+            <a href='single.php?p_id={$id}'><img src='{$img}' alt='img' class='fh5co_most_trading' style='object-fit: cover; max-height:100%;'/></a>
             </div>
             <div class='col-7 paddding'>
             <div class='most_fh5co_treding_font'><a href='single.php?p_id={$id}'class='fh5co_magna py-2' style = 'font-size: 15px'> {$title} </a> </div>
@@ -459,7 +508,7 @@ class querys
 
             echo "<div class='item px-2'>
             <div class='fh5co_hover_news_img'>
-                <div class='fh5co_news_img'><a href='single.php?p_id={$news_id}'><img src={$news_img} alt=''/></a></div>
+                <div class='fh5co_news_img'><a href='single.php?p_id={$news_id}'><img src={$news_img} style='object-fit: cover; max-height:100%;' alt=''/></a></div>
                 <div>
                     <a href='single.php?p_id={$news_id}' class='d-block fh5co_small_post_heading'><span class=''>{$news_title}</span></a>
                     <div class='c_g'><i class='fa fa-clock-o'></i> {$news_published}</div>

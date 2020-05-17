@@ -131,7 +131,7 @@ class querys
             echo "<div class='col-md-6 col-12 paddding animate-box' data-animate-effect='fadeIn'>
             <div class='fh5co_suceefh5co_height'><img src={$photo} style = 'object-fit: cover;' alt='img'/>
             <div class='fh5co_suceefh5co_height_position_absolute'></div>
-            <div class='fh5co_suceefh5co_height_position_absolute_font'>
+            <div class='fh5co_suceefh5co_height_position_absolute_font' style='left: 1%'>
             <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date}
             </a></div>
             <div class=''><a href='single.php?p_id={$postid}' class='fh5co_good_font' style='font-size: 24px'> {$title} </a></div>
@@ -159,7 +159,7 @@ class querys
             echo "<div class='col-md-6 col-6 paddding animate-box' data-animate-effect='fadeIn'>
                 <div class='fh5co_suceefh5co_height_2' ><img src={$photo} style = 'object-fit: cover;' alt='img'/>
                     <div class='fh5co_suceefh5co_height_position_absolute'></div>
-                        <div class='fh5co_suceefh5co_height_position_absolute_font_2'>
+                        <div class='fh5co_suceefh5co_height_position_absolute_font_2' style='left: 1%'>
                             <div class=''><a href='#' class='color_fff'> <i class='fa fa-clock-o'></i>&nbsp;&nbsp;{$date} </a></div>
                             <div class=''><a href='single.php?p_id={$postid2}' class='fh5co_good_font_2' style='font-size: 18px'>{$title}</a>
                         </div>

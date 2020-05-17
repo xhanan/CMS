@@ -57,7 +57,7 @@
                     <div class="clearfix"></div>
                     <div class="fh5co_tags_all">
 
-                        <!-- Dinamyc Tags -->
+                        <!-- Categories -->
                         <?php querys::displayCategories();?>
 
                     </div>

@@ -88,7 +88,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="forgotpasswordstyle.css">
+    <link rel="stylesheet" href="css/forgotpasswordstyle.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" rel="stylesheet" type="text/css" />
     
@@ -121,14 +121,5 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script>
-       window.onbeforeunload = function () {
-        <?php 
-            $url = "http://localhost/CMS/resetpassword.php?selector=".$_GET['selector']."&validator=".$_GET['validator'];
-        ?>
-        window.location.href =<?php echo $url;?>;
-        };
-
-    </script> -->
 </body>
 </html>

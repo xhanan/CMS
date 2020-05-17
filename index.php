@@ -7,7 +7,7 @@
         <div class="row mx-0">
             <?php querys::mainPhoto(); ?>
 
-            <!-- 4 FOTOT E NJEJTA -->
+            <!-- 4 FOTOT -->
             <div class="col-md-6">
                 <div class="row">
                     <?php querys::main4Photos(); ?>
